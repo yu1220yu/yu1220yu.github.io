@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            background-color: black;
+            flex-wrap: wrap;
+        }
+
+        header{
+            margin: auto;
+            padding: 8%;
+        }
+
+        div{
+            text-align: center;
+            margin: auto;
+        }
+
+        .google{
+            width: 272px;
+            height: 92px;
+            padding: 20px;
+        }
+        .item{
+            display: inline;
+            margin: auto;
+        }
+        input{
+            border: 1px solid whitesmoke;
+            border-radius: 2em;
+            width: 465px;
+            height: 42px;
+            padding: 1px 44px 1px 52px;
+            padding: 0 40px;
+            outline: none;
+        }
+        #icon_1{
+            width: 15px;
+            position: relative;
+            left: 44px;
+            top: 4px;
+        }
+        #icon_2{
+            width: 12px;
+            position: relative;
+            right: 44px;
+            top: 4px;
+        }
+        
+        .button{
+            width: 336px;
+            margin: auto;
+            padding: 1px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .button-item{
+            position: relative;
+            width: 108px;
+            padding: 1px;
+            margin: 1px;
+        }
+        .button-item a span{
+            display: block;
+            padding: 5px;
+        }
+        .button img{
+            border-radius: 100%;
+            width: 20px;
+            height: 20px;
+            padding: 11px;
+            background-color: whitesmoke;
+            margin: 2px;
+        }
+        #add img{
+            width: 50%;
+            height: 50%;
+            width: 44px;
+            padding: 0;
+            margin: auto;
+        }
+        
+        h5 a{
+            color: azure;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+
+        footer{
+            margin: auto;
+            padding: 6%;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <div class="group">
+        <div class="google">
+            <img src="google_logo.svg" alt="google">
+        </div>
+        <div class="item">
+            <div class="item icon">
+                <img src="search.svg" alt="search" id="icon_1">
+            </div>
+            <div class="item input">
+                <input type="search" placeholder="搜尋 Google 或搜尋網址">
+            </div>
+            <div class="item icon">
+                <a href="#">
+                    <img src="mic.svg" alt="mic" id="icon_2">
+                </a>
+            </div>
+        </div>
+        <div class="button">
+            <div class="button-item">
+                <h5>
+                    <a href="#">
+                        <img src="G.svg" alt="">
+                        <span>Google</span>
+                    </a>
+                </h5>
+            </div>
+            <div class="button-item">
+                <h5>
+                    <a href="#">
+                        <img src="Shopee.svg" alt="">
+                        <span>Shopee</span>
+                    </a>
+                </h5>
+            </div>
+            <div class="button-item" id="add">
+                <h5>
+                    <a href="#">
+                        <img src="add.svg" alt="">
+                        <span>新增捷徑</span>
+                    </a>
+                </h5>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+
+</html>
