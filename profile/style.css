@@ -1,0 +1,47 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: gold;
+}
+h1{
+    font-size: 44px;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 2;
+}
+:root{
+    --gap: 15px;
+}
+.wrap{
+    margin: var(--gap) auto;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: var(--gap);
+    border: 2px solid;
+}
+.img-box,.content{
+    flex-wrap: wrap;
+    padding: var(--gap);
+    border: 1px solid goldenrod;
+}
+.content{
+    margin: var(--gap) 0;
+}
+.img-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 580px;
+}
+.content{
+    font-size: 25px;
+    line-height: 2;
+}
+.img-box img{
+    width: 180px;
+}
