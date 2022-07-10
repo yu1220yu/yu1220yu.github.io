@@ -62,8 +62,8 @@
 
     <script>
         // result
-        let min = 0
-        let max = 100
+        let min =  0
+        let max =  100
 
         // start
         let answer = Math.floor(Math.random() * 100) + 1
@@ -106,8 +106,9 @@
         })
         // v
         v.addEventListener('click',function(){
-            let inputNum = input.value
+            let inputNum = parseInt(input.value)
             let label = document.querySelector('label')
+            
             if (inputNum == answer)
             {
                 label.innerText = `${inputNum}`
@@ -117,19 +118,19 @@
                     window.location.reload()
                 }, 10);
             }
-            else if( inputNum>min && inputNum<answer)
+            else if(inputNum>min && inputNum<answer)
             {
                 min = inputNum
                 label.innerText = `${min} ~ ${max}`
                 input.value = ' '
             }
-            else if( inputNum<max && inputNum>answer)
+            else if(inputNum<max && inputNum>answer)
             {
                 max = inputNum
                 label.innerText = `${min} ~ ${inputNum}`
                 input.value = ' '
             }
-            else if( inputNum<min || inputNum>max)
+            else if(inputNum<min || inputNum>max)
             {
                 input.value= ' '
                 alert('ERROR')
@@ -137,6 +138,7 @@
             }
             else
             {
+                input.value= ' '
                 alert('WARN')
                 console.warn('warn');
             }
