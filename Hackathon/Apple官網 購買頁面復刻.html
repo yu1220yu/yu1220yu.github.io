@@ -10,18 +10,22 @@
     <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="reset.css">
     <style>
-        a{
+        a {
             text-decoration: none;
         }
+
         input:focus {
             outline: none;
         }
+
         button:hover {
             transform: scale(1.1);
             transition: .5s;
         }
-        #options:hover,
-        #color:hover{
+
+        #options1:hover,
+        #options2:hover,
+        #color:hover {
             outline: 1px solid gold;
         }
     </style>
@@ -32,7 +36,8 @@
         <nav class="navbar navbar-expand-lg" style="background: rgba(0,0,0,0.8)">
             <div class="container">
                 <!-- logo -->
-                <a class="navbar-brand m-auto ps-5" href="#"><i class="fa-brands fa-apple fs-2" style="color: #F5F5F7"></i></a>
+                <a class="navbar-brand m-auto ps-5" href="#"><i class="fa-brands fa-apple fs-2"
+                        style="color: #F5F5F7"></i></a>
 
                 <!-- hb -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -100,8 +105,10 @@
                     <form class="d-flex" role="search">
                         <input class="form-control d-block d-xl-none me-2" type="search" placeholder="Search"
                             aria-label="Search">
-                        <button class="btn text-light border-0" type="submit"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
+                        <button class="btn text-light border-0" type="submit">
+                            <i class="fa-solid fa-magnifying-glass">
+                            </i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -111,24 +118,28 @@
     <div class="container d-flex flex-wrap p-5">
         <div class="row col-12 col-xl-5 m-auto h-25 justify-content-center m-auto">
             <!-- image -->
-            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1633027804000" alt="MacBook Air" class="w-100" id="gray">
+            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1633027804000"
+                alt="MacBook Air" class="w-100" id="gray">
             <!-- <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1633027804000" alt="MacBook Air" class="w-100" id="gold"> -->
             <!-- <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-silver-select-201810?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1633027804000" alt="MacBook Air" class="w-100" id="silver"> -->
             <!-- style -->
             <div class="row col-12 my-1 fs-6">
                 <label class="col-4 text-center" for="gray">
-                    <button class="h-50 m-2 p-3 rounded-circle border border-white gray" id="color" style="background: lightgray 50%"></button>
+                    <button class="h-50 m-2 p-3 rounded-circle border border-white gray" id="color"
+                        style="background: lightslategray 50%"></button>
                     <br>
                     <span>Gray</span>
                 </label>
                 <label class="col-4 text-center" for="gold">
-                    <button class="h-50 m-2 p-3 rounded-circle border border-white gold" id="color" style="background: lightpink 50%">
+                    <button class="h-50 m-2 p-3 rounded-circle border border-white gold" id="color"
+                        style="background: lightsalmon 50%">
                     </button>
                     <br>
                     <span>Gold</span>
                 </label>
                 <label class="col-4 text-center" for="silver">
-                    <button class="h-50 m-2 p-3 rounded-circle border border-white silver" id="color" style="background: lightslategrey 50%">
+                    <button class="h-50 m-2 p-3 rounded-circle border border-white silver" id="color"
+                        style="background: silver 50%">
                     </button>
                     <br>
                     <span>Silver</span>
@@ -139,48 +150,75 @@
                     <i class="fa-solid fa-comments" style="color: gold"></i>
                     Have questions about buying a Mac?
                     <br>
-                    <a href="#" class="lh-base">Chat with a Mac Specialist</a></span>
+                    <a href="#" class="lh-base">Chat with a Mac Specialist</a>
+                </span>
             </div>
         </div>
-        <div class="row col-12 col-xl-7 mt-5">
+        <div class="row col-12 col-xl-7 m-auto">
             <div class="accordion" id="accordionPanelsStayOpenExample">
                 <div class="accordion-item">
                     <!-- title -->
-                  <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                      <strong>Memory</strong>
-                    </button>
-                  </h2>
-                  <!-- content -->
-                  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                    <div class="accordion-body">
-                      <button class="w-100 lh-lg mb-2 p-2 border-0 rounded" id="options">8GB unified memory</button>
-                      <button class="add200 w-100 lh-lg mt-2 p-2 border-0 rounded position-relative" id="options">16GB unified memory<span class="opacity-25 position-absolute end-0 px-2"> +$200.00</span></button>
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            <strong>Memory</strong>
+                        </button>
+                    </h2>
+                    <!-- content -->
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <button class="w-100 lh-lg mb-2 p-2 border-0 rounded" id="options1">
+                                8GB unified memory
+                            </button>
+                            <button class="add200-1 w-100 lh-lg mt-2 p-2 border-0 rounded position-relative"
+                                id="options1">
+                                16GB unified memory
+                                <span class="opacity-25 position-absolute end-0 px-2">+$200.00</span>
+                            </button>
+                        </div>
                     </div>
-                  </div>
                 </div>
                 <div class="accordion-item">
                     <!-- title -->
-                  <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                      <strong>Storage</strong>
-                    </button>
-                  </h2>
-                  <!-- content -->
-                  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                    <div class="accordion-body">
-                        <button class="w-100 lh-lg mb-2 p-2 border-0 rounded" id="options">256GB SSD storage</button>
-                        <button class="add200 w-100 lh-lg mt-2 mb-2 p-2 border-0 rounded position-relative" id="options">512GB SSD storage<span class="add400 opacity-25 position-absolute end-0 px-2"> +$200.00</span></button>
-                        <button class="w-100 lh-lg mt-2 mb-2 p-2 border-0 rounded position-relative" id="options">1TB SSD storage<span class="opacity-25 position-absolute end-0 px-2"> +$400.00</span></button>
-                        <button class="add800 w-100 lh-lg mt-2 p-2 border-0 rounded position-relative" id="options">2TB SSD storage<span class="opacity-25 position-absolute end-0 px-2"> +$800.00</span></button>
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwo">
+                            <strong>Storage</strong>
+                        </button>
+                    </h2>
+                    <!-- content -->
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+                            <button class="w-100 lh-lg mb-2 p-2 border-0 rounded" id="options2">
+                                256GB SSD storage
+                            </button>
+                            <button class="add200-2 w-100 lh-lg mt-2 mb-2 p-2 border-0 rounded position-relative"
+                                id="options2">
+                                512GB SSD storage
+                                <span class="add400 opacity-25 position-absolute end-0 px-2"> +$200.00</span>
+                            </button>
+                            <button class="add400-2 w-100 lh-lg mt-2 mb-2 p-2 border-0 rounded position-relative"
+                                id="options2">
+                                1TB SSD storage
+                                <span class="opacity-25 position-absolute end-0 px-2">+$400.00</span>
+                            </button>
+                            <button class="add800-2 w-100 lh-lg mt-2 p-2 border-0 rounded position-relative"
+                                id="options2">
+                                2TB SSD storage
+                                <span class="opacity-25 position-absolute end-0 px-2">+$800.00</span>
+                            </button>
+                        </div>
                     </div>
-                  </div>
-                  <div class="row col-12 py-5 fs-1 text-end">
-                    <span class="price col-10">$999.00</span>
-                    <button class="col-2 fs-2 border-0 px-2 opacity-75 rounded-pill" style="background: gold">
-                        <i class="fa-solid fa-laptop py-1"></i>
-                    </button>
-                  </div>
+                    <div class="row col-12 py-5 fs-1 text-end">
+                        <span class="price col-10">$999.00</span>
+                        <button class="col-2 fs-2 border-0 px-2 opacity-75 rounded-pill" style="background: gold">
+                            <i class="fa-solid fa-laptop center d-flex justify-content-center p-1"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -194,28 +232,61 @@
         let grayImg = document.querySelector('#gray')
         // let goldImg = document.querySelector('#gold')
         // let silverImg = document.querySelector('#silver')
-        grayBtn.addEventListener('click',function(){
+        grayBtn.addEventListener('click', function () {
             grayImg.src = 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1633027804000'
         })
-        goldBtn.addEventListener('click',function(){
+        goldBtn.addEventListener('click', function () {
             grayImg.src = 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1633027804000'
         })
-        silverBtn.addEventListener('click',function(){
+        silverBtn.addEventListener('click', function () {
             grayImg.src = 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-silver-select-201810?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1633027804000'
         })
         //#endregion
 
-        //#region content
-        let options = document.querySelector('#options')
-        let add200 = document.querySelector('.add200')
+        //#region price
+        let options_1 = document.querySelector('#options1')
+        let options_2 = document.querySelector('#options2')
+
+        let add200_1 = document.querySelector('.add200-1')
+        let add200_2 = document.querySelector('.add200-2')
+        let add400_2 = document.querySelector('.add400-2')
+        let add800_2 = document.querySelector('.add800-2')
+
         let price = document.querySelector('.price')
-        options.addEventListener('mousedown',function(){
+
+        options_1.addEventListener('mouseup', function () {
+            price.innerText = `$999.00`
+            
+            options_2.addEventListener('mouseup',function(){
                 price.innerText = `$999.00`
             })
-        add200.addEventListener('click',function(){
+            add200_2.addEventListener('mouseup',function(){
                 price.innerText = `$1199.00`
             })
-   
+            add400_2.addEventListener('mouseup',function(){
+                price.innerText = `$1399.00`
+            })
+            add800_2.addEventListener('mouseup',function(){
+                price.innerText = `$1799.00`
+            })
+        })
+        add200_1.addEventListener('mouseup', function () {
+            price.innerText = `$1199.00`
+
+            options_2.addEventListener('mouseup',function(){
+                price.innerText = `$1199.00`
+            })
+            add200_2.addEventListener('mouseup',function(){
+                price.innerText = `$1399.00`
+            })
+            add400_2.addEventListener('mouseup',function(){
+                price.innerText = `$1599.00`
+            })
+            add800_2.addEventListener('mouseup',function(){
+                price.innerText = `$1999.00`
+            })
+        })
+
 
 
         //#endregion
