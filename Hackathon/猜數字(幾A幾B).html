@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
+    <style>
+        html {
+            height: 100%;
+            background-image: linear-gradient(8888deg, lightcoral, lightpink, lightsalmon, lightyellow, lightgoldenrodyellow, lightgreen, lightseagreen, lightblue, lightskyblue, lightcyan, lightskyblue, lightblue, lightseagreen, lightgreen, lightgoldenrodyellow, lightyellow, lightsalmon, lightpink);
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            transition: .5s;
+        }
+
+        ul {
+            height: 20rem;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img:hover {
+            display: none;
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center">
+        <div class="row position-absolute text-center p-2 m-auto">
+            <!-- title -->
+            <h1 class="fw-bold pt-5">猜 數 字</h1>
+            <!-- button -->
+            <div class="btn-group my-3" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-success lh-lg px-1" id="start" onclick="start()">START</button>
+                <button type="button" class="btn btn-warning lh-lg px-1" id="reset">RESET</button>
+                <button type="button" class="btn btn-danger lh-lg px-1" id="answer">ANSWER</button>
+            </div>
+            <!-- history -->
+            <div class="row px-4">
+                <ul class="history fs-1 border border-2 border-opacity-50 p-5 overflow-auto d-flex flex-column-reverse"
+                    style="background: lightcyan">
+                    <li class="x m-4">
+                        <span class="bg-danger rounded text-light px-2">?A?B</span>
+                        <span class="xnum text-danger"></span>
+                    </li>
+                    <li class="o m-4">
+                        <span class="bg-success rounded text-light px-2">?A?B</span>
+                        <span class="onum text-success"></span>
+                    </li>
+                </ul>
+                <img class="position-absolute opacity-25 w-25 top-50" src="https://imgur.dcard.tw/JDX9kAU.gif"
+                    alt="...">
+            </div>
+            <!-- input -->
+            <div class="input-group m-auto">
+                <button class="btn btn-outline-dark bg-primary text-white fw-bolder" type="button"
+                    disabled>GUESS</button>
+                <input type="number" class="form-control" placeholder="guess your answer"
+                    aria-label="Recipient's username" aria-describedby="button-addon2" disabled>
+                <button class="btn btn-outline-primary" type="button" id="check">
+                    <i class="fa-solid fa-check"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //#region button
+        let reset = document.getElementById('reset')
+        let answer = document.getElementById('answer')
+        let check = document.getElementById('check')
+        let input = document.querySelector('input')
+        let history = document.querySelector('.history')
+        reset.setAttribute('disabled', '')
+        answer.setAttribute('disabled', '')
+        check.setAttribute('disabled', '')
+
+        reset.addEventListener('click', function () {
+            window.location.reload()
+        })
+        answer.addEventListener('click', function () {
+            alert(`㊙️ ${answers.join('')}`)
+            // console.log(answers)
+        })
+        //#endregion
+
+        //#region start
+        let answers = []
+
+        function start() {
+            let start = document.getElementById('start')
+            start.disabled = true
+            reset.removeAttribute('disabled')
+            answer.removeAttribute('disabled')
+            check.removeAttribute('disabled')
+            input.disabled = false
+            history.innerText = ' '
+
+            // create answers
+            while (answers.length < 4) {
+                let num = parseInt(Math.random() * 10)
+                let repaet = answers.includes(num)
+                if (!repaet) {
+                    answers.push(num)
+                }
+            }
+        }
+        //#endregion
+
+        //#region  check
+        // enter
+        input.addEventListener('keypress', function () {
+            if (event.key === 'Enter') {
+                check.click()
+            }
+        })
+        // check
+        var o = document.querySelector('.o')
+        console.log(o)
+
+        check.addEventListener('click', function () {
+            let inputs = []
+            let nums = parseInt(input.value)
+            // length
+            if (input.value.length > 4 || input.value.length < 4 || nums < 0) {
+                input.value = ''
+                alert('404 Not Found')
+            }
+            else {
+                input.value.split('').forEach(element => {
+                    let el = parseInt(element)
+                    inputs.push(el)
+                })
+                // repaet
+                if (inputs[0] != inputs[1] && inputs[0] != inputs[2] && inputs[0] != inputs[3] && inputs[1] != inputs[2] && inputs[1] != inputs[3] && inputs[2] != inputs[3]) {
+                    let intersect = answers.filter(x => inputs.includes(x))
+
+                    let a = intersect.filter(x => answers.indexOf(x) == inputs.indexOf(x)).length
+                    let b = intersect.length - a
+
+                    // result
+                    if (a == 4) {
+                        history.innerText = `🏆 4A \n ${answers.join(' ')}`
+                        setTimeout(() => {
+                            alert('🏆')
+                            window.location.reload()
+                        }, 100);
+                    }
+                    else {
+                        history.innerText += `${a}A${b}B ${inputs.join('')} \n`
+                        input.value = ''
+                    }
+                }
+                else { 
+                    alert('404 Not Found')
+                    input.value = ''
+                }
+                // console.log(answers)
+                // console.log(inputs)
+            }
+        })
+        //#endregion
+        //#region
+            //是不是nan
+            // console.log(isNaN(input.value))
+            //檢查有沒有'.'
+            // input.value.includes('.')
+            // RegExp
+            // let regexp = /^[0-9]{4}$/
+            // let regexp = new RegExp('[0-9]{4}')
+            // console.log(regexp.test(input.value))
+            //#endregion
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
