@@ -40,7 +40,7 @@
 
 <body>
     <div class="container d-flex justify-content-center">
-        <div class="row position-absolute text-center p-2 m-auto">
+        <div class="row position-absolute text-center p-2 m-auto justify-content-center">
             <!-- title -->
             <h1 class="fw-bold pt-5">猜 數 字</h1>
             <!-- button -->
@@ -129,9 +129,6 @@
             }
         })
         // check
-        var o = document.querySelector('.o')
-        console.log(o)
-
         check.addEventListener('click', function () {
             let inputs = []
             let nums = parseInt(input.value)
