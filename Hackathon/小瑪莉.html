@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小瑪莉</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: url(https://nba666.net/wp-content/uploads/2022/06/5542542.jpg);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    [box-id] {
+      height: 66px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .3s;
+      border: 1px solid white;
+    }
+
+    [box-id].active {
+      border: 5px solid gold;
+      box-shadow: 0 0 20px gold;
+      transition: 0s;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      background-color: rgba(0, 0, 0, .2);
+    }
+    .select:hover {
+      transform: scale(.99);
+      transition: .5s;
+    }
+    .pay:hover,
+    .start:hover,
+    .canel:hover {
+      transform: scale(1.1);
+      transition: .5s;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#">
+    <h1 class="text-center text-white bg-black opacity-50 p-3"><strong>BuildSchool 娛樂城</strong></h1>
+  </a>
+
+  <div class="container mt-4 px-4">
+    <div class="row">
+      <div box-id="3" class="col-1 text-white bg-danger"><i class="fa-solid fa-3"></i></div>
+      <div box-id="6" class="col-1 text-white bg-dark"><i class="fa-solid fa-6"></i></div>
+      <div box-id="9" class="col-1 text-white bg-danger"><i class="fa-solid fa-9"></i></div>
+      <div box-id="12" class="col-1 text-white bg-danger"><i class="fa-solid fa-1"></i><i class="fa-solid fa-2"></i>
+      </div>
+      <div box-id="15" class="col-1 text-white bg-dark"><i class="fa-solid fa-1"></i><i class="fa-solid fa-5"></i></div>
+      <div box-id="18" class="col-1 text-white bg-danger"><i class="fa-solid fa-1"></i><i class="fa-solid fa-8"></i>
+      </div>
+      <div box-id="21" class="col-1 text-white bg-danger"><i class="fa-solid fa-2"></i><i class="fa-solid fa-1"></i>
+      </div>
+      <div box-id="24" class="col-1 text-white bg-dark"><i class="fa-solid fa-2"></i><i class="fa-solid fa-4"></i></div>
+      <div box-id="27" class="col-1 text-white bg-danger"><i class="fa-solid fa-2"></i><i class="fa-solid fa-7"></i>
+      </div>
+      <div box-id="30" class="col-1 text-white bg-danger"><i class="fa-solid fa-3"></i><i class="fa-solid fa-0"></i>
+      </div>
+      <div box-id="33" class="col-1 text-white bg-dark"><i class="fa-solid fa-3"></i><i class="fa-solid fa-3"></i></div>
+      <div box-id="36" class="col-1 text-white bg-danger"><i class="fa-solid fa-3"></i><i class="fa-solid fa-6"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div box-id="2" class="col-1 text-white bg-dark"><i class="fa-solid fa-2"></i></div>
+      <div box-id="5" class="col-1 text-white bg-danger"><i class="fa-solid fa-5"></i></div>
+      <div box-id="8" class="col-1 text-white bg-dark"><i class="fa-solid fa-8"></i></div>
+      <div box-id="11" class="col-1 text-white bg-dark"><i class="fa-solid fa-1"></i><i class="fa-solid fa-1"></i></div>
+      <div box-id="14" class="col-1 text-white bg-danger"><i class="fa-solid fa-1"></i><i class="fa-solid fa-4"></i>
+      </div>
+      <div box-id="17" class="col-1 text-white bg-dark"><i class="fa-solid fa-1"></i><i class="fa-solid fa-7"></i></div>
+      <div box-id="20" class="col-1 text-white bg-dark"><i class="fa-solid fa-2"></i><i class="fa-solid fa-0"></i></div>
+      <div box-id="23" class="col-1 text-white bg-danger"><i class="fa-solid fa-2"></i><i class="fa-solid fa-3"></i>
+      </div>
+      <div box-id="26" class="col-1 text-white bg-dark"><i class="fa-solid fa-2"></i><i class="fa-solid fa-6"></i></div>
+      <div box-id="29" class="col-1 text-white bg-dark"><i class="fa-solid fa-2"></i><i class="fa-solid fa-9"></i></div>
+      <div box-id="32" class="col-1 text-white bg-danger"><i class="fa-solid fa-3"></i><i class="fa-solid fa-2"></i>
+      </div>
+      <div box-id="35" class="col-1 text-white bg-dark"><i class="fa-solid fa-3"></i><i class="fa-solid fa-5"></i></div>
+    </div>
+    <div class="row">
+      <div box-id="1" class="col-1 text-white bg-danger"><i class="fa-solid fa-1"></i></div>
+      <div box-id="4" class="col-1 text-white bg-dark"><i class="fa-solid fa-4"></i></div>
+      <div box-id="7" class="col-1 text-white bg-danger"><i class="fa-solid fa-7"></i></div>
+      <div box-id="10" class="col-1 text-white bg-danger"><i class="fa-solid fa-1"></i><i class="fa-solid fa-0"></i>
+      </div>
+      <div box-id="13" class="col-1 text-white bg-dark"><i class="fa-solid fa-1"></i><i class="fa-solid fa-3"></i></div>
+      <div box-id="16" class="col-1 text-white bg-danger"><i class="fa-solid fa-1"></i><i class="fa-solid fa-6"></i>
+      </div>
+      <div box-id="19" class="col-1 text-white bg-danger"><i class="fa-solid fa-1"></i><i class="fa-solid fa-9"></i>
+      </div>
+      <div box-id="22" class="col-1 text-white bg-dark"><i class="fa-solid fa-2"></i><i class="fa-solid fa-2"></i></div>
+      <div box-id="25" class="col-1 text-white bg-danger"><i class="fa-solid fa-2"></i><i class="fa-solid fa-5"></i>
+      </div>
+      <div box-id="28" class="col-1 text-white bg-danger"><i class="fa-solid fa-2"></i><i class="fa-solid fa-8"></i>
+      </div>
+      <div box-id="31" class="col-1 text-white bg-dark"><i class="fa-solid fa-3"></i><i class="fa-solid fa-1"></i></div>
+      <div box-id="34" class="col-1 text-white bg-danger"><i class="fa-solid fa-3"></i><i class="fa-solid fa-4"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div box-id="0" class="col-12 text-white fs-2 border border-white border-2 bg-success"> <strong
+          class="text-warning">🏆 🧧 J A C K P O T 🧧 🏆</strong></div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-white text-center my-1 pt-3 fs-3">下 注 區</div>
+    </div>
+    <div class="row">
+      <button class="select col-4 text-white bg-gradient text-center border border-3 p-2">1st 12</button>
+      <button class="select col-4 text-white bg-gradient text-center border border-3 p-2">2st 12</button>
+      <button class="select col-4 text-white bg-gradient text-center border border-3 p-2">3st 12</button>
+    </div>
+    <div class="row">
+      <button class="select col-2 text-white bg-gradient text-center border border-2 p-2">1 - 18</button>
+      <button class="select col-2 text-white bg-gradient text-center border border-2 p-2">EVEN</button>
+      <button class="select col-2 text-white bg-gradient text-center border border-2 p-2">
+        <i class="fa-solid fa-diamond text-danger fs-4"></i></button>
+      <button class="select col-2 text-white bg-gradient text-center border border-2 p-2">
+        <i class="fa-solid fa-diamond text-black fs-4"></i></button>
+      <button class="select col-2 text-white bg-gradient text-center border border-2 p-2">ODD</button>
+      <button class="select col-2 text-white bg-gradient text-center border border-2 p-2">19-36</button>
+    </div>
+    <div class="row">
+      <button class="col-2 text-white text-center fs-3 my-2 border-0 rounded"><i
+          class="pay fa-brands fa-btc"></i></button>
+      <button class="col-2 text-white text-center fs-3 my-2 border-0 rounded"><i
+          class="pay fa-brands fa-ethereum"></i></button>
+      <button class="col-2 text-white text-center fs-3 my-2 border-0 rounded"><i
+          class="pay fa-solid fa-dollar-sign"></i></button>
+      <button class="col-2 text-white text-center fs-3 my-2 border-0 rounded"><i
+          class="pay fa-solid fa-euro-sign"></i></button>
+      <button class="col-2 text-white text-center fs-3 my-2 border-0 rounded"><i
+          class="pay fa-solid fa-yen-sign"></i></button>
+      <button class="col-2 text-white text-center fs-3 my-2 border-0 rounded"><i
+          class="pay fa-solid fa-credit-card"></i></button>
+    </div>
+    <div class="row d-flex justify-content-evenly mb-4">
+      <div class="col-7 d-flex">
+        <button class="start col-5 fs-2 text-white bg-success text-center border-0 rounded">start</button>
+        <button class="canel col-5 fs-2 mx-2 text-white bg-danger text-center border-0 rounded">canel</button>
+      </div>
+      <div class="col-5 fs-2 text-white bg-warning text-center border-0 rounded">BLANCE : ∞</div>
+    </div>
+  </div>
+
+  <script>
+    // 宣告
+    let step = 0
+    let allSteps = 0
+    let current = 0
+    let speed = 0
+    // DOM
+    let selects = document.querySelectorAll('.select')
+    let pays = document.querySelectorAll('.pay')
+    let bricks = document.querySelectorAll('[box-id]')
+    const start = document.querySelector('.start')
+    const canel = document.querySelector('.canel')
+    // console.log(bricks)
+    // window.onload
+    window.onload = function(){
+      setBricks()
+
+      start.onclick = function(){
+        let random = Math.floor(Math.random()*bricks.length)+1
+        speed = 5
+
+        steps = random + (5*bricks.length)
+        allSteps = steps
+
+        turnAround()
+      }
+    }
+    // function
+    selects.forEach(select =>
+      select.addEventListener('mouseup', function () {
+        select.classList.toggle('border-warning')
+      })
+    )
+    pays.forEach(pay =>
+      pay.addEventListener('mousedown', function () {
+        pay.classList.toggle('text-warning')
+
+      })
+    )
+    canel.addEventListener('click', function () {
+      window.location.reload()
+    })
+
+    function setBricks() {
+      bricks = Array.from(bricks).sort((a, b) => {
+        return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value
+      })
+    }
+    function turnAround(){
+        bricks[current].classList.remove('active')
+        current++
+
+        if(current >= bricks.length) current = 0
+
+        bricks[current].classList.add('active')
+        {
+          steps--
+        }
+
+        if(steps>0){
+            setTimeout(turnAround,speed)
+
+            if(steps<Math.floor((allSteps/5)))
+            {
+              speed+=5
+            }
+        }
+      }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
