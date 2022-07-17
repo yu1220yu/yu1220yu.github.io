@@ -45,7 +45,7 @@
     }
     .pay:hover,
     .start:hover,
-    .canel:hover {
+    .cancel:hover {
       transform: scale(1.1);
       transition: .5s;
     }
@@ -154,7 +154,7 @@
     <div class="row d-flex justify-content-evenly mb-4">
       <div class="col-7 d-flex">
         <button class="start col-5 p-1 fs-2 text-white bg-success text-center border-0 rounded">start</button>
-        <button class="canel col-5 p-1 fs-2 mx-2 text-white bg-danger text-center border-0 rounded">canel</button>
+        <button class="cancel col-5 p-1 fs-2 mx-2 text-white bg-danger text-center border-0 rounded">cancel</button>
       </div>
       <div class="col-5 fs-2 text-white bg-warning text-center border-0 rounded">BLANCE : ∞</div>
     </div>
@@ -171,7 +171,7 @@
     let pays = document.querySelectorAll('.pay')
     let bricks = document.querySelectorAll('[box-id]')
     const start = document.querySelector('.start')
-    const canel = document.querySelector('.canel')
+    const cancel = document.querySelector('.cancel')
     // console.log(bricks)
     // window.onload
     window.onload = function(){
@@ -199,7 +199,7 @@
 
       })
     )
-    canel.addEventListener('click', function () {
+    cancel.addEventListener('click', function () {
       window.location.reload()
     })
 
