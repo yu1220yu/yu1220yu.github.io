@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>map</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <!-- map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: url(https://i.beauty321.com/816x/https://il.beauty321.com/gallery/gallery/41587/photo-60d9ab8a1a60e.jpg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .container-fluid>.row {
+            height: 50vh;
+        }
+
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row p-2">
+            <div class="col-12">
+                <div id="map" class="rounded"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-11 bg-light rounded m-auto p-2 pt-0">
+        <div class="row px-2">
+            <div class="form-group col-3 pb-0">
+                <label for="country">縣/市</label>
+                <select id="country" class="form-control">
+                    <!-- option -->
+                </select>
+            </div>
+        </div>
+        <div class="row px-2">
+            <h2 class="w-100 text-center text-warning">
+                <strong></strong> 土石流潛勢溪流警戒值
+            </h2>
+            <div class="col-12 d-flex justify-content-center">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>參考雨量站警戒</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // TODO:
+        // 1. 初始化地圖
+        // 2. 拉資料
+        // 3. 處理資料結構
+        // 4. 下拉選單
+        // 5. 長 marker 在地圖上
+        // 點擊 下拉 會移到 地圖上的座標
+        // marker 叢集的功能
+
+        // 初始化地圖
+        let map = L.map('map', {
+            center: [23.7379285, 120.3076366],
+            zoom: 6
+        })
+        // 設定圖資來源
+        let layerUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        var layer = new L.TileLayer(layerUrl, { minZoom: 5, maxZoom: 11 })
+        // 把圖資加到地圖上
+        map.addLayer(layer)
+
+        // 請求資料
+        // 台灣行政區的經緯度
+        let areaDataRequest = axios.get('https://raw.githubusercontent.com/ChouJustice/ChouJustice.github.io/main/Map/%E5%8F%B0%E7%81%A3%E8%A1%8C%E6%94%BF%E5%9C%B0%E5%8D%80.json')
+        // rain
+        let rainDataRequest = axios.get('https://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=j7LH1KKvNTVm')
+
+        // 全域變數宣告區
+        let areaData // 行政區經緯度資料
+        let rainData // rain
+        let rainAreaData // 行政區經緯度資料 + rain
+        let markers = L.markerClusterGroup()
+
+        window.onload = function () {
+            Promise.all([areaDataRequest, rainDataRequest])
+                .then((res) => {
+                    // console.log(res)
+                    let [areaRes, rainRes] = res
+                    // console.log(areaRes)
+                    // console.log(rainRes)
+
+                    areaData = areaRes.data
+                    rainData = rainRes.data
+                    console.log(rainData[0])
+
+                    rainAreaData = rainData
+                        .map((x) => {
+                            let area = areaData.find(y => y.City == x.County && y.District == x.Town)
+
+                            return {
+                                ...x,
+                                CountyTown: x.County + x.Town,
+                                Lat: area != undefined ? area.Lat : undefined,
+                                Lng: area != undefined ? area.Lng : undefined
+                            }
+
+                            return {
+                                CountryTown: x.County + x.Town,
+                                County: x.County,
+                                Town: x.Town,
+                                AlertValue: x.AlertValue,
+                                Lat: area != undefined ? area.Lat : undefined,
+                                Lng: area != undefined ? area.Lng : undefined
+                            }
+                        })
+                        .filter((x) => x.Lat != undefined && x.Lng != undefined)
+                        .groupBy('CountyTown')
+
+                    // 初始化下拉選單
+                    let countrySelect = document.querySelector('#country');
+                    ['請選擇']
+                        .concat([...new Set(areaData.map(x => x.City))])
+                        .forEach(x => {
+                            const opt = document.createElement('option')
+                            opt.innerText = x
+                            opt.value = x == '請選擇' ? '' : x
+
+                            countrySelect.appendChild(opt)
+                        })
+
+                    // 初始化地圖上的 marker
+                    setMarker()
+
+                    // select 行為
+                    document.querySelector('#country')
+                        .addEventListener('change', function () {
+                            console.log(this.value)
+
+                            if (this.value != '') {
+                                let country = areaData.find(x => x.City == this.value)
+                                map.setView([country.Lat, country.Lng], 12)
+                            }
+                        })
+                })
+        }
+
+        // 設定marker
+        function setMarker() {
+            Object.keys(rainAreaData).forEach(x => {
+                let data = rainAreaData[x]
+                console.log(data)
+                // let marker = L.marker([data[0].Lat, data[0].Lng]).addTo(map)
+
+                // 建立 marker
+                let marker = L.marker([data[0].Lat, data[0].Lng])
+
+                // marker 點擊時, 變更 title, 變更table
+                marker.addEventListener('click', function () {
+                    // 變更title
+                    document.querySelector('strong').innerText = `${data[0].County} ${data[0].Town}`
+
+                    // 變更table
+                    let tbody = document.querySelector('tbody')
+                    tbody.innerHTML = ''
+
+                    let rainTr = document.createElement('tr')
+                    let tagTr = document.createElement('tr')
+
+                    data.forEach(x => {
+                        let rainTd = document.createElement('td')
+                        rainTd.innerText = `${x.AlertValue}`
+                        rainTr.appendChild(rainTd)
+
+                        let iconTd = document.createElement('td')
+                        let icon = document.createElement('i')
+                        icon.classList.add('fa-solid', 'fa-cloud-rain')
+                        icon.style.color =
+                            parseInt(x.AlertValue) > 400
+                                ? 'red'
+                                : 'gold'
+
+                        iconTd.appendChild(icon)
+                        tagTr.appendChild(iconTd)
+                    })
+                    tbody.appendChild(rainTr)
+                    tbody.appendChild(tagTr)
+                })
+
+                // marker.addTo(map)
+                markers.addLayer(marker)
+            })
+            map.addLayer(markers)
+        }
+
+        //array groupby方法註冊
+        Array.prototype.groupBy = function (prop) {
+            return this.reduce(function (groups, item) {
+                const val = item[prop]
+                groups[val] = groups[val] || []
+                groups[val].push(item)
+                return groups
+            }, {})
+        }
+    </script>
+</body>
+
+</html>
