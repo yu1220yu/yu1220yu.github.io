@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anilove</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    header a:hover {
+      color: #ff9933;
+      transition: .3s;
+    }
+
+    header nav small {
+      background-color: #fff;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      text-align: center;
+      margin: 2px;
+    }
+    header nav small:hover {
+      background: #ff9933;
+      transition: .3s;
+    }
+
+    nav strong {
+      font-size: 36px;
+      color: #535353;
+    }
+
+    .navbar-nav a.active {
+      border-bottom: 2px solid #ff9933;
+    }
+    .navbar-nav a:hover {
+      border-bottom: 2px solid #ff9933;
+      transition: .1s;
+    }
+
+    nav .btn {
+      color: #ff9933;
+      border: 2px solid #ff9933;
+    }
+    nav .btn:hover {
+      color: #fff;
+      background: #7abee9;
+      transition: .3s;
+    }
+
+    section .btn {
+      background: #ff9933;
+    }
+    section .btn:hover {
+      background: #000;
+      transition: .3s;
+    }
+
+    section ul div {
+      padding-top: 360px;
+      color: #fff;
+    }
+    section ul div:hover {
+      opacity: .8;
+      transition: .5s;
+    }
+    section ul div a:hover {
+      color: #ff9933;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- header -->
+  <header class="bg-dark text-light">
+    <div class="container d-lg-flex justify-content-between px-5 py-3">
+      <span>
+        <i class="fa-solid fa-phone" style="color: #ff9933;"></i>
+        Toll-free:
+        <a href="#">(123) 456-7890</a>
+      </span>
+      <nav class="d-flex justify-content-center">
+        <a href="#" class="d-flex">
+          <small>
+            <i class="fa-brands fa-twitter text-dark small"></i>
+          </small>
+        </a>
+        <a href="#" class="d-flex">
+          <small>
+            <i class="fa-brands fa-facebook-f text-dark small"></i>
+          </small>
+        </a>
+        <a href="#" class="d-flex">
+          <small>
+            <i class="fa-brands fa-pinterest text-dark small"></i>
+          </small>
+        </a>
+        <a href="#" class="d-flex">
+          <small>
+            <i class="fa-brands fa-linkedin-in text-dark small"></i>
+          </small>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- nav -->
+  <article class="container-fluid sticky-top bg-white">
+    <nav class="navbar navbar-expand-lg d-flex justify-content-around flex-column flex-lg-row">
+      <div class="me-5 pe-5 me-lg-0 pe-lg-0">
+        <a href="#" class="d-flex align-items-end">
+          <img src="./assets/asset 0.png" alt="logo">
+          <strong class="ps-3">Anilove</strong>
+        </a>
+      </div>
+      <div>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="fs-1 lh-base" style="color: #ff9933;">☰</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active mx-4" aria-current="page" href="#">Home</a>
+            <a class="nav-link mx-4" href="#">About</a>
+            <a class="nav-link mx-4" href="#">Events</a>
+            <a class="nav-link mx-4" href="#">News</a>
+            <a class="nav-link mx-4 mb-lg-0 mb-4" href="#">Contacts</a>
+          </div>
+        </div>
+      </div>
+      <button class="btn rounded-1"><small>DONATE NOW</small></button>
+    </nav>
+  </article>
+
+  <!-- animals -->
+  <section class="p-5" style="background-image: url(./assets/asset\ 4.jpeg); background-size: cover;">
+    <div class="m-lg-5 p-lg-5">
+      <h2 class="fs-1 fw-bold">Animals Need<b class="d-block display-1 fw-bolder" style="color: #7abee9;">YOUR Help!</b>
+      </h2>
+      <span class="d-block">You can chip in with money & effort!</span>
+      <button class="btn rounded-1 lh-lg mt-5 px-4 py-2"><small class="text-white">DONATE NOW</small></button>
+    </div>
+  </section>
+
+  <!-- about -->
+  <section class="col-10 d-flex flex-wrap m-auto py-4">
+    <div class="col-10 col-lg-6 m-auto"><img src="./assets/asset 1.jpeg" alt="about" class="w-100"></div>
+    <div class="col-10 col-lg-5 m-auto pt-3">
+      <h2 class="fs-1 fw-bold">About Us</h2>
+      <span class="d-block fs-2 lh-lg" style="color: #7abee9;">What Makes Us Care About Pets?</span>
+      <small class="d-block">If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, surrounded by
+        domestic animals and pets all the time till she went to college – there might have been no Anilove animal
+        shelter now. So as soon as she graduated with her Veterinary degree 12 years ago, she already knew what she will
+        be doing for a living.</small><br>
+      <small class="d-block">All in all, with thousands of animals saved off the streets and cared for every year, we
+        hope to encourage much more pet adoptions to happen!</small>
+      <button class="btn rounded-1 lh-lg mt-5 px-4 py-2"><small class="text-white">Learn More</small></button>
+    </div>
+  </section>
+
+  <!-- help -->
+  <section class="text-center bg-light p-5">
+    <div>
+      <h2 class="fs-1 fw-bold">How You Can Help</h2>
+      <span class="d-block fs-4 lh-lg mb-3" style="color: #7abee9;">There Are Countless Ways You Can Join In & Help
+        Us!</span>
+    </div>
+    <ul class="d-flex flex-wrap justify-content-center">
+      <div class="col-12 col-lg-3 m-3 fs-2 pb-5"
+        style="background-image: url(./assets/asset\ 5.jpeg); background-size: cover;">
+        <a href="#">Volunteer</a>
+      </div>
+      <div class="col-12 col-lg-3 m-3 fs-2 pb-5"
+        style="background-image: url(./assets/asset\ 6.jpeg); background-size: cover;">
+        <a href="#">Adopt</a>
+      </div>
+      <div class="col-12 col-lg-3 m-3 fs-2 pb-5"
+        style="background-image: url(./assets/asset\ 7.jpeg); background-size: cover;">
+        <a href="#">Sponsor</a>
+      </div>
+    </ul>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
