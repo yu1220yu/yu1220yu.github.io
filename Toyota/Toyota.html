@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        article {
+            padding-top: 8.88888888%;
+        }
+
+        ::marker {
+            color: #e7211b;
+        }
+
+        .item-title span {
+            writing-mode: vertical-lr;
+        }
+
+        .item-because h4::after {
+            content: '';
+            border: 1px solid #ae0014;
+            flex-grow: 1;
+            margin-left: 1%;
+        }
+
+        article:nth-child(odd) .item-title {
+            position: absolute;
+            left: 0;
+            top: -7.531rem;
+        }
+
+        article:nth-child(even) .item-title {
+            position: absolute;
+            left: 39.345678rem;
+            top: -7.531rem;
+        }
+
+        article:nth-child(odd) .item-because {
+            position: relative;
+            bottom: 2.22222222rem;
+            right: -3.1415rem;
+        }
+        article:nth-child(even) .item-because {
+            position: relative;
+            bottom: 2.22222222rem;
+            right: -16.8585rem;
+        }
+
+        article:nth-child(odd) .item-video i {
+            position: absolute;
+            top: 11.11111111rem;
+            right: 6rem;
+        }
+        article:nth-child(even) .item-video i {
+            position: absolute;
+            top: 11.11111111rem;
+            left: -1rem;
+        }
+
+        article:nth-child(odd) .item-video {
+            width: fit-content;
+            margin: auto;
+            margin-left: 14.15926%;
+        }
+        article:nth-child(even) .item-video {
+            width: fit-content;
+        }
+
+        article:nth-child(odd) .item-video div::after {
+            content: '';
+            width: 29.87rem;
+            height: 16.8rem;
+            background-color: #00000008;
+            position: absolute;
+            top: -5.55555555rem;
+            right: 0%;
+        }
+        article:nth-child(even) .item-video div::after {
+            content: '';
+            width: 29.87rem;
+            height: 16.8rem;
+            background-color: #00000008;
+            position: absolute;
+            top: -5.55555555rem;
+            left: 35.55555555%;
+        }
+    </style>
+</head>
+<body>
+    <article class="container-fluid d-flex justify-content-center align-items-center m-5">
+        <div class="col-lg-8 position-relative">
+            <section class="col-lg-4 d-none d-lg-block item-title text-light bg-dark">
+                <div class="d-flex align-items-center py-1" style="background-color: #ae0014;">
+                    <span class="fw-lighter lh-1" style="font-size: 6.6rem;">01</span>
+                    <h2 class="display-5 mx-auto">操控樂趣</h2>
+                </div>
+                <div class="p-4">
+                    <h3 class="fs-4">人人滿意的駕駛體驗</h3>
+                    <p class="fs-5">透過最佳重量分配,實現平順起步、直線穩定加速,過彎同時保持 車身平穩·帶給駕駛更靈敏的道路 反饋,享受隨心馳騁的行駛快感。</p>
+                </div>
+            </section>
+            <section class="col-lg-8 item-video">
+                <div class="d-none d-lg-block"></div>
+                <a href="#" class="text-decoration-none">
+                    <img src="https://www.toyota.com.tw/asset/img/tech_tnga/advantage-1-video-button-bg.png?9e068d9b"
+                        alt="toyota" class="w-100">
+                    <i class="fa-brands fa-youtube display-3 d-none d-lg-block" style="color: #e7211b;"></i>
+                </a>
+            </section>
+            <section class="col-10 col-lg-8 item-because bg-body-secondary px-4 py-3 d-none d-lg-block">
+                <h4 class="fs-5 fw-bold lh-lg d-flex align-items-center" style="color: #ae0014;">因為我們做了這些革新</h4>
+                <div>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">低重心設計</h5>
+                    <ul class="m-0">
+                        <li class="p-1">透過低重心設計,不僅呈現更低伏的外觀,更能減少車身側傾,保持高速行駛穩定性。</li>
+                    </ul>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">車體剛性強化</h5>
+                    <ul class="m-0">
+                        <li class="p-1">車身結構採用超高強度鋼材,提高車輛穩定性,同時藉由雷射強化焊接技術,大幅增加 焊點數量,提升車身抗扭剛性,強化駕馭穩定性及安全性。</li>
+                    </ul>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">四輪獨立懸吊</h5>
+                    <ul class="m-0">
+                        <li class="p-1">搭載全新四輪獨立懸吊設定,透過懸吊的高承載強度,保持輪胎抓地力,同時兼顧轉向 靈敏度與清晰路感回饋,提升駕馭樂趣。</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </article>
+    <article class="container-fluid d-flex justify-content-center align-items-center m-5">
+        <div class="col-lg-8 position-relative">
+            <section class="col-lg-4 d-none d-lg-block item-title text-light bg-dark">
+                <div class="d-flex align-items-center flex-row-reverse" style="background-color: #ae0014;">
+                    <span class="fw-lighter lh-1" style="font-size: 6.6rem;">02</span>
+                    <h2 class="display-5 mx-auto">安全守護</h2>
+                </div>
+                <div class="p-4">
+                    <h3 class="fs-4">行車更安心的高剛性車體</h3>
+                    <p class="fs-5">您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程，毫無後顧之憂。</p>
+                </div>
+            </section>
+            <section class="col-lg-8 item-video">
+                <div class="d-none d-lg-block"></div>
+                <a href="#" class="text-decoration-none">
+                    <img src="https://www.toyota.com.tw/asset/img/tech_tnga/advantage-2-video-button-bg.png?af18d668"
+                        alt="toyota" class="w-100">
+                    <i class="fa-brands fa-youtube display-3 d-none d-lg-block" style="color: #e7211b;"></i>
+                </a>
+            </section>
+            <section class="col-10 col-lg-8 item-because bg-body-secondary px-4 py-3 d-none d-lg-block">
+                <h4 class="fs-5 fw-bold lh-lg d-flex align-items-center" style="color: #ae0014;">因為我們做了這些革新</h4>
+                <div>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">主動安全</h5>
+                    <ul class="m-0">
+                        <li class="p-1">可以先進的TSS系統主動偵測路況，輔助駕駛判斷路況並維持行車安全。</li>
+                    </ul>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">被動安全</h5>
+                    <ul class="m-0">
+                        <li class="p-1">堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </article>
+    <article class="container-fluid d-flex justify-content-center align-items-center m-5">
+        <div class="col-lg-8 position-relative">
+            <section class="col-lg-4 d-none d-lg-block item-title text-light bg-dark">
+                <div class="d-flex align-items-center" style="background-color: #ae0014;">
+                    <span class="fw-lighter lh-1" style="font-size: 6.6rem;">03</span>
+                    <h2 class="display-5 mx-auto">乘坐舒適</h2>
+                </div>
+                <div class="p-4">
+                    <h3 class="fs-4">令人放鬆舒適的車室空間</h3>
+                    <p class="fs-5">車室空間設計著重人體工學，透過方向盤，踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛疲勞的舒適駕馭體驗。</p>
+                </div>
+            </section>
+            <section class="col-lg-8 item-video">
+                <div class="d-none d-lg-block"></div>
+                <a href="#" class="text-decoration-none">
+                    <img src="https://www.toyota.com.tw/asset/img/tech_tnga/advantage-3-video-button-bg.png?705545c7"
+                        alt="toyota" class="w-100">
+                    <i class="fa-brands fa-youtube display-3 d-none d-lg-block" style="color: #e7211b;"></i>
+                </a>
+            </section>
+            <section class="col-10 col-lg-8 item-because bg-body-secondary px-4 py-3 d-none d-lg-block">
+                <h4 class="fs-5 fw-bold lh-lg d-flex align-items-center" style="color: #ae0014;">因為我們做了這些革新</h4>
+                <div>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">駕駛位置最佳化</h5>
+                    <ul class="m-0">
+                        <li class="p-1">針對駕駛位置進行徹底的修改，讓駕駛者可如同握手般自然且舒適地操控方向盤。</li>
+                    </ul>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">駕馭視野佳</h5>
+                    <ul class="m-0">
+                        <li class="p-1">考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕取安全。</li>
+                    </ul>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">更寧靜的車室</h5>
+                    <ul class="m-0">
+                        <li class="p-1">採用最新三層結構的隔音材料，與引擎，變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的感受。</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </article>
+    <article class="container-fluid d-flex justify-content-center align-items-center m-5">
+        <div class="col-lg-8 position-relative">
+            <section class="col-lg-4 d-none d-lg-block item-title text-light bg-dark">
+                <div class="d-flex align-items-center flex-row-reverse" style="background-color: #ae0014;">
+                    <span class="fw-lighter lh-1" style="font-size: 6.6rem;">04</span>
+                    <h2 class="display-5 mx-auto">以人為本</h2>
+                </div>
+                <div class="p-4">
+                    <h3 class="fs-4">使用者導向的貼心設計</h3>
+                    <p class="fs-5">藉由高度人性化的介面整合，傳遞車輛資訊，豐富日常駕駛體驗。從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應。</p>
+                </div>
+            </section>
+            <section class="col-lg-8 item-video">
+                <div class="d-none d-lg-block"></div>
+                <a href="#" class="text-decoration-none">
+                    <img src="https://www.toyota.com.tw/asset/img/tech_tnga/advantage-4-video-button-bg.png?24515544"
+                        alt="toyota" class="w-100">
+                    <i class="fa-brands fa-youtube display-3 d-none d-lg-block" style="color: #e7211b;"></i>
+                </a>
+            </section>
+            <section class="col-10 col-lg-8 item-because bg-body-secondary px-4 py-3 d-none d-lg-block">
+                <h4 class="fs-5 fw-bold lh-lg d-flex align-items-center" style="color: #ae0014;">因為我們做了這些革新</h4>
+                <div>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">優異油耗表現</h5>
+                    <ul class="m-0">
+                        <li class="p-1">以Corolla Sport為例，更強勁的高效引擎將熱效率提升至40％，達到世界級水準，屡屡突破燃油效率新境界。</li>
+                    </ul>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">行李箱空間最適化</h5>
+                    <ul class="m-0">
+                        <li class="p-1">以第四代Prius為例，透過將電池位置移到後座下方，讓行李箱擁有更大的空間。</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </article>
+    <article class="container-fluid d-flex justify-content-center align-items-center m-5">
+        <div class="col-lg-8 position-relative">
+            <section class="col-lg-4 d-none d-lg-block item-title text-light bg-dark">
+                <div class="d-flex align-items-center" style="background-color: #ae0014;">
+                    <span class="fw-lighter lh-1" style="font-size: 6.6rem;">05</span>
+                    <h2 class="display-5 mx-auto">引以為傲</h2>
+                </div>
+                <div class="p-4">
+                    <h3 class="fs-4">極具吸引力的精心設計</h3>
+                    <p class="fs-5">TNGA車款擁有讓人忍不住回頭的新潮外觀，讓駕駛充滿自信的駕馭快感！不僅讓車主能展現個人風格，能讓擁有者都能引以為傲。</p>
+                </div>
+            </section>
+            <section class="col-lg-8 item-video">
+                <div class="d-none d-lg-block"></div>
+                <a href="#" class="text-decoration-none">
+                    <img src="https://www.toyota.com.tw/asset/img/tech_tnga/advantage-5-video-button-bg.png?ad476b92"
+                        alt="toyota" class="w-100">
+                    <i class="fa-brands fa-youtube display-3 d-none d-lg-block" style="color: #e7211b;"></i>
+                </a>
+            </section>
+            <section class="col-10 col-lg-8 item-because bg-body-secondary px-4 py-3 d-none d-lg-block">
+                <h4 class="fs-5 fw-bold lh-lg d-flex align-items-center" style="color: #ae0014;">因為我們做了這些革新</h4>
+                <div>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">設計概念</h5>
+                    <ul class="m-0">
+                        <li class="p-1">TNGA低重心設計，不僅呈現更低伏的運動化外觀，更講究高品質內裝的一致性。</li>
+                    </ul>
+                    <h5 class="bg-dark text-light d-inline fw-normal fs-6 p-1 rounded">環保概念</h5>
+                    <ul class="m-0">
+                        <li class="p-1">為了對環境保護盡一份心力，我們全面提升傳統引擎，變速箱與油電複合動力的動力效能•</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+</html>
