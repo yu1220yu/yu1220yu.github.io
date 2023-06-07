@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
+    <title>猜數字</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ::placeholder {
+            color: #00000008;
+        }
+
+        h1 {
+            letter-spacing: 1em;
+        }
+
+        h1:hover span {
+            display: inline-block;
+            transform: rotate(-360000000deg);
+            transition: 10s;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        input {
+            width: 100%;
+            height: 55px;
+            font-size: 3rem;
+            color: #0008;
+            caret-color: transparent;
+            border: none;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            width: 55px;
+            height: 55px;
+            border: 5px solid;
+            border-radius: 50%;
+        }
+        button[type="submit"]:hover {
+            scale: .5;
+            rotate: -360deg;
+            transition: .5s;
+        }
+        button:not([type="submit"]) {
+            width: 4.4rem;
+            height: 4.4rem;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            background-color: transparent;
+            color: #fff;
+        }
+        button:not([type="submit"]):hover {
+            background-color: #0000000f;
+            color: #fff !important;
+            scale: 1.5;
+            rotate: 720deg;
+            transition: .5s;
+        }
+    </style>
+</head>
+<body>
+    <article class="m-5">
+        <h1 class="text-center"><span>💡</span>猜數字</h1>
+        <section class="col-12 col-lg-4 m-auto bg-secondary rounded-4 px-4 py-2">
+            <div class="mx-auto position-relative m-3">
+                <input type="number" min="1" max="100" placeholder="" required disabled
+                    class="text-center rounded-pill">
+                <button type="submit" class="text-white bg-secondary-subtle position-absolute end-0 small">GO</button>
+            </div>
+            <div class="d-flex flex-wrap justify-content-evenly">
+                <button type="menu" class="m-3">1</button>
+                <button type="menu" class="m-3">2</button>
+                <button type="menu" class="m-3">3</button>
+                <button type="menu" class="m-3">4</button>
+                <button type="menu" class="m-3">5</button>
+                <button type="menu" class="m-3">6</button>
+                <button type="menu" class="m-3">7</button>
+                <button type="menu" class="m-3">8</button>
+                <button type="menu" class="m-3">9</button>
+                <button type="button" class="m-3 text-secondary small">AC</button>
+                <button type="menu" class="m-3">0</button>
+                <button type="reset" class="m-3 text-secondary small">Reset</button>
+            </div>
+        </section>
+    </article>
+
+    <script>
+        var min = 1
+        var max = 100
+        const answer = Math.floor(Math.random() * 100)
+        let input = document.querySelector('input')
+        let nums = document.querySelectorAll('[type="menu"]')
+        let ac = document.querySelector('[type="button"]')
+        let reset = document.querySelector('[type="reset"]')
+        let go = document.querySelector('[type="submit"]')
+
+        window.onload = function () {
+            input.placeholder = `${min} ~ ${max}`
+        }
+
+        ac.addEventListener("click", function () {
+            input.value = ``
+        })
+        reset.addEventListener("click", function () {
+            window.location.reload();
+        })
+        go.addEventListener("click", function () {
+            if (input.value == answer) {
+                alert('win win win')
+                input.value = answer
+                ac.disabled = true
+                ac.classList.add('opacity-0')
+                nums.forEach(num => num.disabled = true)
+                nums.forEach(num => num.classList.add('opacity-0'))
+                reset.classList.add('bg-light')
+            }
+            else if (input.value > min && input.value < max) {
+                if (input.value > answer) {
+                    max = input.value
+                    input.value = ``
+                }
+                else if (input.value < answer) {
+                    min = input.value
+                    input.value = ``
+                }
+            }
+            else {
+                alert('💩')
+                input.value = ``
+                return
+            }
+            input.placeholder = `${min} ~ ${max}`
+        })
+        nums.forEach(num => num.addEventListener("click", function () {
+            if (input.value.length < 2) {
+                input.value += num.innerText
+            }
+            else {
+                alert('💩')
+                input.value = ``
+            }
+        }))
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+</html>
