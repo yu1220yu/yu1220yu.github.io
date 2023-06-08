@@ -101,7 +101,7 @@
         var max = 100
         const answer = Math.floor(Math.random() * 100)
         let input = document.querySelector('input')
-        let nums = document.querySelectorAll('[type="menu"]')
+        let numS = document.querySelectorAll('[type="menu"]')
         let ac = document.querySelector('[type="button"]')
         let reset = document.querySelector('[type="reset"]')
         let go = document.querySelector('[type="submit"]')
@@ -118,20 +118,20 @@
         })
         go.addEventListener("click", function () {
             if (input.value == answer) {
-                alert('win win win')
+                alert('🏆 🏆 🏆')
                 input.value = answer
                 ac.disabled = true
                 ac.classList.add('opacity-0')
-                nums.forEach(num => num.disabled = true)
-                nums.forEach(num => num.classList.add('opacity-0'))
+                numS.forEach(num => num.disabled = true)
+                numS.forEach(num => num.classList.add('opacity-0'))
                 reset.classList.add('bg-light')
             }
-            else if (input.value > min && input.value < max) {
-                if (input.value > answer) {
+            else if (parseInt(input.value) > min && parseInt(input.value) < max) {
+                if (parseInt(input.value) > answer) {
                     max = input.value
                     input.value = ``
                 }
-                else if (input.value < answer) {
+                else if (parseInt(input.value) < answer) {
                     min = input.value
                     input.value = ``
                 }
@@ -143,7 +143,7 @@
             }
             input.placeholder = `${min} ~ ${max}`
         })
-        nums.forEach(num => num.addEventListener("click", function () {
+        numS.forEach(num => num.addEventListener("click", function () {
             if (input.value.length < 2) {
                 input.value += num.innerText
             }
