@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
+    <title>Mālama Hawai‘i</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        article {
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
+        }
+
+        small {
+            font-size: .5rem;
+            margin-left: .5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #222222;
+        }
+        a:hover {
+            opacity: .75;
+            transition: .4s;
+        }
+
+        img {
+            object-fit: cover;
+        }
+        img[alt="main"],
+        img[alt="other"] {
+            width: 100%;
+        }
+        img[alt="arrow"] {
+            border: 1px solid #f65936;
+            padding: .2em;
+            border-radius: 50%;
+            margin-left: .5rem;
+        }
+        img[alt="main"]{
+            aspect-ratio: 1/.6;
+        }
+        img[alt="other"] {
+            aspect-ratio: 1/.44;
+        }
+
+        a.main-item,
+        div.other-items {
+            width: 100%;
+        }
+        div.other-items a {
+            width: 48.5%;
+            margin-bottom: 2rem;
+        }
+
+        section#content {
+            gap: 3%;
+        }
+        div#items {
+            gap: 3%;
+        }
+        #main-item_word {
+            gap: 3%;
+        }
+
+
+        @media screen and (min-width:1200px) {
+            
+            a.main-item,
+            div.other-items {
+                width: 48.5%;
+            }
+
+            #main-item_word .title,
+            #main-item_word .text {
+                width: 48.5%;
+            }
+            div.other-items a {
+                width: 47.5%;
+            }
+
+            div#items {
+                gap: 5%;
+            }
+
+            img[alt="main"]{
+                aspect-ratio: 0/0;
+            }
+            img[alt="other"] {
+                aspect-ratio: 1/.66;
+            }
+
+            .radius {
+                border-radius: .5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <article class="p-lg-3 mt-4 m-lg-5">
+        <section class="px-3 px-lg-0 py-3 d-flex justify-content-between align-items-center">
+            <div>
+                <h2 class="fs-4 lh-base" lang="jp">旅行者にできること<small class="fw-light d-block d-lg-inline m-0 ms-lg-2"
+                        style="color: #6c6d6e;" lang="en">What Travelers Can Do</small></h2>
+            </div>
+            <a href="#" class="small" style="color: #f65936;">すべて見る<img
+                    src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/right_arrow_short.svg"
+                    alt="arrow"></a>
+        </section>
+        <section class="d-flex flex-wrap" id="content">
+            <a href="#" class="main-item">
+                <div class="radius overflow-hidden">
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2021/04/Screenshot-107.png"
+                        alt="main" style="scale: 1.1;">
+                </div>
+                <div class="d-lg-flex flex-wrap mt-3 px-3 px-lg-0" id="main-item_word">
+                    <div class="title">
+                        <h3 class="fs-4">今年もアースデーにビーチクリーンを開催！</h3>
+                    </div>
+                    <div class="text small">
+                        <p>毎年4月22日は地球環境について考える日「アースデー」。最近ではこの日だけでなく、4月をアース月間として世界中で環境保護活動が行われるようになりました。太平洋の</p>
+                        <small class="m-0">2023.04.18</small>
+                    </div>
+                </div>
+            </a>
+
+            <div class="other-items d-flex flex-wrap mt-3 m-lg-0 p-3 p-lg-0" id="items">
+                <a href="#">
+                    <small class="m-0 d-block mb-1"><img
+                            src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/icon/icon_eco.svg"
+                            alt="#"> エコ活動</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/06/22060822404659769.jpg"
+                        alt="other" class="rounded-3">
+                    <h4 class="fs-6 mt-3">【ハワイ島】海深914mから湧き出る海洋深層水の製塩所ツアーを体験！お土産に最適な12種類の絶品ハワイアンソルトも</h4>
+                    <small class="m-0">2022.06.14</small>
+                </a>
+                <a href="#">
+                    <small class="m-0 d-block mb-1"><img
+                            src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/icon/icon_event.svg"
+                            alt="#"> イベント</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/06/17542.jpg" alt="other"
+                        class="rounded-3">
+                    <h4 class="fs-6 mt-3">キング・カメハメハ・デー制定150周年記念イベント</h4>
+                    <small class="m-0">2022.06.08</small>
+                </a>
+                <a href="#">
+                    <small class="m-0 d-block mb-1"><img
+                            src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/icon/icon_other.svg"
+                            alt="#"> その他</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/01/UT1.jpg" alt="other"
+                        class="rounded-3">
+                    <h4 class="fs-6 mt-3">ユニクロ アラモアナ店〜UTme!限定デザイン「Together in Hawaii」シリーズでハワイフードバンクに寄付を〜</h4>
+                    <small class="m-0">2022.01.28</small>
+                </a>
+                <a href="#">
+                    <small class="m-0 d-block mb-1"><img
+                            src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/icon/icon_culture.svg"
+                            alt="#" style="height: 20px;"> カルチャー</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2021/08/EUAP21_Header-Image_600x400.png"
+                        alt="other" class="rounded-3">
+                    <h4 class="fs-6 mt-3">「E Ulu A Paʻa」～ビショップ ミュージアム が年に一度のファンドレイジングを開催！～</h4>
+                    <small class="m-0">2021.08.12</small>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <article class="p-lg-3 mt-4 m-lg-5">
+        <section class="px-3 px-lg-0 py-3 d-flex justify-content-between align-items-center">
+            <div>
+                <h2 class="fs-4 lh-base">企業の取組み<small class="fw-light d-block d-lg-inline m-0 ms-lg-2"
+                        style="color: #6c6d6e;">Corporate Initiatives</small></h2>
+            </div>
+            <a href="#" class="small" style="color: #f65936;">すべて見る<img
+                    src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/right_arrow_short.svg"
+                    alt="arrow"></a>
+        </section>
+        <section class="d-flex flex-wrap flex-row-reverse" id="content">
+            <a href="#" class="main-item">
+                <small class="m-0 d-block mb-1 ps-3 ps-lg-0">ジャルパック</small>
+                <div class="radius overflow-hidden">
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/11/12-Group-photo.jpeg"
+                        alt="main" style="scale: 1.1;">
+                </div>
+                <div class="d-lg-flex flex-wrap mt-3 px-3 px-lg-0" id="main-item_word">
+                    <div class="title">
+                        <h3 class="fs-4">【チームJALハワイ】ビーチクリーンアップ活動で地元コミュニティに貢献！</h3>
+                    </div>
+                    <div class="text small">
+                        <p>JALハワイ支店とJALPAK International Hawaiiで構成された“チームJALハワイ”は、ハワイ州観光局が提唱する「マラマハワイ～ハワイを思</p>
+                        <small class="m-0">2022.11.02</small>
+                    </div>
+                </div>
+            </a>
+
+            <div class="other-items d-flex flex-wrap mt-3 m-lg-0 p-3 p-lg-0" id="items">
+                <a href="#">
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/07/278637300_1713831695616085_8588043877096982703_n.jpg"
+                        alt="other" class="rounded-3 mt-1">
+                    <h4 class="fs-6 mt-3">廃棄された漁網を服に生まれ変わらせる！海を守ろうと活動する人々が主役のドキュメンタリーを作るプロジェクトをサポートしませんか？</h4>
+                    <small class="m-0">2022.07.27</small>
+                </a>
+                <a href="#">
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/06/Malama-Honu-Malama-Honua_Pii_2-2.jpg"
+                        alt="other" class="rounded-3 mt-1">
+                    <h4 class="fs-6 mt-3">第33回タートル・インディペンデンス・デイ開催</h4>
+                    <small class="m-0">2022.07.01</small>
+                </a>
+                <a href="#">
+                    <small class="m-0 d-block mb-1">オラカイ株式会社</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/06/R5TM3376-1536x1024.jpg"
+                        alt="other" class="rounded-3">
+                    <h4 class="fs-6 mt-3">「シーアスパラガス」を生産している「オラカイ」のサステナブルな取り組み</h4>
+                    <small class="m-0">2022.06.15</small>
+                </a>
+                <a href="#">
+                    <small class="m-0 d-block mb-1">ザ・リッツカールトン・レジデンス・ワイキキ</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/06/21040914144482018.jpg"
+                        alt="other" class="rounded-3">
+                    <h4 class="fs-6 mt-3">【ザ・リッツ・カールトン・レジデンス ワイキキビーチ】オアフ島内最大運河、アラワイ運河の浄化プロジェクト「ゲンキ・アラワイ・プロジェクト」の協力パートナーに
+                    </h4>
+                    <small class="m-0">2022.06.14</small>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <article class="p-lg-3 mt-4 m-lg-5">
+        <section class="px-3 px-lg-0 py-3 d-flex justify-content-between align-items-center">
+            <div>
+                <h2 class="fs-4 lh-base">ハワイ州観光局の取組み<small class="fw-light d-block d-lg-inline m-0 ms-lg-2"
+                        style="color: #6c6d6e;">Hawai‘i Tourism Japan Initiatives</small></h2>
+            </div>
+            <a href="#" class="small" style="color: #f65936;">すべて見る
+                <img src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/right_arrow_short.svg"
+                    alt="arrow">
+            </a>
+        </section>
+        <section class="d-flex flex-wrap" id="content">
+            <a href="#" class="main-item">
+                <small class="m-0 d-block mb-1 ps-3 ps-lg-0">ハワイ州観光局</small>
+                <div class="radius overflow-hidden">
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/10/10187.tif.jpg" alt="main"
+                        style="scale: 1.1;">
+                </div>
+                <div class="d-lg-flex flex-wrap mt-3 px-3 px-lg-0" id="main-item_word">
+                    <div class="title">
+                        <h3 class="fs-4">マウイ郡、ハワイ島、海洋生物に影響与える日焼け止めの流通禁止を発表</h3>
+                    </div>
+                    <div class="text small">
+                        <p>2022年10月1日からマウイ郡ノンミネラルの日焼け止めの流通・販売禁止条例を施行 マウイ郡の条例5306号により、2022年10月1日からマウイ島、ラナイ島、</p>
+                        <small class="m-0">2022.12.02</small>
+                    </div>
+                </div>
+            </a>
+
+            <div class="other-items d-flex flex-wrap mt-3 m-lg-0 p-3 p-lg-0" id="items">
+                <a href="#">
+                    <small class="m-0 d-block mb-1">ハワイ州観光局</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/10/22100108362488961.jpeg"
+                        alt="other" class="rounded-3 mt-1">
+                    <h4 class="fs-6 mt-3">TBSミニ番組　マラマ〜新しいハワイ旅〜</h4>
+                    <small class="m-0">2022.10.01</small>
+                </a>
+                <a href="#">
+                    <small class="m-0 d-block mb-1">ハワイ州観光局</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/06/%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%81%AE%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3-2.png"
+                        alt="other" class="rounded-3">
+                    <h4 class="fs-6 mt-3">ハワイ州観光局、マラマハワイリツイートキャンペーン第2弾を実施！～動画の楽曲を作詞された倉木麻衣さんのbillboard
+                        classics主催シンフォニックコンサート3公演を合計30組60名様にご招待！～</h4>
+                    <small class="m-0">2022.06.06</small>
+                </a>
+                <a href="#">
+                    <small class="m-0 d-block mb-1">ハワイ州観光局</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/04/22042208064245342.jpg"
+                        alt="other" class="rounded-3 mt-1">
+                    <h4 class="fs-6 mt-3">ハワイ州観光局、モデルのローラさんをマラマハワイ・アンバサダーに任命</h4>
+                    <small class="m-0">2022.04.22</small>
+                </a>
+                <a href="#">
+                    <small class="m-0 d-block mb-1">ハワイ州観光局</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2021/12/MalamaHawaii.jpg"
+                        alt="other" class="rounded-3">
+                    <h4 class="fs-6 mt-3">ハワイ州観光局、マラマハワイ動画のリツイートキャンペーンを実施～動画のために書き下ろした『Sea
+                        wind』が収録された倉木麻衣さんサイン入りCDを10名様に贈呈！～</h4>
+                    <small class="m-0">2021.12.14</small>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <article class="p-lg-3 mt-4 m-lg-5">
+        <section class="px-3 px-lg-0 py-3 d-flex justify-content-between align-items-center">
+            <div>
+                <h2 class="fs-4 lh-base">コミュニティの取り組み<small class="fw-light d-block d-lg-inline m-0 ms-lg-2"
+                        style="color: #6c6d6e;">Communitiy Initiatives</small></h2>
+            </div>
+            <a href="#" class="small" style="color: #f65936;">すべて見る
+                <img src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/right_arrow_short.svg"
+                    alt="arrow">
+            </a>
+        </section>
+        <section class="d-flex flex-wrap flex-row-reverse" id="content">
+            <a href="#" class="main-item">
+                <div class="radius overflow-hidden">
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/07/R5TM5544.jpg" alt="main"
+                        style="scale: 1.1;">
+                </div>
+                <div class="d-lg-flex flex-wrap mt-3 px-3 px-lg-0" id="main-item_word">
+                    <div class="title">
+                        <h3 class="fs-4">Zero Waste Oahu (ゼロウェイストオアフ) の取り組み</h3>
+                    </div>
+                    <div class="text small">
+                        <p>Zero Waste Oahuは現在の生産方法、購買システム、廃棄物管理システムに積極的に介入するシステムを通じて、バランスのとれた消費文化と廃棄物の少ない未来</p>
+                        <small class="m-0">2022.07.20</small>
+                    </div>
+                </div>
+            </a>
+
+            <div class="other-items d-flex flex-wrap mt-3 m-lg-0 p-3 p-lg-0" id="items">
+                <a href="#">
+                    <small class="m-0 d-block overflow-hidden"
+                        style="white-space: nowrap; background: linear-gradient(to right, #222222, #ffffff 111%); -webkit-background-clip: text; color: transparent;">サスティナブル・コーストラインズ・ハワイ（Sustainable
+                        Coastlines Hawaii）</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/06/Unknown-17.jpeg"
+                        alt="other" class="rounded-3 mt-1">
+                    <h4 class="fs-6 mt-3">サスティナブル・コーストラインズ・ハワイ、第二回クリーンアップイベント「The Kaimukī Cleanup Festival 」に参加</h4>
+                    <small class="m-0">2022.06.20</small>
+                </a>
+                <a href="#">
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/05/IMG_7294.jpg" alt="other"
+                        class="rounded-3 mt-1">
+                    <h4 class="fs-6 mt-3">地上最古の海洋生物の一種であるウミガメ　彼らを絶滅の危機から保護する「マラマ イ ナ ホヌ」
+                    </h4>
+                    <small class="m-0">2022.05.26</small>
+                </a>
+                <a href="#">
+                    <small class="m-0 d-block mb-1">アウトリガー・ホテルズ＆リゾーツ</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2022/04/Hotel-Lobby-Art-Exhibition-scaled.jpg"
+                        alt="other" class="rounded-3 mt-1">
+                    <h4 class="fs-6 mt-3">サステナブルなアートとファッションをテーマにしたイベント「THINK GLOBALLY, ACT LOCALLY」を開催</h4>
+                    <small class="m-0">2022.04.23</small>
+                </a>
+                <a href="#">
+                    <small class="m-0 d-block mb-1">クプ・ハワイ（KUPU Hawaii）</small>
+                    <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2021/06/IMG_0104-2-1.jpg"
+                        alt="other" class="rounded-3">
+                    <h4 class="fs-6 mt-3">次世代を支援するクプ・ハワイ、Hoʻokupu Centerの取り組み</h4>
+                    <small class="m-0">2021.06.23</small>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+</html>

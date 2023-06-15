@@ -71,7 +71,7 @@
         }
         button[type="reset"]:hover{
             transform: translate3d(100%);
-            transition: 5s;
+            transition: 2s;
         }
     </style>
 </head>
@@ -80,7 +80,7 @@
         <h1 class="text-center m-4"><span>💡</span>猜數字</h1>
         <section class="col-10 col-md-6 col-lg-4 m-auto bg-secondary rounded-4 px-4 py-2">
             <div class="mx-auto position-relative m-3">
-                <input type="number" min="1" max="100" placeholder="" required disabled
+                <input type="number" min="1" max="100" placeholder="" required
                     class="text-center rounded-pill">
                 <button type="submit" class="text-white bg-secondary-subtle position-absolute end-0 small">GO</button>
             </div>
@@ -102,19 +102,24 @@
     </article>
 
     <script>
-        var min = 1
-        var max = 100
-        const answer = Math.floor(Math.random() * 100)
-        let input = document.querySelector('input')
-        let numS = document.querySelectorAll('[type="menu"]')
-        let ac = document.querySelector('[type="button"]')
-        let reset = document.querySelector('[type="reset"]')
-        let go = document.querySelector('[type="submit"]')
+        let min = 1
+        let max = 100
+        var answer = Math.floor(Math.random() * 100)
+        const input = document.querySelector('input')
+        const numS = document.querySelectorAll('[type="menu"]')
+        const ac = document.querySelector('[type="button"]')
+        const reset = document.querySelector('[type="reset"]')
+        const go = document.querySelector('[type="submit"]')
 
         window.onload = function () {
             input.placeholder = `${min} ~ ${max}`
         }
 
+        input.addEventListener("keydown", function (e) {
+            if (e.keyCode === 13) {
+                go()
+            }
+        })
         ac.addEventListener("click", function () {
             input.value = ``
         })
