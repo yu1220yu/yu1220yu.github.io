@@ -75,7 +75,7 @@
         <button class="btn btn-warning" id="listhero">以文字迭代英雄人物資料</button>
         <button class="btn btn-primary" id="tablehero">以表格呈現英雄人物資料</button>
     </div>
-    <table id="result" class="table table-bordered table-dark table-hover"></table>
+    <div id="result"></div>
     <div id="container" class="row container-fluid m-auto">
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" card-index="1">
             <div class="card" id="Aatrox">
@@ -2163,7 +2163,6 @@
         crossorigin="anonymous"></script>
 
     <script>
-
         let heroArray = [];
         let container;
         let btnCreateHeroArray, btnListHero, btnTableHero;
@@ -2180,7 +2179,11 @@
 
                 //1.從DOM建立英雄人物資料
                 document.querySelectorAll('.card').forEach(x => {
-                    heroArray.push(x.querySelector('.card-title').innerText + x.querySelector('.card-text').innerText + x.querySelector('img').src)
+                    heroArray.push({
+                        title: x.querySelector('.card-title').innerText,
+                        description: x.querySelector('.card-text').innerText,
+                        image: x.querySelector('img').src
+                    })
                 })
 
                 //2.清除container
@@ -2194,8 +2197,10 @@
                 }
 
                 //alert("以文字迭代英雄人物資料！");
+                container.innerText = ''
+
                 heroArray.forEach(x => {
-                    container.innerHTML += `${x}<br>`
+                    container.innerHTML += `${Object.values(x)}<br>`
                 })
             });
 
@@ -2206,7 +2211,40 @@
                 }
 
                 // alert("以表格呈現英雄人物資料！");
-                
+                container.innerHTML = ''
+
+                table = document.createElement('table')
+                thead = document.createElement('thead')
+                tbody = document.createElement('tbody')
+                table.classList.add('table', 'table-bordered', 'table-dark', 'table-hover')
+
+                tr = document.createElement('tr')
+                th1 = document.createElement('th')
+                th2 = document.createElement('th')
+                th3 = document.createElement('th')
+                th1.innerText = `Title`
+                th2.innerText = `Description`
+                th3.innerText = `Image`
+                tr.append(th1, th2, th3)
+                thead.append(tr)
+
+                heroArray.forEach(x => {
+                    tr = document.createElement('tr')
+                    td1 = document.createElement('td')
+                    td2 = document.createElement('td')
+                    td3 = document.createElement('td')
+                    img = document.createElement('img')
+                    td1.innerText = x.title
+                    td2.innerText = x.description
+                    img.src = x.image
+                    td3.classList.add('w-25')
+                    td3.append(img)
+                    tr.append(td1, td2, td3)
+                    tbody.append(tr)
+                })
+
+                table.append(thead, tbody)
+                container.append(table)
             });
         }
 
