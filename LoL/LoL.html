@@ -2234,10 +2234,13 @@
                     td2 = document.createElement('td')
                     td3 = document.createElement('td')
                     img = document.createElement('img')
+                    td1.classList.add('align-middle')
+                    td2.classList.add('align-middle')
+                    td3.classList.add('align-middle')
+                    td3.style.width = '12.20rem'
                     td1.innerText = x.title
                     td2.innerText = x.description
                     img.src = x.image
-                    td3.classList.add('w-25')
                     td3.append(img)
                     tr.append(td1, td2, td3)
                     tbody.append(tr)
