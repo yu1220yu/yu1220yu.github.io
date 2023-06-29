@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>1A2B</title>
+    <style>
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    </style>
+</head>
+<body>
+    <article class="container vh-100 d-flex flex-column justify-content-center align-items-center"
+        style="margin-top: -2rem;">
+        <h1 class="text-info-emphasis d-inline-block" style="letter-spacing: 1rem; rotate: 4deg;">1<span
+                class="display-4 text-success fw-semibold d-inline-block" style="rotate: -20deg;">A</span>2<span
+                class="display-4 text-danger fw-semibold d-inline-block" style="rotate: 20deg;">B</span></h1>
+        <section class="col-9 col-lg-6 d-flex flex-wrap">
+            <input class="col-4 btn btn-success bg-gradient rounded-end-0 px-5 shadow" type="button" value="Start">
+            <input class="col-4 btn btn-warning bg-gradient text-white rounded-0 px-5 shadow" type="reset" value="Reset"
+                disabled>
+            <input class="col-4 btn btn-danger bg-gradient rounded-start-0 px-5 shadow" type="button" value="Answer"
+                disabled>
+        </section>
+        <section class="col-9 col-lg-6">
+            <ul class="border rounded-4 fs-1 mt-2 p-3 overflow-auto text-center d-flex flex-column-reverse"
+                style="height: 25rem"></ul>
+        </section>
+        <section class="col-9 col-lg-6">
+            <div class="input-group">
+                <input type="number" class="form-control text-info-emphasis shadow-none border-end-0"
+                    placeholder="guess" aria-label="guess" min="1234" max="9876" disabled>
+                <button class="btn bg-primary-subtle btn-outline-primary border-primary-subtle border-start-0 px-lg-5"
+                    type="submit">Enter</button>
+            </div>
+        </section>
+    </article>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        let randomNum, a = 0, b = 0
+        input = document.querySelector('[type="number"]')
+        enter = document.querySelector('[type="submit"]')
+        textArea = document.querySelector('ul')
+
+        input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") { enter.click() }
+        })
+        enter.addEventListener('click', function () {
+            // 長度 不重複數 整數 負數
+            if (input.value.length === 4 && input.value.length === new Set(input.value).size && Number.isInteger(parseInt(input.value)) && input.value > 0) {
+                if (input.value === randomNum) {
+                    textArea.innerText = `${input.value} ⭕`
+                    textArea.classList.toggle('text-success');
+                    textArea.classList.replace('text-danger', 'text-success')
+                    setTimeout(() => {
+                        alert('🏆')
+                        window.location.reload()
+                    }, 99)
+                    return
+                }
+                intersect = String(randomNum).split('').filter(x => String(input.value).includes(x))
+                a = intersect.filter(x => randomNum.indexOf(x) === input.value.indexOf(x)).length
+                b = intersect.length - a
+                textArea.innerText += `${input.value} ${a}A${b}B ❌ \n`
+                textArea.classList.add('text-danger')
+            }
+            input.value = ''
+        })
+    </script>
+    <script>
+        start = document.querySelector('[value="Start"]')
+        reset = document.querySelector('[value="Reset"]')
+        answer = document.querySelector('[value="Answer"]')
+        start.addEventListener('click', function () {
+            let timerInterval
+            Swal.fire({
+                title: 'loading...',
+                icon: 'question',
+                html: 'I will close in <b></b> milliseconds.',
+                timer: 666,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            })
+
+            reset.disabled = false
+            answer.disabled = false
+            input.disabled = false
+            start.disabled = true
+
+            randomNum = Array.from(Array(10).keys()).sort(x => Math.random() - .5).splice(0, 4).join('')
+            console.log(randomNum)
+        })
+
+        reset.addEventListener('click', function () {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Your work will been reset',
+                showConfirmButton: false,
+                timer: 999,
+            })
+
+            setTimeout(function () {
+                start.disabled = false
+                reset.disabled = true
+                answer.disabled = true
+                input.disabled = true
+                textArea.innerText = ''
+            }, 111)
+        })
+
+        answer.addEventListener('click', function () {
+            Swal.fire({
+                title: `${randomNum}`,
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1220,
+            })
+        })
+    </script>
+</body>
+</html>
