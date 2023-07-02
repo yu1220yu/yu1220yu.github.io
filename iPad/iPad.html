@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,13 +15,14 @@
     }
   </style>
 </head>
+
 <body>
   <div id="app">
     <nav class="btn-group-sm bg-light d-flex justify-content-around align-items-center p-1" role="group">
       <i class="fa-brands fa-apple btn border-0" @click="reload"></i>
       <div>
         <span @click="switchToAir">
-          <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+          <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off">
           <label class="btn btn-sm bg-body-tertiary btn-light bg-light fw-light"
             for="vbtn-radio1">{{Air.type.name}}</label>
         </span>
@@ -232,20 +234,30 @@
           document.getElementById('price').innerText = this.initial.specs.filter(x => x.storage == result[1].innerText && x.network == result[2].innerText).map(x => x.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
           document.getElementById('show').innerText = `${this.initial.type.name} ${result[2].innerText} ${result[1].innerText} - ${result[0].innerText}`
         },
+        reload() {
+          window.location.reload()
+        },
         switchToAir() {
+          this.resetUI()
           this.initial = { ...this.Air }
         },
         switchToMini() {
+          this.resetUI()
           this.initial = { ...this.mini }
         },
         switchToPro() {
+          this.resetUI()
           this.initial = { ...this.Pro }
         },
-        reload() {
-          window.location.reload()
+        resetUI() {
+          document.querySelectorAll('.border-primary').forEach(x => x.classList.remove('border-primary'))
+          document.querySelectorAll('#storageSelect, #networkSelect').forEach(x => x.disabled = true)
+          document.getElementById('price').innerText = 0
+          document.getElementById('show').innerText = ''
         }
       }
     }).mount('#app')
   </script>
 </body>
+
 </html>
