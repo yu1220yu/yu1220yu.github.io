@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
+  <title>iPad</title>
+  <style>
+    .overflow-auto::-webkit-scrollbar {
+      width: .5rem;
+      background-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <nav class="btn-group-sm bg-light d-flex justify-content-around align-items-center p-1" role="group">
+      <i class="fa-brands fa-apple btn border-0" @click="reload"></i>
+      <div>
+        <span @click="switchToAir">
+          <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+          <label class="btn btn-sm bg-body-tertiary btn-light bg-light fw-light"
+            for="vbtn-radio1">{{Air.type.name}}</label>
+        </span>
+        <span @click="switchToMini">
+          <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+          <label class="btn btn-sm bg-body-tertiary btn-light bg-light fw-light"
+            for="vbtn-radio2">{{mini.type.name}}</label>
+        </span>
+        <span @click="switchToPro">
+          <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+          <label class="btn btn-sm btn-light bg-light fw-light" for="vbtn-radio3">{{Pro.type.name}}</label>
+        </span>
+      </div>
+      <div>
+        <i class="fa-solid fa-magnifying-glass px-4"></i>
+        <i class="fa-solid fa-bag-shopping px-4"></i>
+      </div>
+    </nav>
+
+    <article class="container d-flex flex-wrap mt-3" id="Air">
+      <section class="col-12">
+        <h1 class="fw-bolder display-5 mt-3">Buy {{initial.type.name}}</h1>
+        <small>NT${{initial.specs.find(x=>x).price}} 起</small>
+      </section>
+      <section id="carouselControls" class="carousel slide col-lg-8 mt-5" data-bs-interval="false" data-bs-wrap="false"
+        data-bs-touch="true">
+        <div class="carousel-inner rounded-4">
+          <div class="carousel-item active">
+            <img :src="initial.type.images[0]" class="d-block w-100" alt="img-1">
+          </div>
+          <div class="carousel-item">
+            <img :src="initial.type.images[1]" class="d-block w-100" alt="img-2">
+          </div>
+        </div>
+        <button class="carousel-control-prev justify-content-start ms-3 d-none" type="button"
+          data-bs-target="#carouselControls" data-bs-slide="prev" @click="buttonDisplay">
+          <span class="d-flex justify-content-center align-items-center bg-dark-subtle rounded-circle"
+            aria-hidden="true" style="width: 50px; aspect-ratio: 1/1;"><i
+              class="fa-solid fa-angle-left fs-2 text-dark-emphasis"></i></span>
+        </button>
+        <button class="carousel-control-next justify-content-end me-3" type="button" data-bs-target="#carouselControls"
+          data-bs-slide="next" @click="buttonDisplay">
+          <span class="d-flex justify-content-center align-items-center bg-dark-subtle rounded-circle"
+            aria-hidden="true" style="width: 50px; aspect-ratio: 1/1;"><i
+              class="fa-solid fa-angle-right fs-2 text-dark-emphasis"></i></span>
+        </button>
+      </section>
+      <section class="col-lg-4 p-5 mt-5 overflow-auto" style="height: 30rem;">
+        <h2 class="d-inline-block fs-4">{{titles[0].main}}</h2><span
+          class="fs-4 text-secondary">{{titles[0].sub}}</span>
+        <div class="d-flex flex-wrap my-3 gap-4 mb-5">
+          <button v-for="image in initial.category" @click.stop="choose"
+            class="col-5 btn border border-2 text-center p-3 rounded-3" id="colorSelect">
+            <img :src="image.colorImg" style="width: 2rem; pointer-events: none; user-select: none;">
+            <small class="d-block text-dark mt-2"
+              style="pointer-events: none; user-select: none; font-size: 10px">{{image.color}}</small>
+          </button>
+        </div>
+        <h2 class="d-inline-block fs-4">{{titles[1].main}}</h2><span
+          class="fs-4 text-secondary">{{titles[1].sub}}</span>
+        <div class="d-flex flex-wrap my-3 gap-4 mb-5">
+          <button v-for="storage in Array.from(new Set(initial.specs.map(x=>x.storage)))" @click.stop="choose"
+            class="col-5 btn border border-2 text-center p-3 rounded-3" id="storageSelect" disabled>
+            <small class="d-block text-dark mt-2" style="pointer-events: none; user-select: none;">{{storage}}</small>
+          </button>
+        </div>
+        <h2 class="d-inline-block fs-4">{{titles[2].main}}</h2><span
+          class="fs-4 text-secondary">{{titles[2].sub}}</span>
+        <div class="d-flex flex-wrap my-3 gap-4 mb-5">
+          <button v-for="network in Array.from(new Set(initial.specs.map(x=>x.network)))" @click.stop="choose"
+            class="col-5 btn border border-2 text-center p-3 rounded-3" id="networkSelect" disabled>
+            <small class="d-block text-dark mt-2" style="pointer-events: none; user-select: none;">{{network}}</small>
+          </button>
+        </div>
+        <div>
+          <h3 class="border-bottom pb-3 mb-3">NT$<span id="price">0</span><small
+              class="text-muted fw-light d-block my-2" style="font-size: 6px;">含營業稅和其他法定稅費</small></h3>
+          <span id="show" class="fw-semibold"></span>
+        </div>
+      </section>
+    </article>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          titles: [
+            { main: 'Finish.', sub: 'Pick your favorite color.' },
+            { main: 'Storage.', sub: 'Choose how much space you’ll need.' },
+            { main: 'Connectivity.', sub: 'Choose how you’ll stay connected.' }
+          ],
+          initial: {
+            type: {
+              name: 'iPad',
+              images: ['./image/iPad/iPad-1.jpeg', './image/iPad/iPad-2.jpeg']
+            },
+            category: [
+              { color: 'blue', colorImg: './image/iPad/blue.png', images: ['./image/iPad/blue-1.jpeg', './image/iPad/blue-2.jpeg'] },
+              { color: 'pink', colorImg: './image/iPad/pink.png', images: ['./image/iPad/pink-1.jpeg', './image/iPad/pink-2.jpeg'] },
+              { color: 'yellow', colorImg: './image/iPad/yellow.png', images: ['./image/iPad/yellow-1.jpeg', './image/iPad/yellow-2.jpeg'] },
+              { color: 'silver', colorImg: './image/silver.png', images: ['./image/iPad/silver-1.jpeg', './image/iPad/silver-2.jpeg'] }
+            ],
+            specs: [
+              { storage: '64GB', network: 'Wi-Fi', price: 14900 },
+              { storage: '64GB', network: 'Wi-Fi + Cellular', price: 19900 },
+              { storage: '256GB', network: 'Wi-Fi', price: 19900 },
+              { storage: '256GB', network: 'Wi-Fi + Cellular', price: 24900 }
+            ]
+          },
+          Air: {
+            type: {
+              name: 'iPad Air',
+              images: ['./image/iPadAir/air-1.jpeg', './image/iPadAir/air-2.jpeg']
+            },
+            category: [
+              { color: 'space-gray', colorImg: './image/gray.png', images: ['./image/iPadAir/gray-1.jpeg', './image/iPadAir/gray-2.jpeg'] },
+              { color: 'blue', colorImg: './image/blue.png', images: ['./image/iPadAir/blue-1.jpeg', './image/iPadAir/blue-2.jpeg'] },
+              { color: 'pink', colorImg: './image/pink.png', images: ['./image/iPadAir/pink-1.jpeg', './image/iPadAir/pink-2.jpeg'] },
+              { color: 'purple', colorImg: './image/purple.png', images: ['./image/iPadAir/purple-1.jpeg', './image/iPadAir/purple-2.jpeg'] },
+              { color: 'starlight', colorImg: './image/starlight.png', images: ['./image/iPadAir/starlight-1.jpeg', './image/iPadAir/starlight-2.jpeg'] }
+            ],
+            specs: [
+              { storage: '64GB', network: 'Wi-Fi', price: 19900 },
+              { storage: '64GB', network: 'Wi-Fi + Cellular', price: 24900 },
+              { storage: '256GB', network: 'Wi-Fi', price: 24900 },
+              { storage: '256GB', network: 'Wi-Fi + Cellular', price: 29900 }
+            ]
+          },
+          mini: {
+            type: {
+              name: 'iPad mini',
+              images: ['./image/iPadmini/mini-1.jpeg', './image/iPadmini/mini-2.jpeg']
+            },
+            category: [
+              { color: 'space-gray', colorImg: './image/gray.png', images: ['./image/iPadmini/gray-1.jpeg', './image/iPadmini/gray-2.jpeg'] },
+              { color: 'pink', colorImg: './image/pink.png', images: ['./image/iPadmini/pink-1.jpeg', './image/iPadmini/pink-2.jpeg'] },
+              { color: 'purple', colorImg: './image/purple.png', images: ['./image/iPadmini/purple-1.jpeg', './image/iPadmini/purple-2.jpeg'] },
+              { color: 'starlight', colorImg: './image/starlight.png', images: ['./image/iPadmini/starlight-1.jpeg', './image/iPadmini/starlight-2.jpeg'] }
+            ],
+            specs: [
+              { storage: '64GB', network: 'Wi-Fi', price: 16900 },
+              { storage: '64GB', network: 'Wi-Fi + Cellular', price: 21900 },
+              { storage: '256GB', network: 'Wi-Fi', price: 21900 },
+              { storage: '256GB', network: 'Wi-Fi + Cellular', price: 26900 }
+            ]
+          },
+          Pro: {
+            type: {
+              name: 'iPad Pro',
+              images: ['./image/iPadPro/pro-1.jpeg', './image/iPadPro/pro-2.jpeg']
+            },
+            category: [
+              { color: 'space-gray', colorImg: './image/gray.png', images: ['./image/iPadPro/gray-1.jpeg', './image/iPadPro/gray-2.jpeg'] },
+              { color: 'silver', colorImg: './image/silver.png', images: ['./image/iPadPro/silver-1.jpeg', './image/iPadPro/silver-2.jpeg'] }
+            ],
+            specs: [
+              { storage: '128GB', network: 'Wi-Fi', price: 27900 },
+              { storage: '128GB', network: 'Wi-Fi + Cellular', price: 32900 },
+              { storage: '256GB', network: 'Wi-Fi', price: 31400 },
+              { storage: '256GB', network: 'Wi-Fi + Cellular', price: 36400 },
+              { storage: '512GB', network: 'Wi-Fi', price: 38400 },
+              { storage: '512GB', network: 'Wi-Fi + Cellular', price: 43400 },
+              { storage: '1TB', network: 'Wi-Fi', price: 52400 },
+              { storage: '1TB', network: 'Wi-Fi + Cellular', price: 57400 },
+              { storage: '2TB', network: 'Wi-Fi', price: 66400 },
+              { storage: '2TB', network: 'Wi-Fi + Cellular', price: 71400 }
+            ]
+          }
+        }
+      },
+      methods: {
+        buttonDisplay() {
+          prev = document.querySelector('.carousel-control-prev')
+          next = document.querySelector('.carousel-control-next')
+          next.classList.toggle('d-none')
+          prev.classList.toggle('d-none')
+        },
+        choose(e) {
+          document.querySelectorAll('#colorSelect').forEach(btn => {
+            if (e.target.id == 'colorSelect')
+              btn.classList.remove('border-primary')
+            e.target.classList.add('border-primary')
+          })
+          document.querySelectorAll('#storageSelect').forEach(btn => {
+            btn.disabled = false
+            if (e.target.id == 'storageSelect')
+              btn.classList.remove('border-primary')
+            e.target.classList.add('border-primary')
+          })
+          document.querySelectorAll('#networkSelect').forEach(btn => {
+            btn.disabled = false
+            if (e.target.id == 'networkSelect')
+              btn.classList.remove('border-primary')
+            e.target.classList.add('border-primary')
+          })
+
+          result = document.querySelectorAll('.border-primary')
+          document.querySelector('[alt="img-1"]').src = this.initial.category.filter(x => x.color == result[0].innerText).map(x => x.images[0])
+          document.querySelector('[alt="img-2"]').src = this.initial.category.filter(x => x.color == result[0].innerText).map(x => x.images[1])
+
+          document.getElementById('price').innerText = this.initial.specs.filter(x => x.storage == result[1].innerText && x.network == result[2].innerText).map(x => x.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+          document.getElementById('show').innerText = `${this.initial.type.name} ${result[2].innerText} ${result[1].innerText} - ${result[0].innerText}`
+        },
+        switchToAir() {
+          this.initial = { ...this.Air }
+        },
+        switchToMini() {
+          this.initial = { ...this.mini }
+        },
+        switchToPro() {
+          this.initial = { ...this.Pro }
+        },
+        reload() {
+          window.location.reload()
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
