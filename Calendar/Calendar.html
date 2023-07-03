@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <article id="app" class="container mt-5">
+    <section class="d-flex justify-content-center align-items-center px-lg-5 p-3">
+      <i class="fa-solid fa-calendar me-auto"><span class="fs-5 ms-2"></span>{{year}}</span></i>
+      <button @click="lastMonth" class="btn border-0"><i class="fa-solid fa-angle-left"></i></button>
+      <h2 class="col-5 col-lg-2 text-center">{{months[month]}}</h2>
+      <button @click="nextMonth" class="btn border-0"><i class="fa-solid fa-angle-right"></i></button>
+    </section>
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th v-for="week in weeks" class="p-2">{{week}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="week in totalWeeks">
+          <td v-for="day in 7" :class="{'text-danger':isToday(getDayOfMonth(week,day))}">{{getDayOfMonth(week,day)}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const { createApp } = Vue
+    createApp({
+      data() {
+        return {
+          year: '',
+          month: '',
+          months: ['January', 'Febrary', 'March', 'April', 'May', 'June', 'July', 'Auguest', 'September', 'October', 'November', 'December'],
+          weeks: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+          firstDayOfWeek: '',
+          daysInMonth: '',
+        }
+      },
+      mounted() {
+        // 年份
+        this.year = new Date().getFullYear()
+        // 月份
+        this.month = new Date().getMonth()
+        this.monthInfo()
+      },
+      computed: {
+        // 當月幾周
+        totalWeeks() {
+          return Math.ceil((this.daysInMonth + this.firstDayOfWeek) / 7)
+        }
+      },
+      methods: {
+        monthInfo() {
+          // 當月第一天星期幾
+          this.firstDayOfWeek = new Date(this.year, this.month, 1).getDay()
+          // 當月幾天
+          this.daysInMonth = new Date(this.year, this.month + 1, 0).getDate()
+        },
+        lastMonth() {
+          this.month--
+          if (this.month < 0) {
+            this.year--
+            this.month = 11
+          }
+          this.monthInfo()
+        },
+        nextMonth() {
+          this.month++
+          if (this.month > 11) {
+            this.year++
+            this.month = 0
+          }
+          this.monthInfo()
+        },
+        getDayOfMonth(week, day) {
+          // 該周該天是幾號
+          dayOfMonth = (week - 1) * 7 + day - this.firstDayOfWeek
+          return dayOfMonth < 1 || dayOfMonth > this.daysInMonth ? '' : dayOfMonth
+        },
+        isToday(day) {
+          today = new Date()
+          return this.year === today.getFullYear() && this.month === today.getMonth() && day === today.getDate()
+        },
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
