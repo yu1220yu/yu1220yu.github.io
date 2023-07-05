@@ -102,6 +102,7 @@
           this.firstDayOfWeek = new Date(this.year, this.month, 1).getDay()
           // 當月幾天
           this.daysInMonth = new Date(this.year, this.month + 1, 0).getDate()
+          this.resetUI()
         },
         today() {
           // 年份
@@ -117,7 +118,6 @@
             this.month = 11
           }
           this.monthInfo()
-          this.resetUI()
         },
         nextMonth() {
           this.month++
@@ -126,7 +126,6 @@
             this.month = 0
           }
           this.monthInfo()
-          this.resetUI()
         },
         getDayOfMonth(week, day) {
           // 該周該天是幾號
@@ -158,6 +157,7 @@
           document.querySelectorAll('#day').forEach(x => {
             x.classList.remove('bg-body-tertiary', 'shadow-sm')
           })
+          this.addToDo = false
         },
         setItemS() {
           bootstrap.Modal.getOrCreateInstance(document.getElementById('addModal')).hide()
