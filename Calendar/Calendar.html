@@ -225,6 +225,7 @@
           this.renderToDO()
           this.toastr()
           toastr.warning('update')
+          this.addToDo = true
         },
         renderToDO() {
           this.isEmpty = localStorage.getItem(this.key) !== null ? false : true
