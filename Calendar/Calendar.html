@@ -31,7 +31,7 @@
           <td v-for="day in 7">
             <button id="day"
               class="btn badge btn-outline-light text-dark rounded-circle border-0 border-dark-subtle position-relative"
-              style="width: 44px; aspect-ratio: 1/1"
+              style="aspect-ratio: 1/1"
               :class="{'bg-secondary-subtle text-danger':isToday(getDayOfMonth(week,day))}"
               v-if="getDayOfMonth(week,day)!=''" @click="choose">{{getDayOfMonth(week,day)}}
               <span
@@ -44,7 +44,7 @@
     </table>
 
     <section class="d-flex">
-      <button class="btn badge bg-primary-subtle text-light border-0 shadow p-1 px-3 ms-auto" data-bs-toggle="modal"
+      <button class="btn badge bg-primary-subtle text-light border-0 shadow p-1 px-3 ms-auto mb-5" data-bs-toggle="modal"
         data-bs-target="#Modal" @click="addToDo = true" v-if="addToDo"><i class="fa-solid fa-plus"></i></button>
       <!-- Modal -->
       <div class="modal fade" id="Modal" data-bs-backdrop="static">
@@ -71,8 +71,8 @@
       </div>
     </section>
 
-    <section class="fixed-bottom overflow-auto mb-2 px-5" style="height:20%">
-      <h3 class="text-center opacity-50 mt-5 d-none d-lg-block" v-if="isEmpty">No hay eventos</h3>
+    <section class="fixed-bottom overflow-auto mb-5 px-lg-5 h-25">
+      <h3 class="text-center opacity-50 mt-5" v-if="isEmpty">No hay eventos</h3>
       <div class="d-flex align-items-center mx-5 px-lg-5" v-else v-for="item in items">
         <i class="fa-solid fa-check text-success"></i>
         <span class="fa-solid text-truncate px-3 py-2">{{item}}</span>
