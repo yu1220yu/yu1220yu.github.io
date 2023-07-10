@@ -20,7 +20,7 @@
       <button @click="nextMonth" class="btn border-0"><i class="fa-solid fa-angle-right"></i></button>
     </section>
 
-    <table class="table text-center table-group-divider">
+    <table class="table text-center table-hover table-group-divider">
       <thead>
         <tr>
           <th v-for="week in weeks" class="p-2">{{week}}</th>
@@ -30,13 +30,13 @@
         <tr v-for="week in totalWeeks">
           <td v-for="day in 7">
             <button id="day"
-              class="btn badge btn-outline-light text-dark rounded-circle border-0 border-dark-subtle position-relative"
-              style="aspect-ratio: 1/1"
+              class="btn badge btn-outline-light text-dark rounded-circle border-0 border-dark-subtle position-relative p-2"
+              style="width: 2.5em;aspect-ratio: 1/1;"
               :class="{'bg-secondary-subtle text-danger':isToday(getDayOfMonth(week,day))}"
               v-if="getDayOfMonth(week,day)!=''" @click="choose">{{getDayOfMonth(week,day)}}
-              <span
-                class="position-absolute top-0 start-100 translate-middle mt-2 bg-danger border border-light rounded-pill badge"
-                style="pointer-events:none">{{eventLength(getDayOfMonth(week,day))}}</span>
+              <small
+                class="position-absolute top-0 start-100 translate-middle mt-2 bg-danger border border-light rounded-pill badge ms-1"
+                style="pointer-events:none">{{eventLength(getDayOfMonth(week,day))}}</small>
             </button>
           </td>
         </tr>
