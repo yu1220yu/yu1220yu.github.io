@@ -8,10 +8,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" />
   <script src="https://kit.fontawesome.com/0304c19c0c.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <style>
+    .overflow-auto::-webkit-scrollbar {
+      width: 0.5em;
+    }
+  </style>
 </head>
 <body>
   <article id="app" class="container mt-1">
-    <section class="d-flex align-items-center p-3">
+    <section class="d-flex align-items-center py-3 ps-3 pe-lg-3">
       <h2 class="fa-solid me-auto">{{months[month]}}<span class="fa-solid fs-4 ps-2">{{year}}</span></h2>
       <button @click="lastMonth" class="btn border-0"><i class="fa-solid fa-angle-left"></i></button>
       <button @click="todayToastr" type="button"
@@ -44,8 +49,9 @@
     </table>
 
     <section class="d-flex">
-      <button class="btn badge bg-primary-subtle text-light border-0 shadow p-1 px-3 ms-auto mb-5" data-bs-toggle="modal"
-        data-bs-target="#Modal" @click="addToDo = true" v-if="addToDo"><i class="fa-solid fa-plus"></i></button>
+      <button class="btn badge bg-primary-subtle text-light border-0 shadow p-1 px-3 ms-auto opacity-0"
+        data-bs-toggle="modal" data-bs-target="#Modal" @click="addToDo = true" :class="{'opacity-100':addToDo}"><i
+          class="fa-solid fa-plus"></i></button>
       <!-- Modal -->
       <div class="modal fade" id="Modal" data-bs-backdrop="static">
         <div class="modal-dialog">
@@ -71,9 +77,9 @@
       </div>
     </section>
 
-    <section class="fixed-bottom overflow-auto mb-5 px-lg-5 h-25">
-      <h3 class="text-center opacity-50 mt-5" v-if="isEmpty">No hay eventos</h3>
-      <div class="d-flex align-items-center mx-5 px-lg-5" v-else v-for="item in items">
+    <section class="overflow-auto my-1 px-5 pt-5" style="height: 11rem">
+      <h3 class="text-center opacity-50 pt-5" v-if="isEmpty">No hay eventos</h3>
+      <div class="d-flex align-items-center" v-else v-for="item in items">
         <i class="fa-solid fa-check text-success"></i>
         <span class="fa-solid text-truncate px-3 py-2">{{item}}</span>
         <i class="fa-solid fa-pen btn border-0 btn-outline-light text-primary-emphasis ms-auto p-1"
@@ -184,6 +190,7 @@
         setItemS() {
           bootstrap.Modal.getOrCreateInstance(document.getElementById('Modal')).hide()
 
+          if (!this.input) return
           this.todoItem = { value: this.input }
           this.input = ''
 
