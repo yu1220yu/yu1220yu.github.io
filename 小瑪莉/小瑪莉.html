@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/0304c19c0c.js"></script>
+  <title>小瑪莉</title>
+  <style>
+    body {
+      background-image: url(https://www.588vip.net/themes/cali/web/assets/img/c_general/bg.jpg);
+      background-size: cover;
+    }
+
+    [box-id].active {
+      box-shadow: 0 0 20px gold;
+      transition: 0s;
+    }
+  </style>
+</head>
+<body>
+  <article id="app">
+    <section class="bg-dark bg-opacity-50 p-3">
+      <div class="container d-flex justify-content-between align-items-end">
+        <a href="#" class="text-decoration-none text-light fs-1 fa-solid">BS娛樂城</a>
+        <small class="col-5 col-lg-2 badge text-light text-truncate text-end fa-solid">BALANCE:
+          {{balance.toLocaleString()}}
+        </small>
+      </div>
+    </section>
+
+    <section class="container">
+      <button class="badge border-danger bg-danger bg-transparen px-3 float-end" @click="swal">賠率表</button>
+      <button class="badge border-success bg-success bg-transparen px-3 float-end" @click="addBalance">儲值</button>
+    </section>
+
+    <article class="container mt-5">
+      <section class="row">
+        <button box-id="3" class="bg-danger"></button>
+        <button box-id="6" class="bg-dark"></button>
+        <button box-id="9" class="bg-danger"></button>
+        <button box-id="12" class="bg-danger"></button>
+        <button box-id="15" class="bg-dark"></button>
+        <button box-id="18" class="bg-danger"></button>
+        <button box-id="21" class="bg-danger"></button>
+        <button box-id="24" class="bg-dark"></button>
+        <button box-id="27" class="bg-danger"></button>
+        <button box-id="30" class="bg-danger"></button>
+        <button box-id="33" class="bg-dark"></button>
+        <button box-id="36" class="bg-danger"></button>
+      </section>
+      <section class="row">
+        <button box-id="2" class="bg-dark"></button>
+        <button box-id="5" class="bg-danger"></button>
+        <button box-id="8" class="bg-dark"></button>
+        <button box-id="11" class="bg-dark"></button>
+        <button box-id="14" class="bg-danger"></button>
+        <button box-id="17" class="bg-dark"></button>
+        <button box-id="20" class="bg-dark"></button>
+        <button box-id="23" class="bg-danger"></button>
+        <button box-id="26" class="bg-dark"></button>
+        <button box-id="29" class="bg-dark"></button>
+        <button box-id="32" class="bg-danger"></button>
+        <button box-id="35" class="bg-dark"></button>
+      </section>
+      <section class="row">
+        <button box-id="1" class="bg-danger"></button>
+        <button box-id="4" class="bg-dark"></button>
+        <button box-id="7" class="bg-danger"></button>
+        <button box-id="10" class="bg-dark"></button>
+        <button box-id="13" class="bg-dark"></button>
+        <button box-id="16" class="bg-danger"></button>
+        <button box-id="19" class="bg-danger"></button>
+        <button box-id="22" class="bg-dark"></button>
+        <button box-id="25" class="bg-danger"></button>
+        <button box-id="28" class="bg-dark"></button>
+        <button box-id="31" class="bg-dark"></button>
+        <button box-id="34" class="bg-danger"></button>
+      </section>
+    </article>
+
+    <article class="container mt-5">
+      <section class="row">
+        <div class="col-12 text-danger text-center my-1 pt-3 fs-3 fw-bold opacity-50">下 注 區</div>
+        <button bet-id="first"
+          class="col-4 text-light bg-transparent text-center border-light border-3 p-2 fs-4 fa-solid rounded-top rounded-end-0 position-relative">1st<br><small
+            class="text-opacity-50 text-primary">1 - 12</small></button>
+        <button bet-id="second"
+          class="col-4 text-light bg-transparent text-center border-light border-3 p-2 fs-4 fa-solid position-relative">2nd<br><small
+            class="text-opacity-50 text-primary">13 - 24</small></button>
+        <button bet-id="third"
+          class="col-4 text-light bg-transparent text-center border-light border-3 p-2 fs-4 fa-solid rounded-top rounded-start-0 position-relative">3rd<br><small
+            class="text-opacity-50 text-primary">25 - 36</small></button>
+      </section>
+      <section class="row">
+        <button bet-id="small"
+          class="col-2 text-white bg-transparent text-center border-light border-2 p-2 fa-solid position-relative">小<br><small
+            class="text-opacity-50 text-primary">1 - 18</small></button>
+        <button bet-id="even"
+          class="col-2 text-white bg-transparent text-center border-light border-2 p-2 fa-solid position-relative">雙<br><small
+            class="text-opacity-50 text-primary">even</small>
+        </button>
+        <button bet-id="red"
+          class="col-2 text-white bg-transparent text-center border-light border-2 p-2 position-relative">
+          <i class="fa-solid fa-diamond text-danger fs-4"></i></button>
+        <button bet-id="black"
+          class="col-2 text-white bg-transparent text-center border-light border-2 p-2 position-relative">
+          <i class="fa-solid fa-diamond text-black fs-4"></i></button>
+        <button bet-id="odd"
+          class="col-2 text-white bg-transparent text-center border-light border-2 p-2 fa-solid position-relative">單<br><small
+            class="text-opacity-50 text-primary">odd</small></button>
+        <button bet-id="big"
+          class="col-2 text-white bg-transparent text-center border-light border-2 p-2 fa-solid position-relative">大<br><small
+            class="text-opacity-50 text-primary">19 - 36</small>
+        </button>
+      </section>
+      <section class="d-flex justify-content-end align-items-center my-3">
+        <div class="bg-opacity-75 bg-dark rounded-pill pe-3">
+          <small class="badge text-warning fs-5 opacity-50" style="rotate: -16.8deg;">單注金額</small>
+          <button class="badge text-light border-danger bg-transparent p-0 px-2" @click="minusBet"><i
+              class="fa-solid fa-minus text-danger"></i></button>
+          <span class="text-light px-3 fa-solid">{{bet}}</span>
+          <button class="badge text-light border-success bg-transparent p-0 px-2" @click="addBet"><i
+              class="fa-solid fa-plus text-success"></i></button>
+        </div>
+      </section>
+    </article>
+
+    <article class="container d-flex justify-content-between align-items-center mt-4 px-lg-5 bg-dark bg-transparent bg-gradient rounded-pill">
+      <img src="https://cdn4.iconfinder.com/data/icons/buno-delete/32/trash_bin_delete-1024.png" class="btn border-0"
+        style="width:3em" @click="clearBet">
+
+      <div class="d-flex overflow-auto gap-lg-5 me-2">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/smashicons-casino-gambling-flat-vol-1/58/7_-_Poker_Chip_-_gamble_casino_play_card-1024.png"
+          style="width:4em" class="btn border-0" icon-id="50">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/smashicons-casino-gambling-flat-vol-1/58/9_-_Poker_Chip_-_gamble_casino_play_card-1024.png"
+          style="width:4em" class="btn border-0" icon-id="100">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/smashicons-casino-gambling-flat-vol-1/58/6_-_Poker_Chip_-_gamble_casino_play_card-1024.png"
+          style="width:4em" class="btn border-0" icon-id="150">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/smashicons-casino-gambling-flat-vol-1/58/5_-_Poker_Chip_-_gamble_casino_play_card-1024.png"
+          style="width:4em" class="btn border-0" icon-id="500">
+        <img
+          src="https://cdn0.iconfinder.com/data/icons/smashicons-casino-gambling-flat-vol-1/58/8_-_Poker_Chip_-_gamble_casino_play_card-256.png"
+          style="width:4em" class="btn border-0" icon-id="1000">
+      </div>
+
+      <button class="bg-transparent bg-gradient border-warning shadow rounded-circle p-1" @click="start"
+        :disabled="isDisabled">
+        <img src="https://cdn1.iconfinder.com/data/icons/bet-and-gambling/512/6-512.png"
+          style="width:3em;aspect-ratio: .5/.5;" class="btn border-0">
+      </button>
+    </article>
+  </article>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          brickS: [],
+          betS: [],
+          prizeBetS: [],
+          balance: '',
+          bet: 100,
+          steps: 0,
+          allSteps: 0,
+          current: -1,
+          speed: '',
+          random: '',
+          prize: '',
+          isDisabled: false
+        }
+      },
+      mounted() {
+        this.brickS = $('[box-id]')
+        this.setBricks()
+        this.balance = parseInt(localStorage.getItem('balance'))
+        this.balance = !this.balance ? 10000 : this.balance
+        this.setBalanceToLocalstorage()
+        this.betClick()
+      },
+      methods: {
+        setBricks() {
+          this.brickS.each(function () {
+            $(this).text($(this).attr('box-id'))
+            $(this).css('height', '4rem')
+            $(this).addClass('col-1 text-light border d-flex justify-content-center align-items-center fa-solid')
+          })
+          this.brickS = this.brickS.sort((a, b) => {
+            return $(a).attr('box-id') - $(b).attr('box-id')
+          })
+        },
+        betClick() {
+          $('.position-relative').each(function () {
+            $(this).click(function () {
+              if (!$(this).find('img').length) {
+                $(this).append($('<img>').attr('src', 'https://cdn4.iconfinder.com/data/icons/games-flat/512/casino_chips-512.png').css('width', '2em').addClass('position-absolute top-50 start-50 translate-middle'))
+              }
+            })
+          })
+
+          const vue = this
+          $('[icon-id]').each(function () {
+            $(this).click(function () {
+              vue.bet += parseInt($(this).attr('icon-id'), 10)
+              vue.bet = vue.bet >= 1000 ? 1000 : vue.bet
+            })
+          })
+        },
+        setBalanceToLocalstorage() {
+          localStorage.setItem('balance', this.balance)
+        },
+        addBalance() {
+          this.balance += 1000
+          this.setBalanceToLocalstorage()
+        },
+        addBet() {
+          this.bet = this.bet + 100 <= 1000 ? this.bet + 100 : this.bet
+        },
+        minusBet() {
+          this.bet = this.bet - 100 > 100 ? this.bet - 100 : 100
+        },
+        clearBet() {
+          this.bet = 100
+          $('.position-relative').each(function () {
+            $(this).find('img').remove()
+          })
+        },
+        start() {
+          this.random = Math.floor(Math.random() * this.brickS.length)
+          this.speed = 20
+          this.steps = this.random + 2 * this.brickS.length
+          this.allSteps = this.steps
+          this.isDisabled = true
+          this.turnAround()
+          this.pay()
+        },
+        turnAround() {
+          $(this.brickS[this.current]).removeClass('active border-3 border-warning')
+          this.current++
+          this.current = this.current >= this.brickS.length ? 0 : this.current
+          $(this.brickS[this.current]).addClass('active border-3 border-warning')
+          this.steps--
+
+          if (this.steps > 0) {
+            setTimeout(() => {
+              this.turnAround()
+              if (this.steps < Math.floor((this.allSteps / 3))) this.speed += 6.8
+            }, this.speed)
+          } else {
+            this.prize = parseInt($(this.brickS[this.current]).attr('box-id'))
+            this.isDisabled = false
+            this.result()
+          }
+        },
+        prizeUI() {
+          this.betS = $('.position-absolute')
+          this.prizeBetS = []
+          const vue = this
+          vue.betS.each(function () {
+            vue.prizeBetS.push($(this).parent().attr('bet-id'))
+          })
+        },
+        first() {
+          this.prizeBetS
+            .filter(x => x === 'first')
+            .forEach(x => {
+              this.balance += this.prize >= 1 && this.prize <= 12 ? this.bet * 3 : 0
+              this.prize >= 1 && this.prize <= 12 ? toastr['success']('+' + this.bet * 3) : ''
+            })
+        },
+        second() {
+          this.prizeBetS
+            .filter(x => x === 'second')
+            .forEach(x => {
+              this.balance += this.prize >= 13 && this.prize <= 24 ? this.bet * 3 : 0
+              this.prize >= 13 && this.prize <= 24 ? toastr['success']('+' + this.bet * 3) : ''
+            })
+        },
+        third() {
+          this.prizeBetS
+            .filter(x => x === 'third')
+            .forEach(x => {
+              this.balance += this.prize >= 25 && this.prize <= 36 ? this.bet * 3 : 0
+              this.prize >= 25 && this.prize <= 36 ? toastr['success']('+' + this.bet * 3) : ''
+            })
+        },
+        small() {
+          this.prizeBetS
+            .filter(x => x === 'small')
+            .forEach(x => {
+              this.balance += this.prize >= 1 && this.prize <= 18 ? this.bet * 2 : 0
+              this.prize >= 1 && this.prize <= 18 ? toastr['success']('+' + this.bet * 2) : ''
+            })
+        },
+        even() {
+          this.prizeBetS
+            .filter(x => x === 'even')
+            .forEach(x => {
+              this.balance += parseInt(this.prize) % 2 === 0 ? this.bet * 2 : 0
+              parseInt(this.prize) % 2 === 0 ? toastr['success']('+' + this.bet * 2) : ''
+            })
+        },
+        red() {
+          this.prizeBetS
+            .filter(x => x === 'red')
+            .forEach(x => {
+              this.balance += this.brickS[this.current].classList.contains('bg-danger') ? this.bet * 2 : 0
+              this.brickS[this.current].classList.contains('bg-danger') ? toastr['success']('+' + this.bet * 2) : ''
+            })
+        },
+        black() {
+          this.prizeBetS
+            .filter(x => x === 'black')
+            .forEach(x => {
+              this.balance += this.brickS[this.current].classList.contains('bg-dark') ? this.bet * 2 : 0
+              this.brickS[this.current].classList.contains('bg-dark') ? toastr['success']('+' + this.bet * 2) : ''
+            })
+        },
+        odd() {
+          this.prizeBetS
+            .filter(x => x === 'odd')
+            .forEach(x => {
+              this.balance += parseInt(this.prize) % 2 !== 0 ? this.bet * 2 : 0
+              parseInt(this.prize) % 2 !== 0 ? toastr['success']('+' + this.bet * 2) : ''
+            })
+        },
+        big() {
+          this.prizeBetS
+            .filter(x => x === 'big')
+            .forEach(x => {
+              this.balance += this.prize >= 19 && this.prize <= 36 ? this.bet * 2 : 0
+              this.prize >= 19 && this.prize <= 36 ? toastr['success']('+' + this.bet * 2) : ''
+            })
+        },
+        result() {
+          this.prizeUI()
+          this.first()
+          this.second()
+          this.third()
+          this.small()
+          this.even()
+          this.red()
+          this.black()
+          this.odd()
+          this.big()
+          this.clearBet()
+          this.setBalanceToLocalstorage()
+        },
+        pay() {
+          this.prizeUI()
+          this.balance -= (this.prizeBetS.length) * this.bet
+          this.setBalanceToLocalstorage()
+        },
+        swal() {
+          Swal.fire({
+            title: '賠率',
+            html: '<table class="table text-center"><thead><tr><th>投注</th><th>賠率</th><th>概率</th></tr></thead><tbody><tr><th>單</th><td>1:1</td><td>46.37%</td></tr><tr><th>雙</th><td>1:1</td><td>46.37%</td></tr><tr><th>黑</th><td>1:1</td><td>46.37%</td></tr><tr><th>紅</th><td>1:1</td><td>46.37%</td></tr><tr><th>小</th><td>1:1</td><td>46.37%</td></tr><tr><th>大</th><td>1:1</td><td>46.37%</td></tr><tr><th>1st</th><td>1:2</td><td>31.58%</td></tr><tr><th>2nd</th><td>1:2</td><td>31.58%</td></tr><tr><th>3rd</th><td>1:2</td><td>31.58%</td></tr><tr><th>num</th><td>1:35</td><td>2.63%</td></tr></tbody></table>',
+            confirmButtonText: 'OK'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire('小提示', '單注金額最低100 上限1000<br>籌碼單位為10進位', 'warning')
+            }
+          })
+        }
+      }
+    }).mount('#app')
+  </script>
+  <script>
+    toastr.options = {
+      closeButton: true,
+      debug: false,
+      newestOnTop: false,
+      progressBar: true,
+      positionClass: 'toast-top-right',
+      preventDuplicates: false,
+      onclick: null,
+      showDuration: '300',
+      hideDuration: '1000',
+      timeOut: '5000',
+      extendedTimeOut: '1000',
+      showEasing: 'swing',
+      hideEasing: 'linear',
+      showMethod: 'fadeIn',
+      hideMethod: 'fadeOut'
+    }
+  </script>
+</body>
+</html>
