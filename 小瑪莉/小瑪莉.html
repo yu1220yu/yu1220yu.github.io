@@ -196,11 +196,9 @@
           this.brickS.each(function () {
             $(this).text($(this).attr('box-id'))
             $(this).css('height', '4rem')
-            $(this).addClass('col-1 text-light border d-flex justify-content-center align-items-center fa-solid')
+            $(this).addClass('col-1 text-light border-start-0 rounded d-flex justify-content-center align-items-center fa-solid')
           })
-          this.brickS = this.brickS.sort((a, b) => {
-            return $(a).attr('box-id') - $(b).attr('box-id')
-          })
+          this.brickS = this.brickS.sort((x) => Math.random() - 0.5)
         },
         betClick() {
           $('.position-relative').each(function () {
