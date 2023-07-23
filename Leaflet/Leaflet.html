@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+  <script src="https://kit.fontawesome.com/0304c19c0c.js"></script>
+  <title>Leaflet</title>
+</head>
+<body>
+  <button class="btn btn-outline-light position-fixed end-0 bottom-0 border-light-subtle shadow-sm rounded-circle m-5"
+    onclick="goHome()" style="z-index: 1"><i class="fa-solid fa-person text-warning fs-2"></i></button>
+  <section id="map" style="height:100vh;z-index:0"></section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    var map = L.map('map').fitWorld()
+    var markers = L.markerClusterGroup({ maxClusterRadius: 300 })
+    const district = L.layerGroup()
+    const activity = L.layerGroup()
+
+    window.onload = function () {
+      toastr.options = { preventDuplicates: true }
+      init()
+      fetchDistData()
+      fetchActData()
+    }
+
+    async function fetchDistData() {
+      try {
+        const response = await fetch('https://raw.githubusercontent.com/ChouJustice/ChouJustice.github.io/main/Map/%E5%8F%B0%E7%81%A3%E8%A1%8C%E6%94%BF%E5%9C%B0%E5%8D%80.json')
+        const data = await response.json()
+        data.forEach(data => {
+          renderDistMap(data)
+        })
+        map.addLayer(markers)
+      } catch (error) { console.error(error) }
+    }
+    function renderDistMap(data) {
+      const marker = L.marker([data.Lat, data.Lng], { icon: icon('green') }).addTo(district)
+      marker.bindPopup(data.District)
+      markers.addLayer(marker)
+    }
+
+    async function fetchActData() {
+      try {
+        const response = await fetch('https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindFestivalTypeJ')
+        const data = await response.json()
+        data.forEach(data => {
+          renderActMap(data)
+        })
+        map.addLayer(markers)
+      } catch (error) { console.error(error) }
+    }
+    function renderActMap(data) {
+      const marker = L.marker([data.longitude, data.latitude], { icon: icon('red') }).addTo(activity)
+      marker.bindPopup(data.actName)
+      markers.addLayer(marker)
+    }
+
+    function init() {
+      var taiwanBounds = L.latLngBounds(L.latLng(21.9, 120.0), L.latLng(25.3, 122.1))
+      const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png')
+      const osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png')
+      const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png')
+
+      const baseMaps = { '街道圖': osm, '街道圖.HOT': osmHOT, '地形圖': openTopoMap }
+      const overlays = { '地區': district , '活動': activity}
+
+      L.control.layers(baseMaps, overlays).addTo(map)
+      L.control.scale().addTo(map)
+
+      map.addLayer(osmHOT)
+      map.setMinZoom(6)
+      map.setMaxBounds(taiwanBounds)
+      map.locate({ setView: true, maxZoom: 15 })
+
+      function onLocationFound(e) {
+        L.marker(e.latlng, { icon: icon('orange') }).addTo(map)
+          .bindPopup('哩底ㄐㄧㄚ ').openPopup()
+        L.circle(e.latlng).addTo(map)
+  
+        toastr['success']('找到你ㄌ')
+      }
+      function onLocationError(e) {
+        map.setView([25.041817688061865, 121.53627204923323], 19)
+        L.marker([25.041817688061865, 121.53627204923323], { icon: icon('orange') })
+        .addTo(map).bindPopup("假裝在 Build School").openPopup()
+
+        Swal.fire('定位開一下拉 !')
+        toastr['error'](e.message)
+      }
+      map.on('locationfound', onLocationFound)
+      map.on('locationerror', onLocationError)
+    }
+
+    function goHome() {
+      map.locate({ setView: true, maxZoom: 18 })
+    }
+
+    function icon(color) {
+      var icon = L.icon({
+        iconUrl: `https://leafletjs.com/examples/custom-icons/leaf-${color}.png`,
+        shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+        iconSize: [38, 95], shadowSize: [50, 64], iconAnchor: [22, 94], shadowAnchor: [4, 62], popupAnchor: [-3, -76]
+      })
+      return icon
+    }
+  </script>
+</body>
+</html>
