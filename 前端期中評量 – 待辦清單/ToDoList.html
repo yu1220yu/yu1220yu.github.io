@@ -23,7 +23,7 @@
             </button>
         </section>
 
-        <section class="overflow-auto" style="height: 33rem;">
+        <section class="overflow-auto" style="height: 30rem">
             <!-- clear -->
             <button class="badge bg-danger-subtle text-danger rounded-circle border-0 shadow m-3 m-md-4 m-lg-5 p-3 position-fixed bottom-0 end-0"
                 style="aspect-ratio: 1/1;" @click="clearToDo()">
@@ -82,7 +82,7 @@
             methods: {
                 addToDo() {
                     const todo = { done: false, val: this.input }
-                    if (this.input) {
+                    if (todo.val) {
                         this.todoList = [...this.todoList, todo]
                         this.setStorage()
                     } else {
