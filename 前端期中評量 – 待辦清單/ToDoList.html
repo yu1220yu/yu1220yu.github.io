@@ -126,7 +126,7 @@
                 renderToDo() {
                     this.todoList = this.getStorage()
                     this.todoS = this.getStorage()
-                    this.todoS.map(todo => { todo.editMode = false, todo.unDisabled = false })
+                    this.todoS?.map(todo => { todo.editMode = false, todo.unDisabled = false })
                 },
                 getStorage() {
                     return JSON.parse(localStorage.getItem('todoList'))
