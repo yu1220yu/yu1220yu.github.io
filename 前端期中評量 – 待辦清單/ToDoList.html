@@ -15,7 +15,7 @@
     <article class="container col-10 col-lg-6" id="app">
         <section class="input-group mb-3">
             <!-- input -->
-            <input type="text" class="form-control shadow-none ps-4" placeholder="@todo..." v-model="input"
+            <input type="text" class="form-control shadow-none ps-4" placeholder="@todo..." v-model.trim="input"
                 @keypress.enter="addToDo()">
             <!-- add -->
             <button class="btn bg-primary bg-gradient text-light" type="button" @click="addToDo()">
@@ -41,7 +41,7 @@
                 <input type="text" class="form-control d-inline-flex focus-ring border-0 rounded-end my-1 me-2"
                     style="--bs-focus-ring-x: 10px; --bs-focus-ring-y: 10px; --bs-focus-ring-blur: 4px"
                     :class="'focus-ring-'+color[Math.floor(Math.random()*color.length)]" :id="index"
-                    :disabled="!todo.unDisabled" v-model="todo.val" @keypress.enter="editDone(index)">
+                    :disabled="!todo.unDisabled" v-model.trim="todo.val" @keypress.enter="editDone(index)">
                 <!-- edit -->
                 <label class="btn rounded btn-warning bg-gradient m-1" type="button" :for="index"
                     v-show="!todo.editMode && !todo.done" @click="editToDo(index)">
@@ -81,8 +81,8 @@
             },
             methods: {
                 addToDo() {
-                    const todo = { done: false, val: this.input?.trim() }
-                    if (todo.val) {
+                    const todo = { done: false, val: this.input }
+                    if (this.input) {
                         this.todoList = [...this.todoList, todo]
                         this.setStorage()
                     } else {
@@ -92,18 +92,18 @@
                     this.renderToDo()
                 },
                 editToDo(index) {
-                    this.todoS[index] = { ...this.todoS[index], editMode: true, unDisabled: true }
+                    this.todoS[index].editMode = true
+                    this.todoS[index].unDisabled = true
                 },
                 editDone(index) {
                     this.todoList = this.getStorage()
-                    this.todoList[index].val = this.todoS[index].val?.trim()
+                    this.todoList[index].val = this.todoS[index].val
                     if (this.todoList[index].val) {
                         this.setStorage()
                     } else {
                         this.toastr('error')
                     }
-                    this.todoS[index].editMode = false
-                    this.todoS[index].unDisabled = false
+                    this.todoS[index] = { editMode: false, unDisabled: false }
                     this.renderToDo()
                 },
                 delToDo(index) {
@@ -124,7 +124,12 @@
                     this.renderToDo()
                 },
                 renderToDo() {
-                    this.todoS = this.getStorage()?.map(x => x)
+                    this.todoList = this.getStorage()
+                    this.todoS = this.getStorage()
+                    this.todoS.map( todo =>{
+                        todo.editMode = false
+                        todo.unDisabled = false
+                    })
                 },
                 getStorage() {
                     return JSON.parse(localStorage.getItem('todoList'))
