@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
-  <title>Bootstrap</title>
+  <title>Home</title>
   <style>
     /* navbar */
     [type="text"][placeholder="搜尋分類"]:focus {
       border-color: #008f79;
     }
-    .loopSellColor {
+    .loopSellBackgroundColorRed {
       background-color: #ff2636;
     }
     .dropdown:hover :not([data-bs-toggle="dropdown"])+.dropdown-menu {
       display: block;
     }
     /* search */
-    .searchButton {
+    .loopSellBackgroundColorGreen {
       background-color: #008f79;
     }
     [type="text"]::placeholder {
@@ -102,7 +102,6 @@
     }
   </style>
 </head>
-
 <body>
   <!-- navbar -->
   <header class="bg-white border-bottom border-light-subtle position-fixed top-0 w-100" style="z-index: 10">
@@ -433,10 +432,12 @@
       </a>
       <!-- message -->
       <a href="#" class="btn btn-outline-light border-0 rounded-0 py-3">
-        <i class="fa-regular fa-comment text-dark"></i>
+        <i class="fa-regular fa-comment text-dark position-relative">
+          <span class="loopSellBackgroundColorRed badge rounded-pill translate-middle position-absolute top-0 start-100" style="font-size:.5rem">9</span>
+        </i>
       </a>
       <!-- sell -->
-      <button class="loopSellColor btn btn-outline-danger badge text-light py-2 px-4 mx-2 d-none d-sm-block">出售</button>
+      <button class="loopSellBackgroundColorRed btn btn-outline-danger badge text-light py-2 px-4 mx-2 d-none d-sm-block">出售</button>
     </nav>
   </header>
 
@@ -463,7 +464,7 @@
       </div>
       <!-- button -->
       <div class="bg-body-secondary rounded-end border border-3 border-light-subtle">
-        <button class="searchButton btn badge btn-outline-success text-light px-3 p-2">搜尋</button>
+        <button class="loopSellBackgroundColorGreen btn badge btn-outline-success text-light px-3 p-2">搜尋</button>
       </div>
     </div>
   </section>
@@ -981,6 +982,5 @@
       $('[data-toggle="popover"]').popover()
     })
   </script>
-
 </body>
 </html>
