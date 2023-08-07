@@ -405,7 +405,7 @@
               </a>
             <!-- sell -->
             <button
-                class="loopSellBackgroundColorRed btn btn-outline-danger badge text-light py-2 px-4 mx-2 d-none d-sm-block">出售</button>
+                class="loopSellBackgroundColorRed btn btn-outline-danger badge text-light focus-ring focus-ring-danger py-2 px-4 mx-2 d-none d-sm-block">出售</button>
         </nav>
     </header>
 
@@ -416,7 +416,7 @@
         <!-- title -->
         <section class="d-flex align-items-center my-3">
             <i class="fa-solid fa-arrow-left btn border-0 text-light-emphasis fs-5 me-1 "></i>
-            <h3 class="m-0">訂單請求</h3>
+            <h3 class="fw-semibold m-0">訂單請求</h3>
         </section>
         <!-- content -->
         <section class="d-lg-flex px-2">
@@ -425,22 +425,22 @@
                 <section class="border border-light-subtle rounded shadow p-3"></section>
                 <section class="border border-light-subtle rounded shadow my-3 p-4">
                     <!-- delivery -->
-                    <h4 class="fs-5">運送</h4>
+                    <h4 class="fs-5 fw-semibold">運送</h4>
                     <div class="form-check border-bottom mb-3 mx-2 pt-2 pb-3">
                         <input type="radio" name="delivery" class="form-check-input focus-ring focus-ring-success"
                             id="7-11" checked>
-                        <label for="7-11" class="form-check-label fw-medium w-100">
+                        <label for="7-11" class="form-check-label fw-medium fw-semibold w-100">
                             7-Eleven<span class="float-end">string.Format("{0:C}",60)</span>
                         </label>
                     </div>
                     <!-- store -->
-                    <h4 class="fs-5">取貨門市</h4>
+                    <h4 class="fs-5 fw-semibold">取貨門市</h4>
                     <div class="border-bottom mb-3 pb-3">
                         <!-- store option -->
                         <label class="btn btn-outline-light fw-medium border-0 rounded text-start w-100 my-1 p-2">
                             <input type="radio" name="7-11_store"
                                 class="form-check-input focus-ring focus-ring-success">
-                            <span for="address_1" class="text-dark ms-1">{{username}} {{phoneNumber}}</span>
+                            <span for="address_1" class="text-dark fw-semibold ms-1">{{username}} {{phoneNumber}}</span>
                             <span class="float-end d-flex justify-content-around w-25">
                                 <i class="fa-regular fa-pen-to-square small p-1" onclick=""><span
                                         class="d-none d-sm-inline"> 編輯</span></i>
@@ -455,7 +455,7 @@
                             onclick="">+ 新增取貨門市</button>
                     </div>
                     <!-- bill -->
-                    <h4 class="fs-5">發票詳細資料</h4>
+                    <h4 class="fs-5 fw-semibold">發票詳細資料</h4>
                     <div class="d-flex justify-content-between align-items-center border-bottom mb-3 pt-2 pb-3">
                         <span class="ms-2">二聯式發票(個人)<br>會員載具</span>
                         <button class="btn border-0" onclick=""><i
@@ -465,19 +465,19 @@
             </section>
             <!-- order detail -->
             <section class="col-12 col-lg-4 col-xl-3 border border-light-subtle shadow rounded mx-lg-4 mb-3 p-4 h-100 position-sticky" style="top: 4rem">
-                <h4 class="fs-5">訂單詳情</h4>
+                <h4 class="fs-5 fw-semibold">訂單詳情</h4>
                 <section class="d-flex my-4">
                     <img src="https://picsum.photos/300/800/?random=1"
                         class="object-fit-cover rounded accordion-button me-3" style="width: 4.4rem;aspect-ratio: 1/1">
                     <div class="d-flex flex-column justify-content-between">
                         <h5 class="card-title fs-6">{{productName}} Lorem ipsum dolor sit amet consectetur adipisicing
                             elit.</h5>
-                        <small class="d-block fw-semibold">("{0:C0}")</small>
+                        <small class="d-block fw-bolder">("{0:C0}")</small>
                     </div>
                 </section>
                 <span class="d-block my-3 m-1">產品價格<span class="float-end">("{0:C}")</span></span>
                 <span class="d-block my-3 m-1">運費<span class="float-end">("{0:C}"60)</span></span>
-                <span class="d-block fw-semibold mt-3 mb-4 m-1">總計<span class="float-end">("{0:C}")</span></span>
+                <span class="d-block fw-bolder mt-3 mb-4 m-1">總計<span class="float-end">("{0:C}")</span></span>
                 <section class="d-flex border-bottom my-3 pb-3">
                     <form class="form-floating flex-grow-1">
                         <input type="text" placeholder="coupon code" maxlength="6"
