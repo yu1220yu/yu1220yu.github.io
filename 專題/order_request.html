@@ -17,7 +17,6 @@
         .dropdown:hover :not([data-bs-toggle="dropdown"])+.dropdown-menu {
             display: block;
         }
-
         /* order */
         .loopSellColorGreen {
             color: #008f79 !important;
@@ -50,6 +49,12 @@
         .form-floating>.form-select {
             min-height: 0 !important;
             height: 2.5rem !important;
+        }
+        /* order detail */
+        @media screen and (max-width: calc(992px - 1px)) {
+            .position-sticky[style="width: 20rem;top: 4rem"] {
+                width: 100% !important;
+            }
         }
 
         /* repeat */
@@ -400,9 +405,11 @@
             <!-- message -->
             <a href="#" class="btn btn-outline-light border-0 rounded-0 py-3">
                 <i class="fa-regular fa-comment text-dark position-relative">
-                  <span class="loopSellBackgroundColorRed badge rounded-pill translate-middle position-absolute top-0 start-100" style="font-size:.5rem">9</span>
+                    <span
+                        class="loopSellBackgroundColorRed badge rounded-pill translate-middle position-absolute top-0 start-100"
+                        style="font-size:.5rem">9</span>
                 </i>
-              </a>
+            </a>
             <!-- sell -->
             <button
                 class="loopSellBackgroundColorRed btn btn-outline-danger badge text-light focus-ring focus-ring-danger py-2 px-4 mx-2 d-none d-sm-block">出售</button>
@@ -464,7 +471,8 @@
                 </section>
             </section>
             <!-- order detail -->
-            <section class="col-12 col-lg-4 col-xl-3 border border-light-subtle shadow rounded mx-lg-4 mb-3 p-4 h-100 position-sticky" style="top: 4rem">
+            <section class="border border-light-subtle shadow rounded ms-lg-4 mb-3 p-4 h-100 position-sticky"
+                style="width: 20rem;top: 4rem">
                 <h4 class="fs-5 fw-semibold">訂單詳情</h4>
                 <section class="d-flex my-4">
                     <img src="https://picsum.photos/300/800/?random=1"
@@ -488,8 +496,11 @@
                         class="btn btn-outline-light badge text-dark border-secondary-subtle focus-ring focus-ring-success fw-semibold fs-6 px-4 px-lg-3 mx-1">使用</button>
                 </section>
                 <!-- submit -->
-                <button type="submit" class="loopSellBackgroundColorGreen btn focus-ring focus-ring-success text-light w-100" onclick="submit()" disabled>提交訂單</button>
-                <small class="badge text-dark text-start text-wrap fw-semibold my-1">點擊“提交訂單”即表示您接受<a href="#" class="loopSellColorGreen">Loopsell</a>以及付款服務供應商的服務條款。</small>
+                <button type="submit"
+                    class="loopSellBackgroundColorGreen btn focus-ring focus-ring-success text-light w-100"
+                    onclick="submit()" disabled>提交訂單</button>
+                <small class="badge text-dark text-start text-wrap fw-semibold my-1">點擊“提交訂單”即表示您接受<a href="#"
+                        class="loopSellColorGreen">Loopsell</a>以及付款服務供應商的服務條款。</small>
             </section>
         </section>
     </article>
