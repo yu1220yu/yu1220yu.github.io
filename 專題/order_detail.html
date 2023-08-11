@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0304c19c0c.js"></script>
-    <title>Order_Request</title>
+    <title>Order_Detail</title>
     <style>
         /* navbar */
         .loopSellBackgroundColorRed {
@@ -27,65 +27,67 @@
         header .dropdown:hover :not([data-bs-toggle="dropdown"])+.dropdown-menu {
             display: block;
         }
-        /* order */
-        .loopSellColorGreen {
-            color: #008f79 !important;
-        }
+        /* search */
         .loopSellBackgroundColorGreen {
             background-color: #008f79;
         }
-        [type="radio"]:checked {
-            border-color: #008f79;
-            background-color: #008f79;
-        }
-        [type="submit"]:hover:not(:disabled) {
-            background-color: #026958 !important;
-        }
-        [type="submit"]:disabled {
-            background-color: #c5c5c6 !important;
-            pointer-events: auto;
-            cursor: not-allowed;
-        }
-        /* swal */
-        .addressDel.swal2-container {
-            padding-top: 6rem;
-        }
-        .addressDelCancel.swal2-cancel:hover {
-            color: #026958 !important;
-            background-image: none !important;
-        }
-        .swal2-confirm:focus,
-        .swal2-cancel:not(.addressDelCancel):focus {
-            box-shadow: 0 0 0 4px #cce9e4 !important;
-        }
-        /* coupon */
-        .form-floating>.form-control,
-        .form-floating>.form-control-plaintext,
-        .form-floating>.form-select {
-            min-height: 0 !important;
-            height: 2.5rem !important;
-        }
-        [type="text"][placeholder="coupon code"]:focus {
-            border-color: #008f79 !important;
-        }
-        /* order detail */
-        @media screen and (max-width: calc(992px - 1px)) {
-            .position-sticky[style="width: 20rem;top: 4rem"] {
-                width: 100% !important;
-            }
-        }
-        /* ...Repeat... */
         [type="text"]::placeholder {
             color: #c5c5c6;
         }
-        .swal-overlay {
-            background-color: rgba(0, 0, 0, 0.5);
+        [type="text"][placeholder="任何商品與東西任你搜尋"],
+        [type="text"][placeholder="Taiwan"] {
+            background-color: #f0f0f1;
         }
-        .card-title {
+        [type="text"][placeholder="任何商品與東西任你搜尋"]:focus,
+        [type="text"][placeholder="Taiwan"]:focus {
+            background-color: transparent;
+            border-radius: 0 !important;
+        }
+        [type="button"].loopSellBackgroundColorGreen:hover {
+            background-color: #026958;
+        }
+        /* progress */
+        ol li i:not(.active) {
+            color: #c5c5c6;
+        }
+        ol li.active i {
+            color: #00bfa2;
+        }
+        ol li.active span {
+            color: #008f79 !important;
+        }
+        /* order detail */
+        img[alt="product"]+div a:hover {
+            text-decoration: underline !important;
+        }
+        img[alt="product"]+div a span {
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+        }
+        /* swal */
+        .orderCxl.swal2-container {
+            padding-top: 6rem;
+        }
+        .swal2-confirm:focus {
+            box-shadow: 0 0 0 4px #dc354540 !important;
+        }
+        /* Repeat */
+        .swal-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        nav .breadcrumb a,
+        img[alt="seller"]+a,
+        footer .breadcrumb a {
+            text-decoration: none;
+            color: #57585a;
+        }
+        nav .breadcrumb a:hover,
+        img[alt="seller"]+a:hover,
+        footer .breadcrumb a:hover {
+            text-decoration: underline;
+            color: #008f79;
         }
     </style>
 </head>
@@ -384,161 +386,181 @@
                     class="loopSellBackgroundColorRed btn btn-outline-danger badge text-light focus-ring focus-ring-danger py-2 px-4 mx-2 d-none d-sm-block">出售</button>
             </nav>
         </section>
+        <!-- search -->
+        <section class="bg-white border-bottom border-light-subtle d-flex align-items-center d-none d-md-block"
+            style="height:3.6275rem">
+            <div class="container form-group d-flex py-2 p-0">
+                <div class="flex-grow-1 ms-2">
+                    <i class="fa-solid fa-magnifying-glass text-body-tertiary position-absolute m-1 p-2"></i>
+                    <input type="text"
+                        class="form-control rounded-0 rounded-start border-0 focus-ring focus-ring-success ps-5"
+                        placeholder="任何商品與東西任你搜尋">
+                </div>
+                <!-- filter -->
+                <div class="col-3 col-md-2 d-flex">
+                    <input type="text" class="form-control rounded-0 border-0 focus-ring focus-ring-success mx-1"
+                        placeholder="Taiwan">
+                </div>
+                <!-- button -->
+                <button type="button"
+                    class="loopSellBackgroundColorGreen btn badge text-light focus-ring focus-ring-success px-3 me-2">搜尋</button>
+            </div>
+        </section>
     </header>
 
-    <!-- order -->
-    <article class="container py-2 py-sm-3 p-lg-4 gx-0">
-        <!-- title -->
-        <section class="d-flex align-items-center my-3 px-xl-5">
-            <i class="fa-solid fa-arrow-left btn border-0 text-light-emphasis fs-5 me-1 "></i>
-            <h3 class="fw-semibold m-0">訂單請求</h3>
-        </section>
-        <!-- content -->
-        <section class="d-lg-flex px-2 px-xl-5">
-            <!-- order -->
-            <section class="flex-grow-1">
-                <section class="border border-light-subtle rounded shadow-sm p-3 d-none d-md-block"></section>
-                <section class="border border-light-subtle rounded shadow-sm my-3 p-4">
-                    <!-- delivery -->
-                    <h4 class="fs-5 fw-semibold">運送</h4>
-                    <div class="form-check border-bottom mb-3 mx-2 pt-2 pb-3">
-                        <input type="radio" name="delivery" class="form-check-input focus-ring focus-ring-success"
-                            id="delivery" checked>
-                        <label for="delivery" class="form-check-label fw-medium fw-semibold w-100">賣家宅配<span
-                                class="float-end">NT${{100}}</span>
-                        </label>
+    <!-- order detail -->
+    <section class="container d-lg-flex justify-content-lg-center mt-4 mb-5">
+        <article class="col-lg-8">
+            <!-- breadcrumb -->
+            <nav style="--bs-breadcrumb-divider:url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34)"
+                class="my-4">
+                <ol class="breadcrumb">
+                    <small class="breadcrumb-item ms-2">
+                        <a href="#">我購買的東西</a>
+                    </small>
+                    <small class="breadcrumb-item text-body-tertiary">訂單明細</small>
+                </ol>
+            </nav>
+            <!-- progress -->
+            <section class="border border-light-subtle rounded-4 shadow-sm p-2 px-3 p-sm-3 px-sm-4 p-md-4">
+                <!-- list -->
+                <ol class="position-relative m-0 p-0">
+                    <li class="d-flex flex-column align-items-center float-start mt-2 ms-0 active">
+                        <i class="fa-solid fa-circle-check fs-4"></i>
+                        <span style="color:#57585a" class="badge">已下訂單</span>
+                    </li>
+                    <li
+                        class="d-flex flex-column align-items-center position-absolute start-50 translate-middle-x mt-2">
+                        <i class="fa-solid fa-circle fs-4"></i>
+                        <span style="color:#57585a" class="badge">運送進度</span>
+                    </li>
+                    <li class="d-flex flex-column align-items-center float-end mt-2">
+                        <i class="fa-solid fa-circle fs-4"></i>
+                        <span style="color:#57585a" class="badge">訂單收到</span>
+                    </li>
+                </ol>
+                <!-- progress -->
+                <div class="progress mb-5"
+                    style="--bs-progress-height:.25rem; --bs-progress-bar-bg:#00bfa2; background-color:#c5c5c6;margin-top:1.1375rem">
+                    <div class="progress-bar" style="width:0%"></div>
+                </div>
+                <!-- state -->
+                <div class="d-flex align-items-start">
+                    <img src="https://sl3-cdn.karousell.com/components/order_history_preparing_order_24.svg" width="44"
+                        class="bg-body-tertiary rounded m-1 mt-3">
+                    <div class="d-flex flex-column my-3 ms-2">
+                        <h4 class="fs-5">{{正在等待賣家確認訂單}}</h4>
+                        <p>{{您可在賣家寄送商品前取消訂單}}</p>
+                        <span class="badge text-body-tertiary text-start fw-normal p-0">最後更新{{0000-00-00, 00:00}}</span>
                     </div>
-                    <!-- address -->
-                    <h4 class="fs-5 fw-semibold">配送地址</h4>
-                    <div class="border-bottom mb-3 pb-3">
-                        <!-- option -->
-                        <label class="btn btn-outline-light fw-medium border-0 rounded text-start w-100 my-1 p-2">
-                            <input type="radio" name="address" class="form-check-input focus-ring focus-ring-success">
-                            <span for="address_1" class="text-dark fw-semibold ms-1">{{username}} {{phoneNumber}}</span>
-                            <span class="float-end d-flex justify-content-around w-25">
-                                <i class="fa-regular fa-pen-to-square small p-1" onclick=""><span
-                                        class="d-none d-sm-inline"> 編輯</span></i>
-                                <i class="fa-regular fa-trash-can small p-1" onclick="del()"><span
-                                        class="d-none d-sm-inline"> 刪除</span></i>
-                            </span>
-                            <span class="d-block text-dark text-truncate ms-4">{{address}}</span>
-                        </label>
-                        <!-- option -->
-                        <label class="btn btn-outline-light fw-medium border-0 rounded text-start w-100 my-1 p-2">
-                            <input type="radio" name="address" class="form-check-input focus-ring focus-ring-success">
-                            <span for="address_1" class="text-dark fw-semibold ms-1">{{username}} {{phoneNumber}}</span>
-                            <span class="float-end d-flex justify-content-around w-25">
-                                <i class="fa-regular fa-pen-to-square small p-1" onclick=""><span
-                                        class="d-none d-sm-inline"> 編輯</span></i>
-                                <i class="fa-regular fa-trash-can small p-1" onclick="del()"><span
-                                        class="d-none d-sm-inline"> 刪除</span></i>
-                            </span>
-                            <span class="d-block text-dark text-truncate ms-4">{{address}}</span>
-                        </label>
-                        <!-- add -->
-                        <button
-                            class="btn btn-outline-light badge text-dark focus-ring focus-ring-success border fw-semibold m-1 mt-2 p-2"
-                            onclick="">+ 新增物流地址</button>
+                </div>
+            </section>
+            <!-- detail -->
+            <section class="border border-light-subtle rounded-4 shadow-sm my-3 p-3 px-sm-4 p-md-4">
+                <h3 class="fs-5">寄貨詳細資料</h3>
+                <!-- information -->
+                <section class="border-bottom py-2">
+                    <div class="fw-semibold m-1">
+                        <img src="https://mweb-cdn.karousell.com/build/order-shipping-edb71f7a25.svg" alt="store"
+                            width="24" class="my-1 me-2">{{username}}<span
+                            class="badge text-body-secondary">{{phoneNumber}}</span>
                     </div>
-                    <!-- pay -->
-                    <h4 class="fs-5 fw-semibold">付款</h4>
-                    <div class="form-check border-bottom mb-3 mx-2 pt-2 pb-3">
-                        <input type="radio" name="pay" class="form-check-input focus-ring focus-ring-success" id="pay"
-                            checked>
-                        <label for="pay" class="form-check-label fw-medium fw-semibold w-100">信用卡 / 金融卡
-                        </label>
+                    <div class="fw-semibold m-1 d-flex">
+                        <img src="https://mweb-cdn.karousell.com/build/order-address-d3c6e9f7e5.svg" alt="store"
+                            width="24" class="my-1 me-2">
+                        <span class="text-truncate my-auto d-block">{{address address address address address address
+                            address}}</span>
                     </div>
-                    <!-- bill -->
-                    <h4 class="fs-5 fw-semibold">發票詳細資料</h4>
-                    <div class="d-flex justify-content-between align-items-center border-bottom mb-3 pt-2 pb-3">
-                        <span class="ms-2">二聯式發票(個人)<br>會員載具</span>
-                        <button class="btn border-0" onclick="">
-                            <i class="fa-regular fa-pen-to-square text-light-emphasis small"> 編輯</i>
+                </section>
+                <!-- product -->
+                <section class="border-bottom mt-2 py-2">
+                    <img src="https://media.karousell.com/media/photos/profiles/default.png" width="24" alt="seller"
+                        class="rounded-circle">
+                    <a href="#">{{sellername}}</a>
+                    <div class="d-flex py-2 mt-1">
+                        <img src="https://picsum.photos/300/200/?random=11" alt="product" width="72"
+                            class="object-fit-cover rounded m-1" style="aspect-ratio:1/1">
+                        <div class="d-flex flex-column flex-md-row justify-content-between flex-grow-1 ms-2">
+                            <a href="#" class="text-dark text-decoration-none ms-sm-1 flex-grow-1"><span>{{productName productName productName productName productName productName productName productName productName}}</span></a>
+                            <span class="col-2 text-end">NT$100</span>
+                        </div>
+                    </div>
+                </section>
+                <!-- total -->
+                <section class="my-3 py-2 pb-4 position-relative">
+                    <div class="d-flex flex-column flex-md-row gap-3">
+                        <div class="flex-grow-1 d-flex flex-column text-start gap-2">
+                            <small class="d-flex text-body-tertiary mx-2 p-0">
+                                <span class="text-dark fw-semibold me-2">訂購時間</span>{{00 0月, 00:00}}
+                            </small>
+                            <small class="d-flex text-body-tertiary mx-2 p-0">
+                                <span class="text-dark fw-semibold me-2">訂單 ID</span>{{3fae-b265-1bacca955c9b}}
+                            </small>
+                        </div>
+                        <div class="col-12 col-md-5 d-flex flex-column text-start gap-2 px-1 px-md-0">
+                            <small class="d-flex justify-content-between badge text-body-tertiary border-bottom border-light mx-1 p-0">小記<span class="fw-normal">NT${{100}}</span>
+                            </small>
+                            <small class="d-flex justify-content-between badge text-body-tertiary border-bottom border-light mx-1 p-0">運費<span class="fw-normal">NT${{100}}</span>
+                            </small>
+                            <b class="d-flex justify-content-between border-bottom border-light mt-2 me-1 blockquote">
+                                <span class="fs-3 fa-solid">Total</span><span>NT${{200}}</span>
+                            </b>
+                        </div>
+                        <button class="btn badge btn-outline-light text-body-secondary border p-2 px-3 position-absolute bottom-0 mx-1" onclick="cxl()">
+                            <i class="fa-solid fa-ban"></i> 取消訂單
                         </button>
                     </div>
                 </section>
             </section>
-            <!-- order detail -->
-            <section class="border border-light-subtle shadow rounded mb-3 ms-lg-4 p-4 h-100 position-sticky flex-shrink-0"
-                style="width: 20rem;top: 4rem">
-                <h4 class="fs-5 fw-semibold">訂單詳情</h4>
-                <section class="d-flex my-4">
-                    <img src="https://picsum.photos/300/800/?random=1"
-                        class="object-fit-cover rounded accordion-button me-3" style="width: 4.4rem;aspect-ratio: 1/1">
-                    <div class="d-flex flex-column justify-content-between">
-                        <h5 class="card-title fs-6">{{productName productName productName productName productName}}</h5>
-                        <small class="d-block fw-bolder">NT${{100}}</small>
-                    </div>
-                </section>
-                <span class="d-block my-3 m-1">產品價格<span class="float-end">NT${{100}}</span></span>
-                <span class="d-block my-3 m-1">運費<span class="float-end">NT${{100}}</span></span>
-                <span class="d-block fw-bolder mt-3 mb-4 m-1">總計<span class="float-end">NT${{200}}</span></span>
-                <section class="d-flex border-bottom my-3 pb-3">
-                    <form class="form-floating flex-grow-1">
-                        <input type="text" placeholder="coupon code" maxlength="6"
-                            class="form-control focus-ring focus-ring-success border" id="coupon">
-                        <label for="coupon" class="pt-2 h-75 text-body-tertiary">優惠代碼</label>
-                    </form>
-                    <button
-                        class="btn btn-outline-light badge text-dark border-secondary-subtle focus-ring focus-ring-success fw-semibold fs-6 px-4 px-lg-3 mx-1">使用</button>
-                </section>
-                <!-- submit -->
-                <button type="submit"
-                    class="loopSellBackgroundColorGreen btn focus-ring focus-ring-success text-light w-100"
-                    onclick="submit()" disabled>提交訂單</button>
-                <small class="badge text-dark text-start text-wrap fw-semibold my-1">點擊“提交訂單”即表示您接受<a href="#"
-                        class="loopSellColorGreen">Loopsell</a>以及付款服務供應商的服務條款。</small>
-            </section>
-        </section>
-    </article>
+        </article>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- footer -->
+    <footer class="container border-top py-2">
+        <nav class="breadcrumb d-flex align-items-center m-0" style="--bs-breadcrumb-divider:'•'">
+            <div class="me-auto">
+                <img src="https://media.cakeresume.com/image/upload/s--0Twp_QcI--/c_pad,fl_png8,h_100,w_100/v1565956862/epaplsqwkax9tjzivjde.png"
+                    alt="logo" width="40">
+                <small>© 2023 LoopSell</small>
+            </div>
+            <small class="breadcrumb-item py-2"><a href="#">幫助中心</a></small>
+            <small class="breadcrumb-item py-2"><a href="#">聯絡我們</a></small>
+            <small class="breadcrumb-item py-2"><a href="#">媒體</a></small>
+            <small class="breadcrumb-item py-2"><a href="#">永續發展</a></small>
+            <small class="breadcrumb-item py-2"><a href="#">公司職缺</a></small>
+            <small class="breadcrumb-item py-2"><a href="#">成為我的廣告合作夥伴</a></small>
+            <small class="breadcrumb-item py-2"><a href="#">使用條款</a></small>
+            <small class="breadcrumb-item py-2"><a href="#">隱私政策</a></small>
+            <div class="ms-auto">
+                <img src="https://mweb-cdn.karousell.com/build/flag-tw-d24c3f0af0.jpg" alt="taiwan" class="" width="20">
+                <select class="form-select-sm focus-ring focus-ring-success border-dark-subtle">
+                    <option selected disabled>繁體中文(台灣)</option>
+                </select>
+            </div>
+        </nav>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        function del() {
+        function cxl() {
             Swal.fire({
-                title: '確定刪除地址？',
-                text: '此操作將無法取消',
+                title: '取消此訂單？',
+                text: '很遺憾聽到您要取消訂單。我們將立即處理您的請求。',
+                showCloseButton: true,
                 showConfirmButton: true,
-                confirmButtonText: '確定',
-                confirmButtonColor: '#008f79',
-                showCancelButton: true,
-                cancelButtonText: '取消',
+                confirmButtonText: '取消訂單',
+                confirmButtonColor: '#ff2636',
                 showLoaderOnConfirm: true,
-                reverseButtons: true,
-                allowOutsideClick: false,
                 position: 'top',
                 customClass: {
-                    container: 'addressDel',
+                    container: 'orderCxl',
                     title: 'text-start text-dark fs-5 pt-4 px-4',
                     htmlContainer: 'text-start text-dark fs-6',
                     actions: 'w-100 justify-content-end px-3',
                     confirmButton: 'btn fw-semibold text-light',
-                    cancelButton: 'addressDelCancel loopSellColorGreen btn bg-transparent fw-semibold shadow-none'
-                }
-            })
-        }
-        function submit() {
-            Swal.fire({
-                title: '確認付款？',
-                text: '請確保你的運送地址正確。我們將在你收到商品後撥款給賣家。',
-                showConfirmButton: true,
-                confirmButtonText: '確定',
-                confirmButtonColor: '#008f79',
-                showCancelButton: true,
-                cancelButtonText: '返回',
-                cancelButtonColor: '#fff',
-                showLoaderOnConfirm: true,
-                reverseButtons: true,
-                allowOutsideClick: false,
-                position: 'center',
-                customClass: {
-                    title: 'text-start text-dark fs-4 pt-4 px-4',
-                    htmlContainer: 'text-start text-dark fs-6',
-                    actions: 'w-100 justify-content-end px-3',
-                    confirmButton: 'btn fw-semibold text-light',
-                    cancelButton: 'btn border fw-semibold text-dark'
+                    closeButton: 'shadow-none'
                 }
             })
         }
