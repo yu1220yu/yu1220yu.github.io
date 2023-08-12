@@ -9,43 +9,44 @@
   <style>
     /* navbar */
     .loopSellBackgroundColorRed {
-        background-color: #ff2636;
+      background-color: #ff2636;
     }
-    [type="text"][placeholder="搜尋分類"]:focus
-    {
-        border-color: #008f79 !important;
+    [type="text"][placeholder="搜尋分類"]:focus {
+      border-color: #008f79 !important;
     }
     [aria-expanded="true"] .fa-angle-down {
-        rotate: -180deg;
+      rotate: -180deg;
+    }
+    .fa-angle-down {
+      transition: 0.5s;
     }
     [data-bs-toggle="dropdown"] .fa-angle-down {
-        color: rgb(197, 197, 198) !important;
-        transition: 0.5s;
+      color: rgb(197, 197, 198) !important;
     }
     .dropdown-menu {
-        --bs-dropdown-min-width: 8.5rem;
+      --bs-dropdown-min-width: 8.5rem;
     }
     header .dropdown:hover :not([data-bs-toggle="dropdown"])+.dropdown-menu {
-        display: block;
+      display: block;
     }
     /* search */
     .loopSellBackgroundColorGreen {
-        background-color: #008f79;
+      background-color: #008f79;
     }
     [type="text"]::placeholder {
-        color: #c5c5c6;
+      color: #c5c5c6;
     }
     [type="text"][placeholder="任何商品與東西任你搜尋"],
     [type="text"][placeholder="Taiwan"] {
-        background-color: #f0f0f1;
+      background-color: #f0f0f1;
     }
     [type="text"][placeholder="任何商品與東西任你搜尋"]:focus,
     [type="text"][placeholder="Taiwan"]:focus {
-        background-color: transparent;
-        border-radius: 0 !important;
+      background-color: transparent;
+      border-radius: 0 !important;
     }
     [type="button"].loopSellBackgroundColorGreen:hover {
-        background-color: #026958;
+      background-color: #026958;
     }
     /* carousel */
     .owl-prev {
@@ -121,301 +122,285 @@
   <header class="sticky-top">
     <!-- navbar -->
     <section class="bg-white border-bottom border-light-subtle">
-        <nav class="container navbar p-0 flex-nowrap">
-            <!-- logo -->
-            <a href="#" class="navbar-brand d-none d-md-block ms-2">
-                <img src="https://mweb-cdn.karousell.com/build/carousell-logo-title-48b65e4770.svg" width="150"
-                    alt="logo">
-            </a>
-            <!-- category -->
-            <article class="d-flex">
-                <section class="dropdown d-none d-lg-block">
-                    <a href="#" class="btn btn-outline-light text-dark-emphasis border-0 rounded-0 p-3">男女時尚</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">他的時尚</a>
-                        <a href="#" class="dropdown-item">她的時尚</a>
-                        <a href="#" class="dropdown-item">名牌精品</a>
-                    </div>
-                </section>
-                <section class="dropdown d-none d-lg-block">
-                    <a href="#" class="btn btn-outline-light text-dark-emphasis border-0 rounded-0 p-3">美容保健</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">美妝保養</a>
-                        <a href="#" class="dropdown-item">健康及營養品</a>
-                    </div>
-                </section>
-                <section class="dropdown d-none d-lg-block">
-                    <a href="#" class="btn btn-outline-light text-dark-emphasis border-0 rounded-0 p-3">電子3C</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">手機及配件</a>
-                        <a href="#" class="dropdown-item">電腦及科技產品</a>
-                        <a href="#" class="dropdown-item">電視及其他電器</a>
-                        <a href="#" class="dropdown-item">耳機及錄音音訊設備</a>
-                    </div>
-                </section>
-                <section class="dropdown d-none d-xl-block">
-                    <a href="#" class="btn btn-outline-light text-dark-emphasis border-0 rounded-0 p-3">居家生活</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">家具及居家用品</a>
-                        <a href="#" class="dropdown-item">嬰兒及兒童</a>
-                        <a href="#" class="dropdown-item">寵物用品</a>
-                        <a href="#" class="dropdown-item">食物和飲料</a>
-                    </div>
-                </section>
-                <section class="dropdown d-none d-xl-block">
-                    <a href="#" class="btn btn-outline-light text-dark-emphasis border-0 rounded-0 p-3">休閒嗜好</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">興趣及遊戲</a>
-                        <a href="#" class="dropdown-item">體育器材</a>
-                        <a href="#" class="dropdown-item">相機攝影</a>
-                        <a href="#" class="dropdown-item">書本及雜誌</a>
-                        <a href="#" class="dropdown-item">電玩遊戲</a>
-                    </div>
-                </section>
-            </article>
-            <!-- side bar -->
-            <section class="btn btn-outline-light border-0 rounded-0 me-auto p-3 d-none d-md-block"
-                data-bs-toggle="offcanvas" data-bs-target="#moreCategory">
-                <i class="fa-brands fa-buromobelexperte fw-semibold fs-6 text-dark-emphasis"> <span>所有分類</span></i>
-            </section>
-            <article class="offcanvas offcanvas-end overflow-auto" tabindex="-1" id="moreCategory">
-                <section class="offcanvas-header border-bottom">
-                    <h5 class="offcanvas-title fw-semibold">所有分類</h5>
-                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
-                </section>
-                <!-- search -->
-                <section class="form-group text-body-tertiary position-relative p-3">
-                    <i class="fa-solid fa-magnifying-glass position-absolute m-1 p-2"></i>
-                    <input type="text" class="form-control focus-ring focus-ring-success px-5" placeholder="搜尋分類" autofocus>
-                </section>
-                <!-- moreCategory -->
-                <section>
-                    <a href="#" class="btn btn-outline-light text-start border-top border-0 rounded-0 p-4 w-100">
-                        <img src="https://media.karousell.com/media/photos/country-collections/icons/305/2020/01/22/56-Following-cxxhdpi_1579666286.71.png" alt="category" width="30">
-                        <span class="d-inline-block text-dark my-auto">追蹤的賣家商品</span>
-                    </a>
-                    <a href="#" class="btn btn-outline-light text-start border-top border-0 rounded-0 p-4 w-100">
-                        <img src="https://media.karousell.com/media/photos/country-collections/icons/2300/2020/01/16/freeitems-1579255406.png" alt="category" width="30">
-                        <p class="d-inline-block text-dark my-auto">免費物品</p>
-                    </a>
-                </section>
-                <!-- category -->
-                <article id="category">
-                    <section class="d-flex flex-column flex-wrap">
-                        <div class="btn-group border-top">
-                            <a href="#" class="btn btn-outline-light text-start border-0 rounded-0 p-4 w-100">
-                                <img src="https://media.karousell.com/media/photos/country-collections/icons/main_v2/01_computers_tech.png"
-                                    alt="category" width="30">
-                                <p class="d-inline-block text-dark my-auto">{{電腦及科技產品}}</p>
-                            </a>
-                            <button class="btn btn-outline-light border-0 p-4" data-bs-toggle="collapse"
-                                data-bs-target="#category1">
-                                <i class="fa-solid fa-ellipsis text-dark"></i>
-                            </button>
-                        </div>
-                        <div class="collapse pb-3" id="category1" data-bs-parent="#category">
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{電腦}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{桌上電腦或筆記型電腦}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{電腦周邊產品}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{印表機及影印機}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{商務用科技產品}}</span>
-                            </a>
-                        </div>
-                    </section>
-                    <!-- test -->
-                    <section class="d-flex flex-column flex-wrap">
-                        <div class="btn-group border-top">
-                            <a href="#" class="btn btn-outline-light text-start border-0 rounded-0 p-4 w-100">
-                                <img src="https://media.karousell.com/media/photos/country-collections/icons/main_v2/01_computers_tech.png"
-                                    alt="category" width="30">
-                                <p class="d-inline-block text-dark my-auto">{{電腦及科技產品}}</p>
-                            </a>
-                            <button class="btn btn-outline-light border-0 p-4" data-bs-toggle="collapse"
-                                data-bs-target="#category2">
-                                <i class="fa-solid fa-ellipsis text-dark"></i>
-                            </button>
-                        </div>
-                        <div class="collapse pb-3" id="category2" data-bs-parent="#category">
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{電腦}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{桌上電腦或筆記型電腦}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{電腦周邊產品}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{印表機及影印機}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{商務用科技產品}}</span>
-                            </a>
-                        </div>
-                    </section>
-                    <section class="d-flex flex-column flex-wrap">
-                        <div class="btn-group border-top">
-                            <a href="#" class="btn btn-outline-light text-start border-0 rounded-0 p-4 w-100">
-                                <img src="https://media.karousell.com/media/photos/country-collections/icons/main_v2/01_computers_tech.png"
-                                    alt="category" width="30">
-                                <p class="d-inline-block text-dark my-auto">{{電腦及科技產品}}</p>
-                            </a>
-                            <button class="btn btn-outline-light border-0 p-4" data-bs-toggle="collapse"
-                                data-bs-target="#category3">
-                                <i class="fa-solid fa-ellipsis text-dark"></i>
-                            </button>
-                        </div>
-                        <div class="collapse pb-3" id="category3" data-bs-parent="#category">
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{電腦}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{桌上電腦或筆記型電腦}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{電腦周邊產品}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{印表機及影印機}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{商務用科技產品}}</span>
-                            </a>
-                        </div>
-                    </section>
-                    <section class="d-flex flex-column flex-wrap">
-                        <div class="btn-group border-top">
-                            <a href="#" class="btn btn-outline-light text-start border-0 rounded-0 p-4 w-100">
-                                <img src="https://media.karousell.com/media/photos/country-collections/icons/main_v2/01_computers_tech.png"
-                                    alt="category" width="30">
-                                <p class="d-inline-block text-dark my-auto">{{電腦及科技產品}}</p>
-                            </a>
-                            <button class="btn btn-outline-light border-0 p-4" data-bs-toggle="collapse"
-                                data-bs-target="#category4">
-                                <i class="fa-solid fa-ellipsis text-dark"></i>
-                            </button>
-                        </div>
-                        <div class="collapse pb-3" id="category4" data-bs-parent="#category">
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{電腦}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{桌上電腦或筆記型電腦}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{電腦周邊產品}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{印表機及影印機}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{商務用科技產品}}</span>
-                            </a>
-                        </div>
-                    </section>
-                    <section class="d-flex flex-column flex-wrap">
-                        <div class="btn-group border-top">
-                            <a href="#" class="btn btn-outline-light text-start border-0 rounded-0 p-4 w-100">
-                                <img src="https://media.karousell.com/media/photos/country-collections/icons/main_v2/01_computers_tech.png"
-                                    alt="category" width="30">
-                                <p class="d-inline-block text-dark my-auto">{{電腦及科技產品}}</p>
-                            </a>
-                            <button class="btn btn-outline-light border-0 p-4" data-bs-toggle="collapse"
-                                data-bs-target="#category5">
-                                <i class="fa-solid fa-ellipsis text-dark"></i>
-                            </button>
-                        </div>
-                        <div class="collapse pb-3" id="category5" data-bs-parent="#category">
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{電腦}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{桌上電腦或筆記型電腦}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{電腦周邊產品}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{印表機及影印機}}</span>
-                            </a>
-                            <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
-                                <span class="text-dark m-2">{{商務用科技產品}}</span>
-                            </a>
-                        </div>
-                    </section>
-                </article>
-            </article>
-            <!-- profile -->
-            <section class="dropdown me-auto me-sm-0">
-                <button class="btn btn-outline-light border-0 rounded-0 py-3 d-flex align-items-center gap-1 gap-sm-2"
-                    data-bs-toggle="dropdown">
-                    <img src="https://media.karousell.com/media/photos/profiles/default.png" alt="profile"
-                        class="rounded-circle" width="22.5">
-                    <small class="text-dark text-truncate d-none d-md-block" style="max-width:8rem">Hello, <strong>{{User}}</strong></small>
-                    <i class="fa-solid fa-angle-down"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-md-end" style="margin-top: -.5rem;">
-                    <a href="#" class="dropdown-item" onmouseover="style.color='#008f79'"
-                        onmouseout="style.color='#2c2c2d'">
-                        <i class="fa-regular fa-user text-light-emphasis mx-1 ms-2"></i>
-                        <span>個人檔案</span>
-                    </a>
-                    <a href="#" class="dropdown-item" onmouseover="style.color='#008f79'"
-                        onmouseout="style.color='#2c2c2d'">
-                        <i class="fa-solid fa-gear text-light-emphasis mx-1 ms-2"></i>
-                        <span>設定</span>
-                    </a>
-                    <a href="#" class="dropdown-item" onmouseover="style.color='#008f79'"
-                        onmouseout="style.color='#2c2c2d'">
-                        <i class="fa-solid fa-arrow-right-from-bracket text-light-emphasis mx-1 ms-2"></i>
-                        <span>登出</span>
-                    </a>
-                </div>
-            </section>
-            <!-- show on phone -->
-            <div class="position-relative flex-grow-1 d-md-none mx-2" data-bs-toggle="offcanvas" data-bs-target="#moreCategory">
-                <input type="button" class="btn btn-outline-light text-body-tertiary opacity-50 text-start border shadow-none ps-5 w-100" value="搜尋迴圈拍賣..." style="width:0">
-                <i class="fa-solid fa-magnifying-glass btn text-body-tertiary opacity-50 position-absolute top-0 start-0 border-0 mt-1 py-2 px-3"></i>
+      <nav class="container navbar p-0 flex-nowrap">
+        <!-- logo -->
+        <a href="#" class="navbar-brand d-none d-md-block ms-2">
+          <img src="https://mweb-cdn.karousell.com/build/carousell-logo-title-48b65e4770.svg" width="150" alt="logo">
+        </a>
+        <!-- category -->
+        <article class="d-flex">
+          <section class="dropdown d-none d-lg-block">
+            <a href="#" class="btn btn-outline-light text-dark-emphasis border-0 rounded-0 p-3">男女時尚</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">他的時尚</a>
+              <a href="#" class="dropdown-item">她的時尚</a>
+              <a href="#" class="dropdown-item">名牌精品</a>
             </div>
-            <!-- heart -->
-            <a href="#" class="btn btn-outline-light border-0 rounded-0 py-3">
-                <i class="fa-regular fa-heart text-dark"></i>
+          </section>
+          <section class="dropdown d-none d-lg-block">
+            <a href="#" class="btn btn-outline-light text-dark-emphasis border-0 rounded-0 p-3">美容保健</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">美妝保養</a>
+              <a href="#" class="dropdown-item">健康及營養品</a>
+            </div>
+          </section>
+          <section class="dropdown d-none d-lg-block">
+            <a href="#" class="btn btn-outline-light text-dark-emphasis border-0 rounded-0 p-3">電子3C</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">手機及配件</a>
+              <a href="#" class="dropdown-item">電腦及科技產品</a>
+              <a href="#" class="dropdown-item">電視及其他電器</a>
+              <a href="#" class="dropdown-item">耳機及錄音音訊設備</a>
+            </div>
+          </section>
+          <section class="dropdown d-none d-xl-block">
+            <a href="#" class="btn btn-outline-light text-dark-emphasis border-0 rounded-0 p-3">居家生活</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">家具及居家用品</a>
+              <a href="#" class="dropdown-item">嬰兒及兒童</a>
+              <a href="#" class="dropdown-item">寵物用品</a>
+              <a href="#" class="dropdown-item">食物和飲料</a>
+            </div>
+          </section>
+          <section class="dropdown d-none d-xl-block">
+            <a href="#" class="btn btn-outline-light text-dark-emphasis border-0 rounded-0 p-3">休閒嗜好</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">興趣及遊戲</a>
+              <a href="#" class="dropdown-item">體育器材</a>
+              <a href="#" class="dropdown-item">相機攝影</a>
+              <a href="#" class="dropdown-item">書本及雜誌</a>
+              <a href="#" class="dropdown-item">電玩遊戲</a>
+            </div>
+          </section>
+        </article>
+        <!-- side bar -->
+        <section class="btn btn-outline-light border-0 rounded-0 me-auto p-3 d-none d-md-block" data-bs-toggle="offcanvas" data-bs-target="#moreCategory">
+          <i class="fa-brands fa-buromobelexperte fw-semibold fs-6 text-dark-emphasis"> <span>所有分類</span></i>
+        </section>
+        <article class="offcanvas offcanvas-end overflow-auto" tabindex="-1" id="moreCategory">
+          <section class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-semibold">所有分類</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
+          </section>
+          <!-- search -->
+          <section class="form-group text-body-tertiary position-relative p-3">
+            <i class="fa-solid fa-magnifying-glass position-absolute m-1 p-2"></i>
+            <input type="text" class="form-control focus-ring focus-ring-success px-5" placeholder="搜尋分類" autofocus>
+          </section>
+          <!-- moreCategory -->
+          <section>
+            <a href="#" class="btn btn-outline-light text-start border-top border-0 rounded-0 p-4 w-100">
+              <img src="https://media.karousell.com/media/photos/country-collections/icons/305/2020/01/22/56-Following-cxxhdpi_1579666286.71.png" alt="category" width="30">
+              <span class="d-inline-block text-dark my-auto">追蹤的賣家商品</span>
             </a>
-            <!-- message -->
-            <a href="#" class="btn btn-outline-light border-0 rounded-0 py-3">
-                <i class="fa-regular fa-comment text-dark position-relative">
-                    <span
-                        class="loopSellBackgroundColorRed badge rounded-pill translate-middle position-absolute top-0 start-100"
-                        style="font-size:.5rem">9</span>
-                </i>
+            <a href="#" class="btn btn-outline-light text-start border-top border-0 rounded-0 p-4 w-100">
+              <img src="https://media.karousell.com/media/photos/country-collections/icons/2300/2020/01/16/freeitems-1579255406.png" alt="category" width="30">
+              <p class="d-inline-block text-dark my-auto">免費物品</p>
             </a>
-            <!-- sell -->
-            <button class="loopSellBackgroundColorRed btn btn-outline-danger badge text-light focus-ring focus-ring-danger py-2 px-4 mx-2 d-none d-sm-block">出售</button>
-        </nav>
+          </section>
+          <!-- category -->
+          <article id="category">
+            <section class="d-flex flex-column flex-wrap">
+              <div class="btn-group border-top">
+                <a href="#" class="btn btn-outline-light text-start border-0 rounded-0 p-4 w-100">
+                  <img src="https://media.karousell.com/media/photos/country-collections/icons/main_v2/01_computers_tech.png" alt="category" width="30">
+                  <p class="d-inline-block text-dark my-auto">{{電腦及科技產品}}</p>
+                </a>
+                <button class="btn btn-outline-light border-0 p-4" data-bs-toggle="collapse" data-bs-target="#category1">
+                  <i class="fa-solid fa-angle-down text-secondary"></i>
+                </button>
+              </div>
+              <div class="collapse pb-3" id="category1" data-bs-parent="#category">
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{電腦}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{桌上電腦或筆記型電腦}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{電腦周邊產品}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{印表機及影印機}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{商務用科技產品}}</span>
+                </a>
+              </div>
+            </section>
+            <!-- test -->
+            <section class="d-flex flex-column flex-wrap">
+              <div class="btn-group border-top">
+                <a href="#" class="btn btn-outline-light text-start border-0 rounded-0 p-4 w-100">
+                  <img src="https://media.karousell.com/media/photos/country-collections/icons/main_v2/01_computers_tech.png" alt="category" width="30">
+                  <p class="d-inline-block text-dark my-auto">{{電腦及科技產品}}</p>
+                </a>
+                <button class="btn btn-outline-light border-0 p-4" data-bs-toggle="collapse" data-bs-target="#category2">
+                  <i class="fa-solid fa-angle-down text-secondary"></i>
+                </button>
+              </div>
+              <div class="collapse pb-3" id="category2" data-bs-parent="#category">
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{電腦}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{桌上電腦或筆記型電腦}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{電腦周邊產品}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{印表機及影印機}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{商務用科技產品}}</span>
+                </a>
+              </div>
+            </section>
+            <section class="d-flex flex-column flex-wrap">
+              <div class="btn-group border-top">
+                <a href="#" class="btn btn-outline-light text-start border-0 rounded-0 p-4 w-100">
+                  <img src="https://media.karousell.com/media/photos/country-collections/icons/main_v2/01_computers_tech.png" alt="category" width="30">
+                  <p class="d-inline-block text-dark my-auto">{{電腦及科技產品}}</p>
+                </a>
+                <button class="btn btn-outline-light border-0 p-4" data-bs-toggle="collapse" data-bs-target="#category3">
+                  <i class="fa-solid fa-angle-down text-secondary"></i>
+                </button>
+              </div>
+              <div class="collapse pb-3" id="category3" data-bs-parent="#category">
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{電腦}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{桌上電腦或筆記型電腦}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{電腦周邊產品}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{印表機及影印機}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{商務用科技產品}}</span>
+                </a>
+              </div>
+            </section>
+            <section class="d-flex flex-column flex-wrap">
+              <div class="btn-group border-top">
+                <a href="#" class="btn btn-outline-light text-start border-0 rounded-0 p-4 w-100">
+                  <img src="https://media.karousell.com/media/photos/country-collections/icons/main_v2/01_computers_tech.png" alt="category" width="30">
+                  <p class="d-inline-block text-dark my-auto">{{電腦及科技產品}}</p>
+                </a>
+                <button class="btn btn-outline-light border-0 p-4" data-bs-toggle="collapse" data-bs-target="#category4">
+                  <i class="fa-solid fa-angle-down text-secondary"></i>
+                </button>
+              </div>
+              <div class="collapse pb-3" id="category4" data-bs-parent="#category">
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{電腦}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{桌上電腦或筆記型電腦}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{電腦周邊產品}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{印表機及影印機}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{商務用科技產品}}</span>
+                </a>
+              </div>
+            </section>
+            <section class="d-flex flex-column flex-wrap">
+              <div class="btn-group border-top">
+                <a href="#" class="btn btn-outline-light text-start border-0 rounded-0 p-4 w-100">
+                  <img src="https://media.karousell.com/media/photos/country-collections/icons/main_v2/01_computers_tech.png" alt="category" width="30">
+                  <p class="d-inline-block text-dark my-auto">{{電腦及科技產品}}</p>
+                </a>
+                <button class="btn btn-outline-light border-0 p-4" data-bs-toggle="collapse" data-bs-target="#category5">
+                  <i class="fa-solid fa-angle-down text-secondary"></i>
+                </button>
+              </div>
+              <div class="collapse pb-3" id="category5" data-bs-parent="#category">
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{電腦}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{桌上電腦或筆記型電腦}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{電腦周邊產品}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{印表機及影印機}}</span>
+                </a>
+                <a href="#" class="btn btn-outline-light border-0 text-start w-100 px-5">
+                  <span class="text-secondary m-2">{{商務用科技產品}}</span>
+                </a>
+              </div>
+            </section>
+          </article>
+        </article>
+        <!-- profile -->
+        <section class="dropdown me-auto me-sm-0">
+          <button class="btn btn-outline-light border-0 rounded-0 py-3 d-flex align-items-center gap-1 gap-sm-2"
+            data-bs-toggle="dropdown">
+            <img src="https://media.karousell.com/media/photos/profiles/default.png" alt="profile"
+              class="rounded-circle" width="22.5">
+            <small class="text-dark text-truncate d-none d-md-block" style="max-width:8rem">Hello,
+              <strong>{{User}}</strong></small>
+            <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-md-end" style="margin-top: -.5rem;">
+            <a href="#" class="dropdown-item" onmouseover="style.color='#008f79'" onmouseout="style.color='#2c2c2d'">
+              <i class="fa-regular fa-user text-light-emphasis mx-1 ms-2"></i>
+              <span>個人檔案</span>
+            </a>
+            <a href="#" class="dropdown-item" onmouseover="style.color='#008f79'" onmouseout="style.color='#2c2c2d'">
+              <i class="fa-solid fa-gear text-light-emphasis mx-1 ms-2"></i>
+              <span>設定</span>
+            </a>
+            <a href="#" class="dropdown-item" onmouseover="style.color='#008f79'" onmouseout="style.color='#2c2c2d'">
+              <i class="fa-solid fa-arrow-right-from-bracket text-light-emphasis mx-1 ms-2"></i>
+              <span>登出</span>
+            </a>
+          </div>
+        </section>
+        <!-- show on phone -->
+        <div class="position-relative flex-grow-1 d-md-none mx-2" data-bs-toggle="offcanvas" data-bs-target="#moreCategory">
+          <input type="button" class="btn btn-outline-light text-body-tertiary opacity-50 text-start border shadow-none ps-5 w-100" value="搜尋迴圈拍賣..." style="width:0">
+          <i class="fa-solid fa-magnifying-glass btn text-body-tertiary opacity-50 position-absolute top-0 start-0 border-0 mt-1 py-2 px-3"></i>
+        </div>
+        <!-- heart -->
+        <a href="#" class="btn btn-outline-light border-0 rounded-0 py-3">
+          <i class="fa-regular fa-heart text-dark"></i>
+        </a>
+        <!-- message -->
+        <a href="#" class="btn btn-outline-light border-0 rounded-0 py-3">
+          <i class="fa-regular fa-comment text-dark position-relative">
+            <span class="loopSellBackgroundColorRed badge rounded-pill translate-middle position-absolute top-0 start-100" style="font-size:.5rem">9</span>
+          </i>
+        </a>
+        <!-- sell -->
+        <button class="loopSellBackgroundColorRed btn btn-outline-danger badge text-light focus-ring focus-ring-danger py-2 px-4 mx-2 d-none d-sm-block">出售</button>
+      </nav>
     </section>
     <!-- search -->
     <section class="bg-white border-bottom border-light-subtle d-flex align-items-center d-none d-md-block" style="height:3.6275rem">
-        <div class="container form-group d-flex py-2 p-0">
-            <div class="flex-grow-1 ms-2">
-                <i class="fa-solid fa-magnifying-glass text-body-tertiary position-absolute m-1 p-2"></i>
-                <input type="text" class="form-control rounded-0 rounded-start border-0 focus-ring focus-ring-success ps-5" placeholder="任何商品與東西任你搜尋">
-            </div>
-            <!-- filter -->
-            <div class="col-3 col-md-2 d-flex">
-                <input type="text" class="form-control rounded-0 border-0 focus-ring focus-ring-success mx-1" placeholder="Taiwan">
-            </div>
-            <!-- button -->
-            <button type="button" class="loopSellBackgroundColorGreen btn badge text-light focus-ring focus-ring-success px-3 me-2">搜尋</button>
+      <div class="container form-group d-flex py-2 p-0">
+        <div class="flex-grow-1 ms-2">
+          <i class="fa-solid fa-magnifying-glass text-body-tertiary position-absolute m-1 p-2"></i>
+          <input type="text" class="form-control rounded-0 rounded-start border-0 focus-ring focus-ring-success ps-5" placeholder="任何商品與東西任你搜尋">
         </div>
+        <!-- filter -->
+        <div class="col-3 col-md-2 d-flex">
+          <input type="text" class="form-control rounded-0 border-0 focus-ring focus-ring-success mx-1" placeholder="Taiwan">
+        </div>
+        <!-- button -->
+        <button type="button" class="loopSellBackgroundColorGreen btn badge text-light focus-ring focus-ring-success px-3 me-2">搜尋</button>
+      </div>
     </section>
   </header>
 
@@ -423,36 +408,28 @@
   <section class="container">
     <div class="owl-carousel my-3" id="carousel">
       <a href="#" class="item">
-        <img src="https://media.karousell.com/media/photos/special-collection/2023/07/03/8dd6c3a659826c2e_(1500,610)"
-          alt="img1" class="rounded-3">
+        <img src="https://media.karousell.com/media/photos/special-collection/2023/07/03/8dd6c3a659826c2e_(1500,610)" alt="img1" class="rounded-3">
       </a>
       <a href="#" class="item">
-        <img src="https://media.karousell.com/media/photos/special-collection/2023/07/25/5fa7a3b90c09894b_(1500,610)"
-          alt="img2" class="rounded-3">
+        <img src="https://media.karousell.com/media/photos/special-collection/2023/07/25/5fa7a3b90c09894b_(1500,610)" alt="img2" class="rounded-3">
       </a>
       <a href="#" class="item">
-        <img src="https://media.karousell.com/media/photos/special-collection/2023/07/18/1ed160fc49ed03dc_(1500,610)"
-          alt="img3" class="rounded-3">
+        <img src="https://media.karousell.com/media/photos/special-collection/2023/07/18/1ed160fc49ed03dc_(1500,610)" alt="img3" class="rounded-3">
       </a>
       <a href="#" class="item">
-        <img src="https://media.karousell.com/media/photos/special-collection/2023/07/25/b6545dd667366abc_(1500,610)"
-          alt="img4" class="rounded-3">
+        <img src="https://media.karousell.com/media/photos/special-collection/2023/07/25/b6545dd667366abc_(1500,610)" alt="img4" class="rounded-3">
       </a>
       <a href="#" class="item">
-        <img src="https://media.karousell.com/media/photos/special-collection/2023/06/27/967032548ab1c191_(1500,610)"
-          alt="img5" class="rounded-3">
+        <img src="https://media.karousell.com/media/photos/special-collection/2023/06/27/967032548ab1c191_(1500,610)" alt="img5" class="rounded-3">
       </a>
       <a href="#" class="item">
-        <img src="https://media.karousell.com/media/photos/special-collection/2023/07/07/20025b3b21e6921b_(1500,610)"
-          alt="img6" class="rounded-3">
+        <img src="https://media.karousell.com/media/photos/special-collection/2023/07/07/20025b3b21e6921b_(1500,610)" alt="img6" class="rounded-3">
       </a>
       <a href="#" class="item">
-        <img src="https://media.karousell.com/media/photos/special-collection/2023/06/21/22556767a672e22f_(1500,610)"
-          alt="img7" class="rounded-3">
+        <img src="https://media.karousell.com/media/photos/special-collection/2023/06/21/22556767a672e22f_(1500,610)" alt="img7" class="rounded-3">
       </a>
       <a href="#" class="item">
-        <img src="https://media.karousell.com/media/photos/special-collection/2023/06/06/57f029f6cd9b3f52_(1500,610)"
-          alt="img8" class="rounded-3">
+        <img src="https://media.karousell.com/media/photos/special-collection/2023/06/06/57f029f6cd9b3f52_(1500,610)" alt="img8" class="rounded-3">
       </a>
     </div>
   </section>
@@ -462,13 +439,13 @@
     <h2 class="fs-3">探索Loopsell</h2>
     <section class="owl-carousel" id="explore-carousel">
       <a href="#" class="text-center d-flex flex-column mt-2 p-2">
-        <img src="https://media.karousell.com/media/photos/country-collections/icons/305/2020/01/22/56-Following-cxxhdpi_1579666286.71.png"
+        <img
+          src="https://media.karousell.com/media/photos/country-collections/icons/305/2020/01/22/56-Following-cxxhdpi_1579666286.71.png"
           alt="category" width="80" class="rounded-circle p-3">
         <small class="text-truncate">追蹤的賣家商品</small>
       </a>
       <a href="#" class="text-center d-flex flex-column mt-2 p-2">
-        <img src="https://media.karousell.com/media/photos/country-collections/icons/2300/2020/01/16/freeitems-1579255406.png"
-          alt="category" width="80" class="rounded-circle p-3">
+        <img src="https://media.karousell.com/media/photos/country-collections/icons/2300/2020/01/16/freeitems-1579255406.png" alt="category" width="80" class="rounded-circle p-3">
         <small class="text-truncate">免費物品</small>
       </a>
     </section>
@@ -507,8 +484,7 @@
           <div class="dropdown">
             <i class="fa-solid fa-ellipsis-vertical btn float-end border-0 px-2" data-bs-toggle="dropdown"></i>
             <ul class="dropdown-menu dropdown-menu-end p-0" style="--bs-dropdown-min-width:0">
-              <li class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm"
-                onclick="report()">檢舉刊登商品</li>
+              <li class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm" onclick="report()">檢舉刊登商品</li>
             </ul>
           </div>
         </div>
@@ -524,15 +500,13 @@
               <small class="badge text-light-emphasis p-0">{{1天前}}</small>
             </div>
           </div>
-          <img src="https://picsum.photos/10/1000/?random=10" class="w-100 object-fit-cover rounded-1"
-            style="aspect-ratio:1/1">
+          <img src="https://picsum.photos/10/1000/?random=10" class="w-100 object-fit-cover rounded-1" style="aspect-ratio:1/1">
           <div class="card-body d-flex flex-column justify-content-between mt-2 p-0">
             <h5 class="card-title text-truncate fs-6 px-1">Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Reiciendis, minima.</h5>
             <div>
               <small class="d-flex align-items-center fw-bold px-1">NT$ {{100}}
-                <img src="https://sl3-cdn.karousell.com/components/badge_caroupay_v4.svg" alt="badge"
-                  style="width:0.9375rem" class="mx-1">
+                <img src="https://sl3-cdn.karousell.com/components/badge_caroupay_v4.svg" alt="badge" style="width:0.9375rem" class="mx-1">
               </small>
               <small class="text-body-secondary px-1">{{state}}</small>
             </div>
@@ -543,8 +517,7 @@
           <div class="dropdown">
             <i class="fa-solid fa-ellipsis-vertical btn float-end border-0 px-2" data-bs-toggle="dropdown"></i>
             <ul class="dropdown-menu dropdown-menu-end p-0" style="--bs-dropdown-min-width:0">
-              <li class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm"
-                onclick="report()">檢舉刊登商品</li>
+              <li class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm" onclick="report()">檢舉刊登商品</li>
             </ul>
           </div>
         </div>
@@ -586,9 +559,7 @@
             <div class="dropdown">
               <i class="fa-solid fa-ellipsis-vertical btn float-end border-0 px-2" data-bs-toggle="dropdown"></i>
               <ul class="dropdown-menu dropdown-menu-end p-0" style="--bs-dropdown-min-width:0">
-                <li
-                  class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm"
-                  onclick="report()">檢舉刊登商品</li>
+                <li class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm" onclick="report()">檢舉刊登商品</li>
               </ul>
             </div>
           </div>
@@ -626,9 +597,7 @@
             <div class="dropdown">
               <i class="fa-solid fa-ellipsis-vertical btn float-end border-0 px-2" data-bs-toggle="dropdown"></i>
               <ul class="dropdown-menu dropdown-menu-end p-0" style="--bs-dropdown-min-width:0">
-                <li
-                  class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm"
-                  onclick="report()">檢舉刊登商品</li>
+                <li class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm" onclick="report()">檢舉刊登商品</li>
               </ul>
             </div>
           </div>
@@ -664,9 +633,7 @@
             <div class="dropdown">
               <i class="fa-solid fa-ellipsis-vertical btn float-end border-0 px-2" data-bs-toggle="dropdown"></i>
               <ul class="dropdown-menu dropdown-menu-end p-0" style="--bs-dropdown-min-width:0">
-                <li
-                  class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm"
-                  onclick="report()">檢舉刊登商品</li>
+                <li class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm" onclick="report()">檢舉刊登商品</li>
               </ul>
             </div>
           </div>
@@ -702,9 +669,7 @@
             <div class="dropdown">
               <i class="fa-solid fa-ellipsis-vertical btn float-end border-0 px-2" data-bs-toggle="dropdown"></i>
               <ul class="dropdown-menu dropdown-menu-end p-0" style="--bs-dropdown-min-width:0">
-                <li
-                  class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm"
-                  onclick="report()">檢舉刊登商品</li>
+                <li class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm" onclick="report()">檢舉刊登商品</li>
               </ul>
             </div>
           </div>
@@ -851,51 +816,50 @@
             <div class="dropdown">
               <i class="fa-solid fa-ellipsis-vertical btn float-end border-0 px-2" data-bs-toggle="dropdown"></i>
               <ul class="dropdown-menu dropdown-menu-end p-0" style="--bs-dropdown-min-width:0">
-                <li
-                  class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm"
-                  onclick="report()">檢舉刊登商品</li>
+                <li class="loopSellColorGreen dropdown-item btn btn-outline-light fw-semibold border-0 rounded shadow-sm" onclick="report()">檢舉刊登商品</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
     </article>
-    <button class="btn btn-outline-light text-dark fw-medium focus-ring focus-ring-success border d-block m-auto mt-3">瀏覽更多</button>
+    <button
+      class="btn btn-outline-light text-dark fw-medium focus-ring focus-ring-success border d-block m-auto mt-3">瀏覽更多</button>
   </section>
 
   <!-- ad -->
   <section style="background-image: url(https://static.karousell.com/web/homescreen/carousell_qrcode_background.png)"
     class="container-fluid my-5">
     <div class="container ratio ratio-21x9">
-      <img src="https://storage.googleapis.com/carousell-sl/homescreens/main/carousell_qrcode_cats.png"
-        class="object-fit-contain">
+      <img src="https://storage.googleapis.com/carousell-sl/homescreens/main/carousell_qrcode_cats.png" class="object-fit-contain">
     </div>
   </section>
 
-   <!-- footer -->
-   <footer class="container border-top py-2">
+  <!-- footer -->
+  <footer class="container border-top py-2">
     <nav class="breadcrumb d-flex align-items-center m-0" style="--bs-breadcrumb-divider:'•'">
-        <div class="me-auto">
-            <img src="https://media.cakeresume.com/image/upload/s--0Twp_QcI--/c_pad,fl_png8,h_100,w_100/v1565956862/epaplsqwkax9tjzivjde.png"
-                alt="logo" width="40">
-            <small>© 2023 LoopSell</small>
-        </div>
-        <small class="breadcrumb-item py-2"><a href="#">幫助中心</a></small>
-        <small class="breadcrumb-item py-2"><a href="#">聯絡我們</a></small>
-        <small class="breadcrumb-item py-2"><a href="#">媒體</a></small>
-        <small class="breadcrumb-item py-2"><a href="#">永續發展</a></small>
-        <small class="breadcrumb-item py-2"><a href="#">公司職缺</a></small>
-        <small class="breadcrumb-item py-2"><a href="#">成為我的廣告合作夥伴</a></small>
-        <small class="breadcrumb-item py-2"><a href="#">使用條款</a></small>
-        <small class="breadcrumb-item py-2"><a href="#">隱私政策</a></small>
-        <div class="ms-auto">
-            <img src="https://mweb-cdn.karousell.com/build/flag-tw-d24c3f0af0.jpg" alt="taiwan" class="" width="20">
-            <select class="form-select-sm focus-ring focus-ring-success border-dark-subtle">
-                <option selected disabled>繁體中文(台灣)</option>
-            </select>
-        </div>
+      <div class="me-auto">
+        <img
+          src="https://media.cakeresume.com/image/upload/s--0Twp_QcI--/c_pad,fl_png8,h_100,w_100/v1565956862/epaplsqwkax9tjzivjde.png"
+          alt="logo" width="40">
+        <small>© 2023 LoopSell</small>
+      </div>
+      <small class="breadcrumb-item py-2"><a href="#">幫助中心</a></small>
+      <small class="breadcrumb-item py-2"><a href="#">聯絡我們</a></small>
+      <small class="breadcrumb-item py-2"><a href="#">媒體</a></small>
+      <small class="breadcrumb-item py-2"><a href="#">永續發展</a></small>
+      <small class="breadcrumb-item py-2"><a href="#">公司職缺</a></small>
+      <small class="breadcrumb-item py-2"><a href="#">成為我的廣告合作夥伴</a></small>
+      <small class="breadcrumb-item py-2"><a href="#">使用條款</a></small>
+      <small class="breadcrumb-item py-2"><a href="#">隱私政策</a></small>
+      <div class="ms-auto">
+        <img src="https://mweb-cdn.karousell.com/build/flag-tw-d24c3f0af0.jpg" alt="taiwan" class="" width="20">
+        <select class="form-select-sm focus-ring focus-ring-success border-dark-subtle">
+          <option selected disabled>繁體中文(台灣)</option>
+        </select>
+      </div>
     </nav>
-   </footer>
+  </footer>
 
   <script src="https://kit.fontawesome.com/0304c19c0c.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
