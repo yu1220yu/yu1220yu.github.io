@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0304c19c0c.js"></script>
+    <title>EventDetails</title>
+    <style>
+        .fs-7 {
+            font-size: .87rem;
+        }
+
+        .text-purple {
+            color: #904eba
+        }
+
+        .bg-purple {
+            background-color: #f9f0ff
+        }
+
+        .border-purple {
+            border-color: #c56bff !important
+        }
+
+        .sticky-lg-top {
+            top: 4rem
+        }
+
+        @media screen and (max-width: 992px) {
+            .border-sm-0 {
+                border: 0 !important;
+                box-shadow: none !important;
+            }
+
+            .position-sm-static {
+                position: static !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="container my-5">
+        <!-- breadcrumb -->
+        <nav style="--bs-breadcrumb-divider:'⇝'" class="my-4">
+            <ol class="breadcrumb">
+                <a href="#" class="breadcrumb-item text-dark-emphasis text-decoration-none small">My Account</a>
+                <a href="#" class="breadcrumb-item text-dark-emphasis text-decoration-none small">My Events</a>
+                <small class="breadcrumb-item text-dark">Event Details</small>
+            </ol>
+        </nav>
+        <!-- Event Details -->
+        <h3 class="mb-4 d-none d-lg-block">Event Details</h3>
+        <section class="d-flex flex-wrap my-4 gap-lg-5">
+            <article class="col-12 col-lg-4 h-100 sticky-lg-top">
+                <!-- event detail -->
+                <section class="card shadow-sm border border-sm-0">
+                    <h3 class="mb-4 text-truncate d-lg-none">{{Event Event Event Event Event Event Event Event Event
+                        EventName}}</h3>
+                    <div class="d-flex flex-lg-column">
+                        <section class="col-3 col-md-4 col-lg-12">
+                            <img src="https://s1.ticketm.net/dam/a/dc9/924c09f2-3319-4ae8-9959-b05aeeffddc9_1667441_TABLET_LANDSCAPE_16_9.jpg"
+                                class="w-100 object-fit-cover" style="aspect-ratio: 1024/576">
+                        </section>
+                        <section
+                            class="col-9 col-md-8 col-lg-12 card-body d-flex flex-column border-bottom border-sm-0 gap-2 ps-md-4 ps-lg-3 pt-0 pt-lg-3">
+                            <h5 class="fs-6 text-truncate d-none d-lg-block">{{Event Event Event Event Event Event Event
+                                Event Event
+                                EventName}}</h5>
+                            <i class="fa-regular fa-calendar text-body-tertiary"><small
+                                    class="badge text-dark-emphasis">{{Fri • Nov 3 •
+                                    7:00}}</small></i>
+                            <i class="fa-solid fa-location-crosshairs text-body-tertiary">
+                                <a href="#"><small class="badge text-primary">XL CENTER</small></a>
+                            </i>
+                            <i class="fa-regular fa-map text-body-tertiary">
+                                <a href="#" class="text-decoration-none"><small
+                                        class="badge text-start text-wrap text-primary d-inline">Hartford, CT — XL
+                                        CENTER</small></a>
+                            </i>
+                        </section>
+                        <section class="d-none d-lg-flex justify-content-between align-items-center my-2 p-2 px-3">
+                            <small>Share You’re Going</small>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="text-decoration-none text-body-tertiary badge border rounded-circle"
+                                    style="aspect-ratio:1/1">
+                                    <i class="fa-brands fa-facebook-f pt-1" style="width:.75rem"></i>
+                                </a>
+                                <a href="#" class="text-decoration-none text-body-tertiary badge border rounded-circle"
+                                    style="aspect-ratio:1/1">
+                                    <i class="fa-brands fa-x-twitter pt-1"></i>
+                                </a>
+                                <a href="#" class="text-decoration-none text-body-tertiary badge border rounded-circle"
+                                    style="aspect-ratio:1/1">
+                                    <i class="fa-regular fa-envelope pt-1"></i>
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+                <!-- help -->
+                <section class="d-none d-lg-block border rounded shadow-sm my-3 px-4 py-3">
+                    <h3 class="fw-semibold fs-5 mt-2 mb-3">Need Help With Your Order?</h3>
+                    <span class="d-block">Use Chat to quickly find the answers you need.</span>
+                    <button class="btn btn-primary bg-transparent text-dark rounded-0 mt-3 mb-2 py-1 px-3">chat <i
+                            class="fa-solid fa-comment-dots text-primary"></i></button>
+                </section>
+            </article>
+            <article class="col-1 flex-grow-1">
+                <section class="border rounded shadow-sm my-3 mb-5 mt-lg-0 p-3 bg-purplr bg-purple border-purple">
+                    <!-- message -->
+                    <span class="d-block badge text-start mt-2 mb-3 p-0 fs-7 text-purple">Your Phone Is Your
+                        Ticket</span>
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="https://cdn2.iconfinder.com/data/icons/scenarium-vol-19/128/019_033_qr_code_scan_smartphone_mobile-512.png"
+                            width="44" class="object-fit-contain m-1">
+                        <small class="">Sign In to Ticketmaster on your phone and go to My Tickets. Your tickets will be
+                            there for you!</small>
+                    </div>
+                </section>
+                <section class="border rounded shadow-sm">
+                    <div class="d-flex">
+                        <!-- Transfer -->
+                        <button class="col-6 col-lg-3 btn btn-outline-light rounded-0">
+                            <img src="https://cdn3.iconfinder.com/data/icons/leto-finance-money-2/64/money_transaction_flow_transfer-38-1024.png"
+                                width="40" class="object-fit-contain mb-1">
+                            <span class="d-block text-primary fs-7">Transfer Tickets</span>
+                        </button>
+                        <!-- Sell -->
+                        <button class="col-6 col-lg-3 btn btn-outline-light rounded-0">
+                            <img src="https://cdn3.iconfinder.com/data/icons/leto-finance-money-1/64/coin_cash_flow_transaction-1024.png"
+                                width="44" class="object-fit-contain">
+                            <span class="d-block text-primary fs-7">Sell Tickets</span>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <!-- seat detail -->
+                        <section class="d-flex justify-content-between">
+                            <h3 class="fs-5">My SafeTix™ <span class="fw-normal fs-6">({{1}})</span></h3>
+                            <i class="fa-solid fa-map-pin text-primary btn"><small class="badge text-primary pe-0">View
+                                    map</small>
+                            </i>
+                        </section>
+                        <!-- seat -->
+                        <section class="my-3 p-3 border">
+                            <img src="https://cdn3.iconfinder.com/data/icons/outline-location-icon-set/64/Cinema_ticket_1-1024.png"
+                                width="20">
+                            <span class="fw-semibold badge text-dark fs-7">{{Sec 216, Row G, Seat 6}}</span>
+                        </section>
+                        <!-- message -->
+                        <small>Can’t find something you’ve purchased? Check your order confirmation email or <a href="#"
+                                class="text-decoration-none">View Your Orders</a>.</small>
+                    </div>
+                </section>
+                <section class="my-4 p-2 d-flex flex-column gap-3">
+                    <!-- Delivery -->
+                    <div class="p-2 border-bottom">
+                        <span class="fw-semibold d-inline-block col-12 col-md-3">Ticket Delivery</span>
+                        <span class="text-dark-emphasis fs-7">Mobile</span>
+                    </div>
+                    <!-- Order -->
+                    <div class="p-2 border-bottom">
+                        <span class="fw-semibold d-inline-block col-12 col-md-3">Order #</span>
+                        <span class="text-dark-emphasis fs-7">50-21052/NY5 <a href="#" class="text-decoration-none">View
+                                Receipt</a></span>
+                    </div>
+                </section>
+            </article>
+        </section>
+        <!-- chat -->
+        <button class="btn btn-primary rounded-0 m-4 position-fixed bottom-0 end-0">
+            <i class="fa-solid fa-comment-dots p-2"><span class="fs-7 ps-2">chat</span></i>
+        </button>
+    </article>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

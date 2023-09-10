@@ -5,7 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/0304c19c0c.js"></script>
-  <title>User</title>
+  <title>Account</title>
+  <style>
+     .text-truncate-2{
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .ratio-768x576{
+      aspect-ratio: 768/576;
+    }
+    @media screen and (min-width: 768px){
+
+       .ratio-md-992x576{
+        aspect-ratio: 992/576;
+       }
+    }
+  </style>
 </head>
 <body>
   <article class="container my-5">
@@ -71,14 +88,14 @@
         <section class="position-relative bg-black rounded mt-3 mb-5">
           <section class="col-12 col-md-7">
             <img src="https://s1.ticketm.net/dam/a/dc9/924c09f2-3319-4ae8-9959-b05aeeffddc9_1667441_TABLET_LANDSCAPE_16_9.jpg"
-              class="w-100 object-fit-cover rounded" style="aspect-ratio: 1024/576">
+              class="w-100 object-fit-cover rounded ratio-768x576 ratio-md-992x576">
           </section>
           <section class="col-12 col-md-5 position-absolute top-0 end-0 bottom-0 d-flex flex-column justify-content-center align-items-start text-light rounded p-2 px-4"
             style="background-color: rgba(0, 0, 0, 0.5)">
             <span class="badge bg-primary rounded-pill fw-semibold m-1 mb-3">{{Fri • Nov 3 • 7:00 PM}}</span>
             <h3 class="fs-5 text-truncate w-100 lh-1">{{EventName EventName EventName}}</h3>
             <p class="lh-1">{{EventLocation}}</p>
-            <section class="d-none d-sm-flex text-center gap-4 lh-1">
+            <section class="d-flex text-center gap-4 lh-1">
               <div class="d-flex flex-column">
                 <b class="fs-5">00</b>
                 <strong class="badge">DAYS</strong>
@@ -145,12 +162,13 @@
                 <section class="position-relative">
                   <div class="position-absolute bottom-0 text-light rounded m-2 p-2 lh-sm"
                     style="background-color: #1f262dcc">
-                    <span class="d-block text-wrap">{{EventName}}</span>
+                    <span class="text-truncate-2">{{Event
+                      }}</span>
                     <small class="fw-light">{{10}} Events</small>
                   </div>
                   <img
                     src="https://s1.ticketm.net/dam/a/dc9/924c09f2-3319-4ae8-9959-b05aeeffddc9_1667441_TABLET_LANDSCAPE_16_9.jpg"
-                    class="w-100 object-fit-cover rounded-top " style="aspect-ratio: 1024/576">
+                    class="w-100 object-fit-cover rounded-top" style="aspect-ratio: 1024/576">
                 </section>
                 <section class="card-body border border-top-0 d-flex justify-content-between rounded-bottom">
                   <div class="d-flex flex-column col-5 col-lg-6">
@@ -172,7 +190,7 @@
                 <section class="position-relative">
                   <div class="position-absolute bottom-0 text-light rounded m-2 p-2 lh-sm"
                     style="background-color: #1f262dcc">
-                    <span class="d-block text-wrap">{{EventName EventName}}</span>
+                    <span class="text-truncate-2">{{EventName EventName}}</span>
                     <small class="fw-light">{{10}} Events</small>
                   </div>
                   <img src="https://picsum.photos/30/20/?random=1&blur" class="w-100 object-fit-cover rounded-top "
@@ -198,7 +216,7 @@
                 <section class="position-relative">
                   <div class="position-absolute bottom-0 text-light rounded m-2 p-2 lh-sm"
                     style="background-color: #1f262dcc">
-                    <span class="d-block text-wrap">{{Event Event Event Event Event EventName}}</span>
+                    <span class="text-truncate-2">{{Event Event Event Event Event EventName}}</span>
                     <small class="fw-light">{{10}} Events</small>
                   </div>
                   <img src="https://picsum.photos/3000/2000/?random=1&blur" class="w-100 object-fit-cover rounded-top "
